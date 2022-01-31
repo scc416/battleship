@@ -1,21 +1,26 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: "Fauna One";
+  font-family: "Libre Baskerville";
   margin: 0;
   padding-top: 2em;
   width: 100vw;
   height: 100vh;
-  background: url("/background.jpg");
-  background-size: cover;
-  background-position: center center;
+  background-color: #14213d;
+  overflow-y: scroll;
+}
+
+body * {
+  opacity: 1;
+}
+
+* {
+  box-sizing: border-box;
+  opacity: 1;
 }
 
 h1,
 h2 {
-  font-family: "Cinzel";
+  font-family: "Fjalla One";
+  text-transform: uppercase;
 }
 
 #root {
@@ -36,17 +41,18 @@ h2 {
 .heading,
 .board,
 .logs {
-  background-color: #ffffffba;
+  background-color: #ffffffBB;
 }
 
-.heading{
-  border-radius: 2em;
-  padding: 0 1em;
+.heading {
+  border-radius: 1em;
+  padding: 0 1.5em;
 }
 
 .board {
   border-radius: 1.5em;
   padding: 0 1em;
+  max-width: 50%;
 }
 
 .logs {

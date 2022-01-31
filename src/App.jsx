@@ -33,15 +33,15 @@ const App = () => {
   return (
     <>
       <div className="heading">
-        <h1>Battleship</h1>
+        <h1>[ Battleship ]</h1>
       </div>
       <div className="boards">
         <div className="board">
-          <h2>Your Board</h2>
+          <h2>[ Your Board ]</h2>
           <Board />
         </div>
         <div className="board">
-          <h2>Opponent's Board</h2>
+          <h2>[ Opponent's Board ]</h2>
           <Board />
         </div>
       </div>
