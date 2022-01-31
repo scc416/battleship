@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./Log.css";
 import LogListItem from "./LogListItem";
+import NewGameButton from "./NewGameButton";
 
 const LogList = ({ logs }) => {
   const log = useRef(null);
@@ -12,13 +13,16 @@ const LogList = ({ logs }) => {
   }, [log, logs]);
 
   return (
-    <div className="logs" ref={log}>
-      <LogListItem />
-      <LogListItem />
-      <LogListItem />
-      <LogListItem />
-      <LogListItem />
-      <LogListItem />
+    <div className="logs">
+      <NewGameButton />
+      <div ref={log}>
+        <LogListItem />
+        <LogListItem />
+        <LogListItem />
+        <LogListItem />
+        <LogListItem />
+        <LogListItem />
+      </div>
     </div>
   );
 };
