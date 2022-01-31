@@ -1,5 +1,6 @@
 import React from "react";
-import "./LogList.css"
+import "./Log.css";
+
 const LogList = () => {
   return <div className="logs">hello</div>;
 }
