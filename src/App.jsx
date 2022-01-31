@@ -34,7 +34,24 @@ const App = () => {
   return (
     <>
       <Heading />
-      <Boards />
+      <Boards
+        {...{
+          myShips: [
+            { name: "Carrier", destroyed: true },
+            { name: "Battleship", destroyed: true },
+            { name: "Cruiser", destroyed: false },
+            { name: "Submarine", destroyed: false },
+            { name: "Destroyer", destroyed: true },
+          ],
+          opponentShips: [
+            { name: "Carrier", destroyed: true },
+            { name: "Battleship", destroyed: false },
+            { name: "Cruiser", destroyed: true },
+            { name: "Submarine", destroyed: false },
+            { name: "Destroyer", destroyed: false },
+          ],
+        }}
+      />
       <LogList />
     </>
   );
