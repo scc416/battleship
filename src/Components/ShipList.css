@@ -6,8 +6,5 @@
 }
 
 .ship-list > * {
-  background-color: #fca311;
-  color: #FFFFFF;
-  position: relative;
-  z-index: -1;
+  margin: 40% 0;
 }
