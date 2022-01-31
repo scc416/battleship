@@ -3,12 +3,17 @@
 }
 
 body {
+  font-family: "Fauna One";
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background: url('/background.jpg');
+  background: url("/background.jpg");
   background-size: cover;
   background-position: center center;
+}
+
+h1, h2 {
+  font-family: "Cinzel";
 }
 
 #root {
@@ -26,3 +31,8 @@ body {
   justify-content: space-around;
 }
 
+.heading,
+.board,
+.logs {
+  background-color: #ffffff;
+}

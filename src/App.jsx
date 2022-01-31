@@ -32,18 +32,20 @@ const App = () => {
 
   return (
     <>
-      <h1>Battleship</h1>
+      <div className="heading">
+        <h1>Battleship</h1>
+      </div>
       <div className="boards">
-        <div>
-          Your Board
+        <div className="board">
+          <h2>Your Board</h2>
           <Board />
         </div>
-        <div>
-          Opponent's Board
+        <div className="board">
+          <h2>Opponent's Board</h2>
           <Board />
         </div>
       </div>
-      <div>HELLO</div>
+      <div className="logs">hello</div>
     </>
   );
 };
