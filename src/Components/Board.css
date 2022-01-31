@@ -1,11 +1,25 @@
 .square {
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 0.15em solid #FFFFFF;
+  border-left: 0.15em solid #FFFFFF;
 }
 
 .row {
   display: flex;
+}
+
+.game-board {
+  border: 0.15em solid #ffffff;
+}
+
+.game-board > .row > .square:first-child {
+  border-left: none;
+}
+
+.game-board > .row:first-child > .square {
+  border-top: none;
 }

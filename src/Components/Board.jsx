@@ -7,7 +7,7 @@ const Board = () => {
   for (let i = 0; i < 10; i++) {
     lst.push(<BoardList key={i} />);
   }
-  return lst;
+  return <div className="game-board">{lst}</div>;
 }
 
 export default Board;
