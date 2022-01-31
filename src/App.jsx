@@ -37,11 +37,11 @@ const App = () => {
       </div>
       <div className="boards">
         <div className="board">
-          <h2>[ Your Board ]</h2>
+          <h3>Your Board</h3>
           <Board />
         </div>
         <div className="board">
-          <h2>[ Opponent's Board ]</h2>
+          <h3>Opponent's Board</h3>
           <Board />
         </div>
       </div>

@@ -5,7 +5,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #14213d;
-  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 body * {
@@ -18,7 +18,7 @@ body * {
 }
 
 h1,
-h2 {
+h3 {
   font-family: "Fjalla One";
   text-transform: uppercase;
 }
@@ -38,13 +38,13 @@ h2 {
   justify-content: space-around;
 }
 
-.heading,
 .board,
 .logs {
-  background-color: #ffffffBB;
+  background-color: #e5e5e5BB;
 }
 
 .heading {
+  color: #FFFFFF;
   border-radius: 1em;
   padding: 0 1.5em;
 }
@@ -56,6 +56,9 @@ h2 {
 }
 
 .logs {
+  border-top: 0.5em solid #fca311;
   width: 100%;
-  text-align: center;
+  overflow-y: scroll;
+  padding: 0.2em 1em;
+  height: 20%;
 }
