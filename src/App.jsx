@@ -52,7 +52,16 @@ const App = () => {
           ],
         }}
       />
-      <LogList />
+      <LogList
+        messages={[
+          { time: "1", content: "hello" },
+          { time: "2", content: "hello" },
+          { time: "3", content: "hello" },
+          { time: "4", content: "hello" },
+          { time: "5", content: "hello" },
+          { time: "6", content: "hello" },
+        ]}
+      />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
-const LogListItem = () => {
-  return <p>hello</p>;
+const LogListItem = ({time, content}) => {
+  return <p>{`[${time}] ${content}`}</p>;
 }
 
 export default LogListItem;
