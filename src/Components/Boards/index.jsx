@@ -10,8 +10,8 @@ const Boards = () => {
           ships={[
             { name: "Carrier", destroyed: true },
             { name: "Battleship", destroyed: true },
-            { name: "Cruiser", destroyed: true },
-            { name: "Submarine", destroyed: true },
+            { name: "Cruiser", destroyed: false },
+            { name: "Submarine", destroyed: false },
             { name: "Destroyer", destroyed: true },
           ]}
         />
@@ -29,10 +29,10 @@ const Boards = () => {
         <ShipList
           ships={[
             { name: "Carrier", destroyed: true },
-            { name: "Battleship", destroyed: true },
+            { name: "Battleship", destroyed: false },
             { name: "Cruiser", destroyed: true },
-            { name: "Submarine", destroyed: true },
-            { name: "Destroyer", destroyed: true },
+            { name: "Submarine", destroyed: false },
+            { name: "Destroyer", destroyed: false },
           ]}
         />
       </div>
