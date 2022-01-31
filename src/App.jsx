@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import io from "socket.io-client";
-import Board from "./Components/Board";
-import ShipList from "./Components/ShipList";
+import Boards from "./Components/Boards";
+import LogList from "./Components/LogList";
 
 const socket = io("localhost:3001");
 
@@ -36,25 +36,8 @@ const App = () => {
       <div className="heading">
         <h1>[ Battleship ]</h1>
       </div>
-
-      <div className="boards">
-        <div class="whole-board">
-          <ShipList />
-          <div className="board">
-            <h3>Your Board</h3>
-            <Board />
-          </div>
-        </div>
-
-        <div class="whole-board">
-          <div className="board">
-            <h3>Opponent's Board</h3>
-            <Board />
-          </div>
-          <ShipList />
-        </div>
-      </div>
-      <div className="logs">hello</div>
+      <Boards />
+      <LogList />
     </>
   );
 };
