@@ -4,3 +4,10 @@
   position: relative;
   z-index: -1;
 }
+
+.ship-list > * {
+  background-color: #fca311;
+  color: #FFFFFF;
+  position: relative;
+  z-index: -1;
+}
