@@ -17,12 +17,6 @@ body * {
   opacity: 1;
 }
 
-h1,
-h3 {
-  font-family: "Fjalla One";
-  text-transform: uppercase;
-}
-
 #root {
   display: flex;
   width: 100%;
@@ -30,20 +24,6 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
-
-.boards {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.boards > div {
-  max-width: 50%;
-}
-
-.whole-board {
-  display: flex;
 }
 
 .board,
@@ -55,30 +35,4 @@ h3 {
   color: #ffffff;
   border-radius: 1em;
   padding: 0 1.5em;
-}
-
-.board {
-  border-radius: 1.5em;
-  padding: 0 1em 1.3em;
-  text-align: center;
-}
-
-.logs {
-  border-top: 0.5em solid #fca311;
-  width: 100%;
-  overflow-y: scroll;
-  padding: 0.7em 1em;
-  height: 20%;
-}
-
-.boards .ship-list:first-child {
-  left: 1.5em;
-  padding: 1em 2.5em 1em 1em;
-  border-radius: 1.5em 0 0 1.5em;
-}
-
-.boards .ship-list:nth-child(2) {
-  right: 1.5em;
-  padding: 1em 1em 1em 2.5em;
-  border-radius: 0 1.5em 1.5em 0;
 }

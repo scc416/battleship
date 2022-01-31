@@ -1,0 +1,7 @@
+.logs {
+  border-top: 0.5em solid #fca311;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 0.7em 1em;
+  height: 20%;
+}

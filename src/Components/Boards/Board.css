@@ -1,11 +1,37 @@
+h1,
+h3 {
+  font-family: "Fjalla One";
+  text-transform: uppercase;
+}
+
+.boards {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.boards > div {
+  max-width: 50%;
+}
+
+.board {
+  border-radius: 1.5em;
+  padding: 0 1em 1.3em;
+  text-align: center;
+}
+
+.whole-board {
+  display: flex;
+}
+
 .square {
   width: 2em;
   height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 0.15em solid #FFFFFF;
-  border-left: 0.15em solid #FFFFFF;
+  border-top: 0.15em solid #ffffff;
+  border-left: 0.15em solid #ffffff;
 }
 
 .row {
@@ -22,4 +48,16 @@
 
 .game-board > .row:first-child > .square {
   border-top: none;
+}
+
+.boards .ship-list:first-child {
+  left: 1.5em;
+  padding: 1em 2.5em 1em 1em;
+  border-radius: 1.5em 0 0 1.5em;
+}
+
+.boards .ship-list:nth-child(2) {
+  right: 1.5em;
+  padding: 1em 1em 1em 2.5em;
+  border-radius: 0 1.5em 1.5em 0;
 }
