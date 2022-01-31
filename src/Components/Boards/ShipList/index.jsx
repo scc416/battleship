@@ -2,10 +2,10 @@ import React from "react";
 import "./ShipList.css";
 import ShipListItem from "./ShipListItem";
 
-const ShipList = () => {
+const ShipList = ({ships}) => {
   const lst = [];
-  for (let i = 0; i < 5; i++) {
-    lst.push(<ShipListItem />);
+  for (const ship of ships) {
+    lst.push(<ShipListItem ship={ship} />);
   }
   return <div className="ship-list">{lst}</div>;
 };

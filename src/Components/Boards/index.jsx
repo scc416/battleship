@@ -6,7 +6,15 @@ const Boards = () => {
   return (
     <div className="boards">
       <div class="whole-board">
-        <ShipList />
+        <ShipList
+          ships={[
+            { name: "Carrier", destroyed: true },
+            { name: "Battleship", destroyed: true },
+            { name: "Cruiser", destroyed: true },
+            { name: "Submarine", destroyed: true },
+            { name: "Destroyer", destroyed: true },
+          ]}
+        />
         <div className="board">
           <h3>Your Board</h3>
           <Board />
@@ -18,7 +26,15 @@ const Boards = () => {
           <h3>Opponent's Board</h3>
           <Board />
         </div>
-        <ShipList />
+        <ShipList
+          ships={[
+            { name: "Carrier", destroyed: true },
+            { name: "Battleship", destroyed: true },
+            { name: "Cruiser", destroyed: true },
+            { name: "Submarine", destroyed: true },
+            { name: "Destroyer", destroyed: true },
+          ]}
+        />
       </div>
     </div>
   );
