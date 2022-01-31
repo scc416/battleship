@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import io from "socket.io-client";
-import Boards from "./Components/Boards";
-import LogList from "./Components/LogList";
+import Boards from "./Components/Boards/index";
+import LogList from "./Components/Log/index";
 import Heading from "./Components/Heading";
 const socket = io("localhost:3001");
 

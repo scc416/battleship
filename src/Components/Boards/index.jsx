@@ -1,6 +1,6 @@
 import React from "react";
 import Board from "./Board";
-import ShipList from "./ShipList";
+import ShipList from "./ShipList/index";
 
 const Boards = () => {
   return (
