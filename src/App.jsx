@@ -3,7 +3,7 @@ import "./App.css";
 import io from "socket.io-client";
 import Boards from "./Components/Boards";
 import LogList from "./Components/LogList";
-
+import Heading from "./Components/Heading";
 const socket = io("localhost:3001");
 
 const App = () => {
@@ -33,9 +33,7 @@ const App = () => {
 
   return (
     <>
-      <div className="heading">
-        <h1>[ Battleship ]</h1>
-      </div>
+      <Heading />
       <Boards />
       <LogList />
     </>
