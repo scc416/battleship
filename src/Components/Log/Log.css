@@ -1,9 +1,36 @@
-.logs {
-  border-top: 0.5em solid #fca311;
+.log-display {
+  border: 0.5em solid #fca311;
+  border-left: none;
   width: 100%;
-  overflow-y: scroll;
-  padding: 0 1em;
   height: 20%;
   background-color: #e5e5e5;
   display: flex;
+}
+
+.logs {
+  width: 100%;
+  padding: 0 1em 0 0.8em;
+  background-color: #e5e5e5;
+  overflow-y: scroll;
+  border: 0.13em solid #14213d;
+}
+
+.new-game {
+  text-align: center;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fca311;
+}
+
+button {
+  font-family: "Libre Baskerville";
+  background-color: #14213d;
+  color: #FFFFFF;
+  border-radius: 25%;
+  padding: 0.2em;
+  font-size: 1.2em;
+  height: 5em;
+  width: 5em;
 }

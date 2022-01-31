@@ -13,9 +13,9 @@ const LogList = ({ logs }) => {
   }, [log, logs]);
 
   return (
-    <div className="logs">
+    <div className="log-display">
       <NewGameButton />
-      <div ref={log}>
+      <div className="logs" ref={log}>
         <LogListItem />
         <LogListItem />
         <LogListItem />
