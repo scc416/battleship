@@ -1,7 +1,7 @@
 import React from "react";
 
 const BoardListItem = () => {
-  return <div></div>;
+  return <div className="square">1</div>;
 }
 
 export default BoardListItem;
