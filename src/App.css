@@ -38,6 +38,14 @@ h3 {
   justify-content: space-around;
 }
 
+.boards > div{
+  max-width: 50%;
+}
+
+.whole-board {
+  display: flex;
+}
+
 .board,
 .logs {
   background-color: #e5e5e5;
@@ -52,7 +60,6 @@ h3 {
 .board {
   border-radius: 1.5em;
   padding: 0 1em 1.3em;
-  max-width: 50%;
   text-align: center;
 }
 

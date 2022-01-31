@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import io from "socket.io-client";
 import Board from "./Components/Board";
+import ShipList from "./Components/ShipList";
 
 const socket = io("localhost:3001");
 
@@ -35,14 +36,22 @@ const App = () => {
       <div className="heading">
         <h1>[ Battleship ]</h1>
       </div>
+
       <div className="boards">
-        <div className="board">
-          <h3>Your Board</h3>
-          <Board />
+        <div class="whole-board">
+          <ShipList />
+          <div className="board">
+            <h3>Your Board</h3>
+            <Board />
+          </div>
         </div>
-        <div className="board">
-          <h3>Opponent's Board</h3>
-          <Board />
+
+        <div class="whole-board">
+          <div className="board">
+            <h3>Opponent's Board</h3>
+            <Board />
+          </div>
+          <ShipList />
         </div>
       </div>
       <div className="logs">hello</div>
