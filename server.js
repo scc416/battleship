@@ -17,7 +17,3 @@ io.on('connection', socket => {
 });
 
 io.listen(3001);
-
-setInterval(() => {
-  io.emit('message', new Date().toISOString());
-}, 1000);
