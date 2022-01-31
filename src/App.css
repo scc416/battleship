@@ -51,14 +51,15 @@ h3 {
 
 .board {
   border-radius: 1.5em;
-  padding: 0 1em;
+  padding: 0 1em 1em;
   max-width: 50%;
+  text-align: center;
 }
 
 .logs {
   border-top: 0.5em solid #fca311;
   width: 100%;
   overflow-y: scroll;
-  padding: 0.2em 1em;
+  padding: 0.7em 1em;
   height: 20%;
 }
