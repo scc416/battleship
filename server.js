@@ -1,4 +1,4 @@
-const cli = require("nodemon/lib/cli");
+const { addClient } = require("./helpers");
 
 const io = require("socket.io")({
   cors: {
@@ -7,22 +7,9 @@ const io = require("socket.io")({
 });
 
 const clients = {};
-const getKeys = () => Object.keys(clients);
 
 io.on("connection", (socket) => {
-  const keys = getKeys();
-  for (let i = 0; i < keys.length; i++) {
-    const otherSocket = clients[keys[i]];
-    if (!otherSocket) {
-      clients[keys[i]] = socket.id;
-      clients[socket.id] = keys[i];
-      i = keys.length;
-    }
-  }
-  const newKey = getKeys();
-  if (!newKey.includes(socket.id)) {
-    clients[socket.id] = null;
-  }
+  addClient(clients, socket.id);
 
   console.log("clients", clients);
 
