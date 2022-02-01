@@ -7,13 +7,13 @@ const io = require("socket.io")({
 });
 
 const clients = {};
-const { addClient } = clientsHelperFunctionGenerator(clients);
+const { addClient, removeClient } = clientsHelperFunctionGenerator(clients);
 
 io.on("connection", (socket) => {
   addClient(socket.id);
+  console.log("clients", clients);
 
   socket.on("disconnect", () => {
-    console.log(`disconnect: ${socket.id}`);
     removeClient(socket.id);
     console.log("clients", clients);
   });
