@@ -53,11 +53,15 @@ const useGame = () => {
     };
   }, []);
 
+  const newGame = () => {
+    socket.emit("newGame");
+    setMessages([{time: 0, content: "Welcome to Battleship!"}])
+  }
   // const sendMessage = () => {
   //   socket.emit("hello!");
   // };
 
-  return { state, messages, myShips, opponentShips };
+  return { state, messages, myShips, opponentShips, newGame };
 };
 
 export default useGame;
