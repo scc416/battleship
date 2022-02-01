@@ -5,7 +5,7 @@ import ShipList from "./ShipList";
 const Boards = ({ myShips, opponentShips }) => {
   return (
     <div className="boards">
-      <div class="whole-board">
+      <div className="whole-board">
         <ShipList ships={myShips} />
         <div className="board">
           <h3>Your Board</h3>
@@ -13,7 +13,7 @@ const Boards = ({ myShips, opponentShips }) => {
         </div>
       </div>
 
-      <div class="whole-board">
+      <div className="whole-board">
         <div className="board">
           <h3>Opponent's Board</h3>
           <Board />
