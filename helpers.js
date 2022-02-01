@@ -22,7 +22,11 @@ const clientsHelperFunctionGenerator = (clients) => {
     if (otherSocket) clients[otherSocket] = null;
     delete clients[socketId];
   };
-  return { addClient, removeClient };
+
+  const newGame = (socketId) => {
+
+  }
+  return { addClient, removeClient, newGame };
 };
 
 module.exports = { clientsHelperFunctionGenerator };

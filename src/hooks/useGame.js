@@ -5,6 +5,7 @@ const socket = io("localhost:3001");
 
 const useGame = () => {
   const [state, setState] = useState(0);
+  // const [messages, setMessages], myShips, opponentShips]
 
   useEffect(() => {
     socket.on("connect", () => {
