@@ -3,14 +3,14 @@ import "./Log.css";
 import LogListItem from "./LogListItem";
 import NewGameButton from "./NewGameButton";
 
-const LogList = ({ logs, messages }) => {
+const LogList = ({ messages, newGame }) => {
   const log = useRef(null);
 
   useEffect(() => {
     if (log && log.current) {
       log.current.scrollTop = log.current.scrollHeight;
     }
-  }, [log, logs]);
+  }, [log]);
 
   const elms = messages.map(({ time, content }) => {
     return <LogListItem {...{ time, content, key: time }} />;
@@ -18,7 +18,7 @@ const LogList = ({ logs, messages }) => {
 
   return (
     <div className="log-display">
-      <NewGameButton />
+      <NewGameButton {...{ newGame }} />
       <div className="logs" ref={log}>
         {elms}
       </div>
