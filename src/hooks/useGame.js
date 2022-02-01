@@ -18,6 +18,7 @@ const useGame = () => {
     // });
     return () => {
       socket.off("connect");
+      socket.emit("disconnect");
       // socket.off("disconnect");
       // socket.off("message");
     };
