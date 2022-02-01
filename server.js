@@ -1,4 +1,4 @@
-const { addClient } = require("./helpers");
+const { clientsHelperFunctionGenerator } = require("./helpers");
 
 const io = require("socket.io")({
   cors: {
@@ -7,17 +7,14 @@ const io = require("socket.io")({
 });
 
 const clients = {};
+const { addClient } = clientsHelperFunctionGenerator(clients);
 
 io.on("connection", (socket) => {
-  addClient(clients, socket.id);
-
-  console.log("clients", clients);
+  addClient(socket.id);
 
   socket.on("disconnect", () => {
     console.log(`disconnect: ${socket.id}`);
-    const otherSocket = clients[socket.id];
-    if (otherSocket) clients[otherSocket] = null;
-    delete clients[socket.id];
+    removeClient(socket.id);
     console.log("clients", clients);
   });
 });
