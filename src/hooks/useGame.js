@@ -1,8 +1,9 @@
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
 
+const socket = io("localhost:3001");
+
 const useGame = () => {
-  const socket = io("localhost:3001");
   const [state, setState] = useState(0);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const useGame = () => {
   //   socket.emit("hello!");
   // };
 
-  return { socket, messages, myShips, opponentShips };
+  return { state, messages, myShips, opponentShips };
 };
 
 export default useGame;
