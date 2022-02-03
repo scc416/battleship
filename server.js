@@ -10,7 +10,7 @@ const clients = {};
 
 io.on("connection", (socket) => {
   const { addClient, removeClient, newGame } =
-    clientsHelperFunctionGenerator(clients, socket);
+    clientsHelperFunctionGenerator(clients, socket, io);
 
   addClient();
 
