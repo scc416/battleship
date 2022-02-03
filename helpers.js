@@ -1,6 +1,8 @@
 const getKeys = (clients) => Object.keys(clients);
 
 const clientsHelperFunctionGenerator = (clients, socket, io) => {
+  const getSocketById = (id) => io.sockets.sockets.get(id);
+
   const addClient = () => {
     const keys = getKeys(clients);
     for (let i = 0; i < keys.length; i++) {
@@ -10,7 +12,7 @@ const clientsHelperFunctionGenerator = (clients, socket, io) => {
         clients[otherSocketId] = socket.id;
         clients[socket.id] = otherSocketId;
         i = keys.length;
-        const otherSocket = io.sockets.sockets.get(otherSocketId);
+        const otherSocket = getSocketById(otherSocketId);
         otherSocket.emit("opponent", socket.id);
       }
     }
@@ -27,7 +29,7 @@ const clientsHelperFunctionGenerator = (clients, socket, io) => {
     if (otherSocketId) {
       clients[otherSocketId] = null;
 
-      const otherSocket = io.sockets.sockets.get(otherSocketId);
+      const otherSocket = getSocketById(otherSocketId);
       otherSocket.emit("opponent", null);
     }
     delete clients[socket.id];
