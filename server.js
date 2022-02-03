@@ -7,10 +7,11 @@ const io = require("socket.io")({
 });
 
 const clients = {};
-const { addClient, removeClient, newGame } =
-  clientsHelperFunctionGenerator(clients);
 
 io.on("connection", (socket) => {
+  const { addClient, removeClient, newGame } =
+    clientsHelperFunctionGenerator(clients, socket);
+    
   addClient(socket.id);
 
   socket.on("newGame", () => {

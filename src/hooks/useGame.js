@@ -8,15 +8,36 @@ const useGame = () => {
   const [messages, setMessages] = useState([]);
   const [myShips, setMyShips] = useState([]);
   const [opponentShips, setOpponentShips] = useState([]);
+  const [opponent, setOpponent] = useState(null);
   // , myShips, opponentShips]
 
   useEffect(() => {
-    socket.on("connect", () => {
-      console.log(socket);
+    if (opponent) {
+      setMessages((prev) => [
+        ...prev,
+        { time: 1, content: "You opponent is in the room." },
+      ]);
+    }
+
+    if (!opponent) {
+      setMessages((prev) => [
+        ...prev,
+        { time: 1, content: "Waiting for another player..." },
+      ]);
+    }
+  }, [opponent]);
+
+  useEffect(() => {
+    socket.on("connect", (opponent) => {
+      console.log("connected");
+    });
+
+    socket.on("opponent", (data) => {
+      setOpponent(data);
+      console.log("OPPONENT RECEIVED", data);
     });
 
     setMessages([
-      { time: "1", content: "hello" },
       { time: "2", content: "hello" },
       { time: "3", content: "hello" },
       { time: "4", content: "hello" },
@@ -55,8 +76,9 @@ const useGame = () => {
 
   const newGame = () => {
     socket.emit("newGame");
-    setMessages([{time: 0, content: "Welcome to Battleship!"}])
-  }
+    setMessages([{ time: 0, content: "Welcome to Battleship!" }]);
+    setState(0);
+  };
   // const sendMessage = () => {
   //   socket.emit("hello!");
   // };
