@@ -11,15 +11,15 @@ const clients = {};
 io.on("connection", (socket) => {
   const { addClient, removeClient, newGame } =
     clientsHelperFunctionGenerator(clients, socket);
-    
-  addClient(socket.id);
+
+  addClient();
 
   socket.on("newGame", () => {
-    newGame(socket.id);
+    newGame();
   });
 
   socket.on("disconnect", () => {
-    removeClient(socket.id);
+    removeClient();
   });
 });
 
