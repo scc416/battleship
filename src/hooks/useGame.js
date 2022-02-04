@@ -5,45 +5,25 @@ const socket = io("localhost:3001");
 
 const useGame = () => {
   const [state, setState] = useState(0);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { time: Math.random(), content: "Welcome to Battleship!" },
+  ]);
   const [myShips, setMyShips] = useState([]);
   const [opponentShips, setOpponentShips] = useState([]);
-  const [opponent, setOpponent] = useState(null);
+  const [opponent, setOpponent] = useState(undefined);
+  const [gotInitialOpponent, setGotInitialOpponent] = useState(false);
+  const [haveSendInitialMsg, setHaveSendInitialMsg] = useState(false);
   // , myShips, opponentShips]
 
   useEffect(() => {
-    if (opponent) {
-      setMessages((prev) => [
-        ...prev,
-        { time: 1, content: "You opponent is in the room." },
-      ]);
-    }
-
-    if (!opponent) {
-      setMessages((prev) => [
-        ...prev,
-        { time: 1, content: "Waiting for another player..." },
-      ]);
-    }
-  }, [opponent]);
-
-  useEffect(() => {
-    socket.on("connect", (opponent) => {
+    socket.on("connect", () => {
       console.log("connected");
     });
 
     socket.on("opponent", (data) => {
+      if (!gotInitialOpponent) setGotInitialOpponent(true);
       setOpponent(data);
-      console.log("OPPONENT RECEIVED", data);
     });
-
-    setMessages([
-      { time: "2", content: "hello" },
-      { time: "3", content: "hello" },
-      { time: "4", content: "hello" },
-      { time: "5", content: "hello" },
-      { time: "6", content: "hello" },
-    ]);
 
     setMyShips([
       { name: "Carrier", destroyed: true },
@@ -73,6 +53,53 @@ const useGame = () => {
       // socket.off("message");
     };
   }, []);
+
+  useEffect(() => {
+    if (gotInitialOpponent) {
+      if (opponent && !haveSendInitialMsg) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            time: Math.random(),
+            content: "Another player is already in the room. The game is on!",
+          },
+        ]);
+      }
+
+      if (!opponent && !haveSendInitialMsg) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            time: Math.random(),
+            content:
+              "There is no player in the room. Waiting for another player...",
+          },
+        ]);
+      }
+
+      if (opponent && haveSendInitialMsg) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            time: Math.random(),
+            content: "Another player has entered the game",
+          },
+        ]);
+      }
+
+      if (!opponent && haveSendInitialMsg) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            time: Math.random(),
+            content: "The other player left. Waiting for another player...",
+          },
+        ]);
+      }
+
+      if (!haveSendInitialMsg) setHaveSendInitialMsg(true);
+    }
+  }, [opponent]);
 
   const newGame = () => {
     socket.emit("newGame");
