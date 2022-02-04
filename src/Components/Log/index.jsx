@@ -10,7 +10,7 @@ const LogList = ({ messages, newGame }) => {
     if (log && log.current) {
       log.current.scrollTop = log.current.scrollHeight;
     }
-  }, [log]);
+  }, [log, messages]);
 
   const elms = messages.map(({ time, content }) => {
     return <LogListItem {...{ time, content, key: time }} />;
