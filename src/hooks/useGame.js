@@ -82,7 +82,7 @@ const useGame = () => {
           ...prev,
           {
             time: Math.random(),
-            content: "Another player has entered the game",
+            content: "Another player has entered the game. The game is on!",
           },
         ]);
       }
