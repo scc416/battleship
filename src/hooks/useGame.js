@@ -10,7 +10,7 @@ const useGame = () => {
   ]);
   const [myShips, setMyShips] = useState([]);
   const [opponentShips, setOpponentShips] = useState([]);
-  const [opponent, setOpponent] = useState(undefined);
+  const [opponent, setOpponent] = useState(null);
   const [gotInitialOpponent, setGotInitialOpponent] = useState(false);
   const [haveSendInitialMsg, setHaveSendInitialMsg] = useState(false);
 
