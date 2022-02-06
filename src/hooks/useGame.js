@@ -13,7 +13,6 @@ const useGame = () => {
   const [opponent, setOpponent] = useState(undefined);
   const [gotInitialOpponent, setGotInitialOpponent] = useState(false);
   const [haveSendInitialMsg, setHaveSendInitialMsg] = useState(false);
-  // , myShips, opponentShips]
 
   useEffect(() => {
     socket.on("connect", () => {
