@@ -1,12 +1,12 @@
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
-
+import { getCurrentTime } from "../helpers";
 const socket = io("localhost:3001");
 
 const useGame = () => {
   const [state, setState] = useState(0);
   const [messages, setMessages] = useState([
-    { time: Math.random(), content: "Welcome to Battleship!" },
+    { time: getCurrentTime(), content: "Welcome to Battleship!" },
   ]);
   const [myShips, setMyShips] = useState([]);
   const [opponentShips, setOpponentShips] = useState([]);
@@ -16,7 +16,7 @@ const useGame = () => {
 
   useEffect(() => {
     socket.on("connect", () => {
-      console.log("connected");
+      console.log("connected to server");
     });
 
     socket.on("opponent", (data) => {
@@ -59,7 +59,7 @@ const useGame = () => {
         setMessages((prev) => [
           ...prev,
           {
-            time: Math.random(),
+            time: getCurrentTime(),
             content: "Another player is already in the room. The game is on!",
           },
         ]);
@@ -69,7 +69,7 @@ const useGame = () => {
         setMessages((prev) => [
           ...prev,
           {
-            time: Math.random(),
+            time: getCurrentTime(),
             content:
               "There is no player in the room. Waiting for another player...",
           },
@@ -80,7 +80,7 @@ const useGame = () => {
         setMessages((prev) => [
           ...prev,
           {
-            time: Math.random(),
+            time: getCurrentTime(),
             content: "Another player has entered the game. The game is on!",
           },
         ]);
@@ -90,7 +90,7 @@ const useGame = () => {
         setMessages((prev) => [
           ...prev,
           {
-            time: Math.random(),
+            time: getCurrentTime(),
             content: "The other player left. Waiting for another player...",
           },
         ]);
