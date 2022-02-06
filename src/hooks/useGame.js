@@ -22,6 +22,7 @@ const useGame = () => {
     socket.on("opponent", (data) => {
       if (!gotInitialOpponent) setGotInitialOpponent(true);
       setOpponent(data);
+      if (!data) setState(0);
     });
 
     setMyShips([
