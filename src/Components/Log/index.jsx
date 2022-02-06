@@ -2,15 +2,10 @@ import React, { useRef, useEffect } from "react";
 import "./Log.css";
 import LogListItem from "./LogListItem";
 import NewGameButton from "./NewGameButton";
+import useScrollToBottom from "../../hooks/useScrollToBottom";
 
 const LogList = ({ messages, newGame }) => {
-  const log = useRef(null);
-
-  useEffect(() => {
-    if (log && log.current) {
-      log.current.scrollTop = log.current.scrollHeight;
-    }
-  }, [log, messages]);
+  const log = useScrollToBottom(messages);
 
   const elms = messages.map(({ time, content }) => {
     return <LogListItem {...{ time, content, key: time }} />;
