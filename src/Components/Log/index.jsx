@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./Log.css";
 import LogListItem from "./LogListItem";
 import NewGameButton from "./NewGameButton";
