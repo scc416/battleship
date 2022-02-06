@@ -104,6 +104,8 @@ const useGame = () => {
     socket.emit("newGame");
     setMessages([{ time: 0, content: "Welcome to Battleship!" }]);
     setState(0);
+    setGotInitialOpponent(false);
+    setHaveSendInitialMsg(false);
   };
   // const sendMessage = () => {
   //   socket.emit("hello!");

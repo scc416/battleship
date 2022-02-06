@@ -3,12 +3,12 @@ const getKeys = (clients) => Object.keys(clients);
 const clientsHelperFunctionGenerator = (clients, socket, io) => {
   const getSocketById = (id) => io.sockets.sockets.get(id);
 
-  const addClient = () => {
+  const addClient = (avoidOpponent) => {
     const keys = getKeys(clients);
     for (let i = 0; i < keys.length; i++) {
       const otherSocketId = keys[i];
       const otherSocketOpponent = clients[otherSocketId];
-      if (!otherSocketOpponent) {
+      if (!otherSocketOpponent && otherSocketId !== avoidOpponent) {
         clients[otherSocketId] = socket.id;
         clients[socket.id] = otherSocketId;
         i = keys.length;
@@ -35,7 +35,13 @@ const clientsHelperFunctionGenerator = (clients, socket, io) => {
     delete clients[socket.id];
   };
 
-  const newGame = () => {};
+  const newGame = () => {
+    const opponent = clients[socket.id];
+    removeClient();
+    addClient(opponent);
+    console.log(clients);
+  };
+
   return { addClient, removeClient, newGame };
 };
 
