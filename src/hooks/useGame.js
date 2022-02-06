@@ -48,7 +48,7 @@ const useGame = () => {
     // });
     return () => {
       socket.off("connect");
-      // socket.off("disconnect");
+      socket.off("opponent");
       // socket.off("message");
     };
   }, []);
