@@ -41,16 +41,9 @@ const useGame = () => {
       { name: "Destroyer", destroyed: false },
     ]);
 
-    // socket.on("disconnect", () => {
-    //   setIsConnected(false);
-    // });
-    // socket.on("message", (data) => {
-    //   setLastMessage(data);
-    // });
     return () => {
       socket.off("connect");
       socket.off("opponent");
-      // socket.off("message");
     };
   }, []);
 
@@ -110,10 +103,7 @@ const useGame = () => {
     setGotInitialOpponent(false);
     setHaveSendInitialMsg(false);
   };
-  // const sendMessage = () => {
-  //   socket.emit("hello!");
-  // };
-
+  
   return { state, messages, myShips, opponentShips, newGame };
 };
 
