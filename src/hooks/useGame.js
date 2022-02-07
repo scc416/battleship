@@ -1,34 +1,9 @@
 import io from "socket.io-client";
 import { useReducer, useEffect } from "react";
 import { getCurrentTime } from "../helpers";
+import { NEW_OPPONENT, NEW_MESSAGE, RESET, initialState } from "../constants";
 
 const socket = io("localhost:3001");
-
-const NEW_OPPONENT = "NEW_OPPONENT";
-const NEW_MESSAGE = "NEW_MESSAGE";
-const RESET = "RESET";
-
-const initialState = {
-  gameState: 0,
-  messages: [{ time: getCurrentTime(), content: "Welcome to Battleship!" }],
-  myShips: [
-    { name: "Carrier", destroyed: true },
-    { name: "Battleship", destroyed: true },
-    { name: "Cruiser", destroyed: false },
-    { name: "Submarine", destroyed: false },
-    { name: "Destroyer", destroyed: true },
-  ],
-  opponentShips: [
-    { name: "Carrier", destroyed: true },
-    { name: "Battleship", destroyed: false },
-    { name: "Cruiser", destroyed: true },
-    { name: "Submarine", destroyed: false },
-    { name: "Destroyer", destroyed: false },
-  ],
-  opponent: undefined,
-  gotInitialOpponent: false,
-  haveSendInitialMsg: false,
-};
 
 const useGame = () => {
   const reducers = {
