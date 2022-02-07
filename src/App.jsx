@@ -6,7 +6,8 @@ import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const { messages, myShips, opponentShips, newGame } = useGame();
+  const { state, newGame } = useGame();
+  const { messages, myShips, opponentShips } = state;
 
   return (
     <>

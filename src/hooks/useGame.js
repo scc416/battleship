@@ -1,45 +1,69 @@
 import io from "socket.io-client";
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import { getCurrentTime } from "../helpers";
+
 const socket = io("localhost:3001");
 
+const NEW_OPPONENT = "NEW_OPPONENT";
+const NEW_MESSAGE = "NEW_MESSAGE";
+const RESET = "RESET";
+
+const initialState = {
+  gameState: 0,
+  messages: [{ time: getCurrentTime(), content: "Welcome to Battleship!" }],
+  myShips: [
+    { name: "Carrier", destroyed: true },
+    { name: "Battleship", destroyed: true },
+    { name: "Cruiser", destroyed: false },
+    { name: "Submarine", destroyed: false },
+    { name: "Destroyer", destroyed: true },
+  ],
+  opponentShips: [
+    { name: "Carrier", destroyed: true },
+    { name: "Battleship", destroyed: false },
+    { name: "Cruiser", destroyed: true },
+    { name: "Submarine", destroyed: false },
+    { name: "Destroyer", destroyed: false },
+  ],
+  opponent: undefined,
+  gotInitialOpponent: false,
+  haveSendInitialMsg: false,
+};
+
 const useGame = () => {
-  const [state, setState] = useState(0);
-  const [messages, setMessages] = useState([
-    { time: getCurrentTime(), content: "Welcome to Battleship!" },
-  ]);
-  const [myShips, setMyShips] = useState([]);
-  const [opponentShips, setOpponentShips] = useState([]);
-  const [opponent, setOpponent] = useState(null);
-  const [gotInitialOpponent, setGotInitialOpponent] = useState(false);
-  const [haveSendInitialMsg, setHaveSendInitialMsg] = useState(false);
+  const reducers = {
+    [NEW_OPPONENT](state, { opponent }) {
+      return { ...state, gotInitialOpponent: true, opponent, state: 0 };
+    },
+    [NEW_MESSAGE](state, { content }) {
+      const newMsg = { time: getCurrentTime(), content };
+      const { messages } = state;
+      console.log("NEW MSG");
+      const newMessages = [...messages, newMsg];
+      return { ...state, haveSendInitialMsg: true, messages: newMessages };
+    },
+    [RESET]() {
+      console.log("rESET");
+      return initialState;
+    },
+  };
+
+  const reducer = (state, action) => {
+    return reducers[action.type](state, action) || state;
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const { gotInitialOpponent, opponent, haveSendInitialMsg } = state;
 
   useEffect(() => {
     socket.on("connect", () => {
       console.log("connected to server");
     });
 
-    socket.on("opponent", (data) => {
-      if (!gotInitialOpponent) setGotInitialOpponent(true);
-      setOpponent(data);
-      if (!data) setState(0);
+    socket.on("opponent", (opponent) => {
+      dispatch({ opponent, type: NEW_OPPONENT });
     });
-
-    setMyShips([
-      { name: "Carrier", destroyed: true },
-      { name: "Battleship", destroyed: true },
-      { name: "Cruiser", destroyed: false },
-      { name: "Submarine", destroyed: false },
-      { name: "Destroyer", destroyed: true },
-    ]);
-
-    setOpponentShips([
-      { name: "Carrier", destroyed: true },
-      { name: "Battleship", destroyed: false },
-      { name: "Cruiser", destroyed: true },
-      { name: "Submarine", destroyed: false },
-      { name: "Destroyer", destroyed: false },
-    ]);
 
     return () => {
       socket.off("connect");
@@ -50,61 +74,42 @@ const useGame = () => {
   useEffect(() => {
     if (gotInitialOpponent) {
       if (opponent && !haveSendInitialMsg) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            time: getCurrentTime(),
-            content: "Another player is already in the room. The game is on!",
-          },
-        ]);
+        dispatch({
+          type: NEW_MESSAGE,
+          content: "Another player is already in the room. The game is on!",
+        });
       }
 
       if (!opponent && !haveSendInitialMsg) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            time: getCurrentTime(),
-            content:
-              "There is no player in the room. Waiting for another player...",
-          },
-        ]);
+        dispatch({
+          type: NEW_MESSAGE,
+          content:
+            "There is no player in the room. Waiting for another player...",
+        });
       }
 
       if (opponent && haveSendInitialMsg) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            time: getCurrentTime(),
-            content: "Another player has entered the game. The game is on!",
-          },
-        ]);
+        dispatch({
+          type: NEW_MESSAGE,
+          content: "Another player has entered the game. The game is on!",
+        });
       }
 
       if (!opponent && haveSendInitialMsg) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            time: getCurrentTime(),
-            content: "The other player left. Waiting for another player...",
-          },
-        ]);
+        dispatch({
+          type: NEW_MESSAGE,
+          content: "The other player left. Waiting for another player...",
+        });
       }
-
-      if (!haveSendInitialMsg) setHaveSendInitialMsg(true);
     }
   }, [opponent]);
 
   const newGame = () => {
+    dispatch({ type: RESET });
     socket.emit("newGame");
-    setMessages([
-      { time: getCurrentTime(), content: "Welcome to Battleship!" },
-    ]);
-    setState(0);
-    setGotInitialOpponent(false);
-    setHaveSendInitialMsg(false);
   };
-  
-  return { state, messages, myShips, opponentShips, newGame };
+
+  return { state, newGame };
 };
 
 export default useGame;
