@@ -13,12 +13,10 @@ const useGame = () => {
     [NEW_MESSAGE](state, { content }) {
       const newMsg = { time: getCurrentTime(), content };
       const { messages } = state;
-      console.log("NEW MSG");
       const newMessages = [...messages, newMsg];
       return { ...state, haveSendInitialMsg: true, messages: newMessages };
     },
     [RESET]() {
-      console.log("rESET");
       return initialState();
     },
   };
