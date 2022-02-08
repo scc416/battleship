@@ -19,7 +19,7 @@ const useGame = () => {
     },
     [RESET]() {
       console.log("rESET");
-      return initialState;
+      return initialState();
     },
   };
 
@@ -27,7 +27,7 @@ const useGame = () => {
     return reducers[action.type](state, action) || state;
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState());
 
   const { gotInitialOpponent, opponent, haveSendInitialMsg } = state;
 
