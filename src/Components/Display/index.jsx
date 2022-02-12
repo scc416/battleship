@@ -1,28 +1,27 @@
 import React from "react";
-import Coordinate from "./Coordinate";
-import ShipList from "./ShipList";
-import "./Display.css"
+import Board from "./Board/";
+import "./Display.css";
 
 const Display = ({ myShips, opponentShips, showOpponentOverlay }) => {
   return (
     <div className="display">
-      <div className="whole-board">
-        <ShipList ships={myShips} />
-        <div className="board">
-          <h3>Your Board</h3>
-          <Coordinate />
-        </div>
-        <div className="overlay"></div>
-      </div>
+      <Board
+        {...{
+          myBoard: true,
+          ships: myShips,
+          overlaySettings: { show: false },
+          title: "Your Board",
+        }}
+      />
 
-      <div className="whole-board">
-        <div className="board">
-          <h3>Opponent's Board</h3>
-          <Coordinate />
-        </div>
-        <ShipList ships={opponentShips} />
-        <div className="overlay"></div>
-      </div>
+      <Board
+        {...{
+          myBoard: false,
+          ships: opponentShips,
+          overlaySettings: showOpponentOverlay,
+          title: "Opponent's Board",
+        }}
+      />
     </div>
   );
 };
