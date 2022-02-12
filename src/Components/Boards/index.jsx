@@ -1,6 +1,7 @@
 import React from "react";
 import Coordinate from "./Coordinate/";
 import ShipList from "./ShipList";
+import "./Boards.css"
 
 const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
   return (

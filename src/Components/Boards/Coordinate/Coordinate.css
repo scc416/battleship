@@ -1,0 +1,25 @@
+.coordinate {
+  border: 0.15em solid #ffffff;
+}
+
+.coordinate > .row > .square:first-child {
+  border-left: none;
+}
+
+.coordinate > .row:first-child > .square {
+  border-top: none;
+}
+
+.square {
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 0.15em solid #ffffff;
+  border-left: 0.15em solid #ffffff;
+}
+
+.row {
+  display: flex;
+}

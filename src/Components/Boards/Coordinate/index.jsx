@@ -1,5 +1,5 @@
 import React from "react";
-import "../Board.css";
+import "./Coordinate.css";
 import CoordinateList from "./CoordinateList";
 
 const Coordinate = () => {
@@ -7,7 +7,7 @@ const Coordinate = () => {
   for (let i = 0; i < 10; i++) {
     lst.push(<CoordinateList key={i} />);
   }
-  return <div className="game-board">{lst}</div>;
+  return <div className="coordinate">{lst}</div>;
 }
 
 export default Coordinate;
