@@ -4,13 +4,13 @@ h3 {
   text-transform: uppercase;
 }
 
-.boards {
+.display {
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
 
-.boards > div {
+.display > div {
   max-width: 50%;
 }
 
@@ -36,22 +36,18 @@ h3 {
   z-index: 2;
 }
 
-.boards .whole-board:first-child .overlay {
+.display .whole-board:first-child .overlay {
   left: 1.5em;
 }
 
-/* 
-.boards .overlay:nth-child(2) {
-  right: 1.5em;
-} */
 
-.boards .ship-list:first-child {
+.display .ship-list:first-child {
   left: 1.5em;
   padding: 1em 2.5em 1em 1em;
   border-radius: 1.5em 0 0 1.5em;
 }
 
-.boards .ship-list:nth-child(2) {
+.display .ship-list:nth-child(2) {
   right: 1.5em;
   padding: 1em 1em 1em 2.5em;
   border-radius: 0 1.5em 1.5em 0;

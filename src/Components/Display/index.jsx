@@ -5,7 +5,7 @@ import "./Display.css"
 
 const Display = ({ myShips, opponentShips, showOpponentOverlay }) => {
   return (
-    <div className="boards">
+    <div className="display">
       <div className="whole-board">
         <ShipList ships={myShips} />
         <div className="board">
