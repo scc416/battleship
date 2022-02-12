@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Boards from "./Components/Boards/";
+import Display from "./Components/Display";
 import LogList from "./Components/Log";
 import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <Heading />
-      <Boards
+      <Display
         {...{
           myShips,
           opponentShips,

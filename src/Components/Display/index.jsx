@@ -1,9 +1,9 @@
 import React from "react";
-import Coordinate from "./Coordinate/";
+import Coordinate from "./Coordinate";
 import ShipList from "./ShipList";
-import "./Boards.css"
+import "./Display.css"
 
-const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
+const Display = ({ myShips, opponentShips, showOpponentOverlay }) => {
   return (
     <div className="boards">
       <div className="whole-board">
@@ -27,4 +27,4 @@ const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
   );
 };
 
-export default Boards;
+export default Display;
