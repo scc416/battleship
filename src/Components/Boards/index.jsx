@@ -1,5 +1,5 @@
 import React from "react";
-import Board from "./Board";
+import Coordinate from "./Coordinate";
 import ShipList from "./ShipList";
 
 const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
@@ -9,7 +9,7 @@ const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
         <ShipList ships={myShips} />
         <div className="board">
           <h3>Your Board</h3>
-          <Board />
+          <Coordinate />
         </div>
         <div className="overlay"></div>
       </div>
@@ -17,7 +17,7 @@ const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
       <div className="whole-board">
         <div className="board">
           <h3>Opponent's Board</h3>
-          <Board />
+          <Coordinate />
         </div>
         <ShipList ships={opponentShips} />
         <div className="overlay"></div>

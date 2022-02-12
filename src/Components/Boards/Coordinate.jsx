@@ -2,7 +2,7 @@ import React from "react";
 import "./Board.css";
 import CoordinateList from "./CoordinateList";
 
-const Board = () => {
+const Coordinate = () => {
   const lst = [];
   for (let i = 0; i < 10; i++) {
     lst.push(<CoordinateList key={i} />);
@@ -10,4 +10,4 @@ const Board = () => {
   return <div className="game-board">{lst}</div>;
 }
 
-export default Board;
+export default Coordinate;
