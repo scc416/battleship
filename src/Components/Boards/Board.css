@@ -22,6 +22,7 @@ h3 {
 
 .whole-board {
   display: flex;
+  position: relative;
 }
 
 .square {
@@ -41,6 +42,26 @@ h3 {
 .game-board {
   border: 0.15em solid #ffffff;
 }
+
+.overlay {
+  position: absolute;
+  /* display: none; Hidden by default */
+  width: calc(100% - 1.5em);
+  height: 100%;
+  top: 0;
+  border-radius: 1.5em;
+  background-color: #000000AA;
+  z-index: 2;
+}
+
+.boards .whole-board:first-child .overlay {
+  left: 1.5em;
+}
+
+/* 
+.boards .overlay:nth-child(2) {
+  right: 1.5em;
+} */
 
 .game-board > .row > .square:first-child {
   border-left: none;

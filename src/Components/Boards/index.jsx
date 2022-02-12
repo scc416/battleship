@@ -11,6 +11,7 @@ const Boards = ({ myShips, opponentShips }) => {
           <h3>Your Board</h3>
           <Board />
         </div>
+        <div className="overlay"></div>
       </div>
 
       <div className="whole-board">
@@ -19,6 +20,7 @@ const Boards = ({ myShips, opponentShips }) => {
           <Board />
         </div>
         <ShipList ships={opponentShips} />
+        <div className="overlay"></div>
       </div>
     </div>
   );
