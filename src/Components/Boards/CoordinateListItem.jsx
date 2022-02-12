@@ -1,7 +1,7 @@
 import React from "react";
 
-const BoardListItem = () => {
+const CoordinateListItem = () => {
   return <div className="square">1</div>;
 }
 
-export default BoardListItem;
+export default CoordinateListItem;

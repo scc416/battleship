@@ -6,7 +6,7 @@ import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const { state, newGame } = useGame();
+  const { state, newGame, waitingForOpponent } = useGame();
   const { messages, myShips, opponentShips } = state;
 
   return (
@@ -14,8 +14,9 @@ const App = () => {
       <Heading />
       <Boards
         {...{
-          myShips: myShips,
-          opponentShips: opponentShips,
+          myShips,
+          opponentShips,
+          waitingForOpponent
         }}
       />
       <LogList {...{ messages, newGame }} />

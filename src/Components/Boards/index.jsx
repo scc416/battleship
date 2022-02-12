@@ -2,7 +2,7 @@ import React from "react";
 import Board from "./Board";
 import ShipList from "./ShipList";
 
-const Boards = ({ myShips, opponentShips }) => {
+const Boards = ({ myShips, opponentShips, showOpponentOverlay }) => {
   return (
     <div className="boards">
       <div className="whole-board">

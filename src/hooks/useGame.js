@@ -63,7 +63,7 @@ const useGame = () => {
         : haveSendInitialMsg
         ? MSG_NO_OPPONENT
         : INITIAL_MSG_NO_OPPONENT;
-        
+
       dispatch({ type: NEW_MESSAGE, content: content });
     }
   }, [opponent]);
@@ -73,7 +73,12 @@ const useGame = () => {
     socket.emit("newGame");
   };
 
-  return { state, newGame };
+  const showOpponentOverlay = {
+    show: state === 0,
+    text: "Waiting for opponents",
+  };
+
+  return { state, newGame, showOpponentOverlay };
 };
 
 export default useGame;
