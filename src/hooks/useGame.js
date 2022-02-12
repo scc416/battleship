@@ -56,21 +56,15 @@ const useGame = () => {
 
   useEffect(() => {
     if (gotInitialOpponent) {
-      if (opponent && !haveSendInitialMsg) {
-        dispatch({ type: NEW_MESSAGE, content: INITIAL_MSG_HAVE_OPPONENT });
-      }
-
-      if (!opponent && !haveSendInitialMsg) {
-        dispatch({ type: NEW_MESSAGE, content: INITIAL_MSG_NO_OPPONENT });
-      }
-
-      if (opponent && haveSendInitialMsg) {
-        dispatch({ type: NEW_MESSAGE, content: MSG_HAVE_OPPONENT });
-      }
-
-      if (!opponent && haveSendInitialMsg) {
-        dispatch({ type: NEW_MESSAGE, content: MSG_NO_OPPONENT });
-      }
+      const content = opponent
+        ? haveSendInitialMsg
+          ? MSG_HAVE_OPPONENT
+          : INITIAL_MSG_HAVE_OPPONENT
+        : haveSendInitialMsg
+        ? MSG_NO_OPPONENT
+        : INITIAL_MSG_NO_OPPONENT;
+        
+      dispatch({ type: NEW_MESSAGE, content: content });
     }
   }, [opponent]);
 
