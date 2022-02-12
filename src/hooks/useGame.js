@@ -1,7 +1,16 @@
 import io from "socket.io-client";
 import { useReducer, useEffect } from "react";
 import { getCurrentTime } from "../helpers";
-import { NEW_OPPONENT, NEW_MESSAGE, RESET, initialState } from "../constants";
+import {
+  NEW_OPPONENT,
+  NEW_MESSAGE,
+  RESET,
+  initialState,
+  INITIAL_MSG_NO_OPPONENT,
+  INITIAL_MSG_HAVE_OPPONENT,
+  MSG_HAVE_OPPONENT,
+  MSG_NO_OPPONENT,
+} from "../constants";
 
 const socket = io("localhost:3001");
 
@@ -48,32 +57,19 @@ const useGame = () => {
   useEffect(() => {
     if (gotInitialOpponent) {
       if (opponent && !haveSendInitialMsg) {
-        dispatch({
-          type: NEW_MESSAGE,
-          content: "Another player is already in the room. The game is on!",
-        });
+        dispatch({ type: NEW_MESSAGE, content: INITIAL_MSG_HAVE_OPPONENT });
       }
 
       if (!opponent && !haveSendInitialMsg) {
-        dispatch({
-          type: NEW_MESSAGE,
-          content:
-            "There is no player in the room. Waiting for another player...",
-        });
+        dispatch({ type: NEW_MESSAGE, content: INITIAL_MSG_NO_OPPONENT });
       }
 
       if (opponent && haveSendInitialMsg) {
-        dispatch({
-          type: NEW_MESSAGE,
-          content: "Another player has entered the game. The game is on!",
-        });
+        dispatch({ type: NEW_MESSAGE, content: MSG_HAVE_OPPONENT });
       }
 
       if (!opponent && haveSendInitialMsg) {
-        dispatch({
-          type: NEW_MESSAGE,
-          content: "The other player left. Waiting for another player...",
-        });
+        dispatch({ type: NEW_MESSAGE, content: MSG_NO_OPPONENT });
       }
     }
   }, [opponent]);
