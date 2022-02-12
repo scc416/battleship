@@ -8,7 +8,8 @@ const socket = io("localhost:3001");
 const useGame = () => {
   const reducers = {
     [NEW_OPPONENT](state, { opponent }) {
-      return { ...state, gotInitialOpponent: true, opponent, state: 0 };
+      const newState = opponent ? 1 : 0;
+      return { ...state, gotInitialOpponent: true, opponent, state: newState };
     },
     [NEW_MESSAGE](state, { content }) {
       const newMsg = { time: getCurrentTime(), content };
