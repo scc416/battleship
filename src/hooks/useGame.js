@@ -37,7 +37,12 @@ const useGame = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState());
 
-  const { gotInitialOpponent, opponent, haveSendInitialMsg } = state;
+  const {
+    gotInitialOpponent,
+    opponent,
+    haveSendInitialMsg,
+    state: gameState,
+  } = state;
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -74,9 +79,10 @@ const useGame = () => {
   };
 
   const showOpponentOverlay = {
-    show: state === 0,
+    show: gameState === 0,
     text: "Waiting for opponents",
   };
+  console.log(showOpponentOverlay);
 
   return { state, newGame, showOpponentOverlay };
 };

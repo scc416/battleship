@@ -27,7 +27,7 @@ h3 {
 
 .overlay {
   position: absolute;
-  /* display: none; Hidden by default */
+  display: none;
   width: calc(100% - 1.5em);
   height: 100%;
   top: 0;

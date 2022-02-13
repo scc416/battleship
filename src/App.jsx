@@ -6,7 +6,7 @@ import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const { state, newGame, waitingForOpponent } = useGame();
+  const { state, newGame, showOpponentOverlay } = useGame();
   const { messages, myShips, opponentShips } = state;
 
   return (
@@ -16,7 +16,7 @@ const App = () => {
         {...{
           myShips,
           opponentShips,
-          waitingForOpponent
+          showOpponentOverlay,
         }}
       />
       <LogList {...{ messages, newGame }} />
