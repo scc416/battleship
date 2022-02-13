@@ -2,6 +2,7 @@ import React from "react";
 import Coordinate from "./Coordinate";
 import ShipList from "./ShipList";
 import Overlay from "./Overlay";
+import "./Board.css"
 
 const Board = ({ myBoard, ships, overlaySettings, title }) => {
   const coordinate = (
