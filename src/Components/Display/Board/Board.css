@@ -16,8 +16,11 @@
   height: 100%;
   top: 0;
   border-radius: 1.5em;
-  background-color: #000000AA;
+  background-color: #000000CC;
   z-index: 2;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
 }
 
 .display .whole-board:first-child .overlay {
