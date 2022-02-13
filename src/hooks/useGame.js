@@ -82,7 +82,6 @@ const useGame = () => {
     show: gameState === 0,
     text: "Waiting for opponents...",
   };
-  console.log(showOpponentOverlay);
 
   return { state, newGame, showOpponentOverlay };
 };

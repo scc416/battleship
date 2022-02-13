@@ -39,7 +39,6 @@ const clientsHelperFunctionGenerator = (clients, socket, io) => {
     const opponent = clients[socket.id];
     removeClient();
     addClient(opponent);
-    console.log(clients);
   };
 
   return { addClient, removeClient, newGame };
