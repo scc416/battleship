@@ -83,7 +83,9 @@ const useGame = () => {
     text: "Waiting for opponents...",
   };
 
-  return { state, newGame, showOpponentOverlay };
+  const showMyOverlay = { show: false };
+
+  return { state, newGame, showOpponentOverlay, showMyOverlay };
 };
 
 export default useGame;

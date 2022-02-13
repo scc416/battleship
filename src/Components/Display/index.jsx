@@ -2,14 +2,19 @@ import React from "react";
 import Board from "./Board/";
 import "./Display.css";
 
-const Display = ({ myShips, opponentShips, showOpponentOverlay }) => {
+const Display = ({
+  myShips,
+  opponentShips,
+  showOpponentOverlay,
+  showMyOverlay,
+}) => {
   return (
     <div className="display">
       <Board
         {...{
           myBoard: true,
           ships: myShips,
-          overlaySettings: { show: false },
+          overlaySettings: showMyOverlay,
           title: "Your Board",
         }}
       />
