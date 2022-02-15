@@ -12,7 +12,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [File Structure](#file-structure)
 - [Credits](#credits)
 
+## Live Demo
+
+## Final Product
+
 ## Custom hook: useGame
+
+## Dependencies
+
+## Getting Started
+
+## File Structure
 
 ## Credits
 - [Spaceship icon](https://www.flaticon.com/free-icons/spaceship) created by Nhor Phai - [Flaticon](https://www.flaticon.com/)
