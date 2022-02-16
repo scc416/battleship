@@ -18,6 +18,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Custom hook: useGame
 
+### State
+
+- 0: Waiting for another player to join
+
 ## Dependencies
 
 ## Getting Started
