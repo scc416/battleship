@@ -22,6 +22,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - 0: Waiting for another player to join
 
+- 1: Players are ready, picking tiles for battleship
+
 ## Dependencies
 
 ## Getting Started
