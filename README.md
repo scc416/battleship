@@ -18,11 +18,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Custom hook: useGame
 
-### State
+useGame is a custom hook.
+
+### gameState
 
 - 0: Waiting for another player to join
 
 - 1: Players are ready, picking tiles for battleship
+
+- 2: Done with picking tiles, waiting for the opponent to be done
 
 ## Dependencies
 
