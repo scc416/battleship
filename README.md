@@ -28,6 +28,10 @@ useGame is a custom hook.
 
 - 2: Done with picking tiles, waiting for the opponent to be done
 
+- 3: Player's turn to shoot
+
+- 4: Opponent's turn to shoot
+
 ## Dependencies
 
 ## Getting Started
