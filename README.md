@@ -32,6 +32,10 @@ useGame is a custom hook.
 
 - 4: Opponent's turn to shoot
 
+- 5: Player won
+
+- 6: Player lost
+
 ## Dependencies
 
 ## Getting Started
