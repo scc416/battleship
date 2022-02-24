@@ -17,8 +17,13 @@ const socket = io("localhost:3001");
 const useGame = () => {
   const reducers = {
     [NEW_OPPONENT](state, { opponent }) {
-      const newState = opponent ? 1 : 0;
-      return { ...state, gotInitialOpponent: true, opponent, state: newState };
+      const newGameState = opponent ? 1 : 0;
+      return {
+        ...state,
+        opponent,
+        gotInitialOpponent: true,
+        gameState: newGameState,
+      };
     },
     [NEW_MESSAGE](state, { content }) {
       const newMsg = { time: getCurrentTime(), content };
@@ -41,7 +46,7 @@ const useGame = () => {
     gotInitialOpponent,
     opponent,
     haveSendInitialMsg,
-    state: gameState,
+    gameState,
   } = state;
 
   useEffect(() => {
