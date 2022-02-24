@@ -20,7 +20,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 useGame is a custom hook.
 
-### gameState
+### state
+
+#### gameState
 
 - 0: Waiting for another player to join
 
@@ -35,6 +37,10 @@ useGame is a custom hook.
 - 5: Player won
 
 - 6: Player lost
+
+#### messages
+
+Array of messages
 
 ## Dependencies
 
