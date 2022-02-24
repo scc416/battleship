@@ -78,12 +78,9 @@ const useGame = () => {
     socket.emit("newGame");
   };
 
-  const showOpponentOverlay = {
-    show: gameState === 0,
-    text: "Waiting for opponents...",
-  };
+  const showOpponentOverlay = gameState === 0 && "Waiting for opponents...";
 
-  const showMyOverlay = { show: false };
+  const showMyOverlay = false;
 
   return { state, newGame, showOpponentOverlay, showMyOverlay };
 };
