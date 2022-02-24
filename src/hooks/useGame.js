@@ -26,9 +26,9 @@ const useGame = () => {
       };
     },
     [NEW_MESSAGE](state, { content }) {
-      const newMsg = { time: getCurrentTime(), content };
+      const newMsg = { content, time: getCurrentTime() };
       const { messages } = state;
-      const newMessages = [...messages, newMsg];
+      const newMessages = messages.concat([newMsg]);
       return { ...state, haveSendInitialMsg: true, messages: newMessages };
     },
     [RESET]() {
@@ -47,6 +47,9 @@ const useGame = () => {
     opponent,
     haveSendInitialMsg,
     gameState,
+    myShips,
+    opponentShips,
+    messages,
   } = state;
 
   useEffect(() => {
@@ -85,9 +88,17 @@ const useGame = () => {
 
   const showOpponentOverlay = gameState === 0 && "Waiting for opponents...";
 
-  const showMyOverlay = false;
+  const showMyOverlay =
+    (gameState === 5 && "You Won!") || (gameState === 6 && "You Lose!");
 
-  return { state, newGame, showOpponentOverlay, showMyOverlay };
+  return {
+    newGame,
+    showOpponentOverlay,
+    showMyOverlay,
+    myShips,
+    opponentShips,
+    messages,
+  };
 };
 
 export default useGame;

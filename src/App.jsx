@@ -6,8 +6,14 @@ import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const { state, newGame, showOpponentOverlay, showMyOverlay } = useGame();
-  const { messages, myShips, opponentShips } = state;
+  const {
+    newGame,
+    showOpponentOverlay,
+    showMyOverlay,
+    messages,
+    myShips,
+    opponentShips,
+  } = useGame();
 
   return (
     <>
