@@ -42,6 +42,8 @@ useGame is a custom hook.
 
 Array of messages
 
+#### myShips
+
 ## Dependencies
 
 ## Getting Started
