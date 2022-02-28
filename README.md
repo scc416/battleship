@@ -46,6 +46,8 @@ Array of messages
 
 #### opponentShips
 
+#### opponent
+
 ## Dependencies
 
 ## Getting Started
