@@ -48,6 +48,8 @@ Array of messages
 
 #### opponent
 
+#### gotInitialOpponent: boolean
+
 ## Dependencies
 
 ## Getting Started
