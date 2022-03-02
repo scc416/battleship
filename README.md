@@ -50,6 +50,8 @@ Array of messages
 
 #### gotInitialOpponent: boolean
 
+#### haveSendInitialMsg: boolean
+
 ## Dependencies
 
 ## Getting Started
