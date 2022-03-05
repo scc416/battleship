@@ -44,9 +44,9 @@ Array of messages
 
 #### myShips
 
-#### opponentShips
+#### opponentShips: Array of Object
 
-#### opponent: null, string
+#### opponent: null / string
 
 #### gotInitialOpponent: boolean
 
