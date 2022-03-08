@@ -42,7 +42,7 @@ useGame is a custom hook.
 
 Array of messages
 
-#### myShips
+#### myShips: array of Object
 
 #### opponentShips: Array of Object
 
