@@ -38,7 +38,7 @@ useGame is a custom hook.
 
 - 6: Player lost
 
-#### messages: Array of string
+#### messages: Array of object
 
 Array of messages
 
