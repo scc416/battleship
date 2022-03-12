@@ -10,8 +10,8 @@
   justify-content: space-between;
 }
 
-.ship-list > * {
-  margin: 40% 0;
+.ship-list > div > div {
+  margin: 2em 0;
 }
 
 .display .ship-list:first-child {
@@ -24,4 +24,10 @@
   right: 1.5em;
   padding: 1em 1em 1em 2.5em;
   border-radius: 0 1.5em 1.5em 0;
+}
+
+.ship-list button {
+  background-color: #000;
+  color: #FFF;
+  margin-right: 0.2em;
 }

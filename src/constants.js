@@ -26,11 +26,11 @@ export const initialState = () => {
     gameState: 0,
     messages: [{ time: getCurrentTime(), message: "Welcome to Battleship!" }],
     myShips: [
-      // { name: "Carrier", coordinates: [{row: 0, column: 0}] },
-      // { name: "Battleship", coordinates: [] },
-      // { name: "Cruiser", coordinates: [] },
-      // { name: "Submarine", coordinates: [] },
-      // { name: "Destroyer", coordinates: [] },
+      { name: "Carrier", coordinates: [{row: 0, column: 0}] },
+      { name: "Battleship", coordinates: [] },
+      { name: "Cruiser", coordinates: [] },
+      { name: "Submarine", coordinates: [] },
+      { name: "Destroyer", coordinates: [] },
     ],
     iShot: [],
     opponentShips: [
