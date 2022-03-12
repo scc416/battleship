@@ -127,7 +127,7 @@ const useGame = () => {
   const clickTile = (coordinate, myBoard) => {
     switch (myBoard) {
       case true:
-        dispatch({ type: SELECT_TILE, coordinate });
+        if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
         break;
       case false:
         dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
