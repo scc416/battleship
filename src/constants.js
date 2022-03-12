@@ -13,24 +13,32 @@ export const MSG_HAVE_OPPONENT =
 export const MSG_NO_OPPONENT =
   "The other player left. Waiting for another player...";
 
+export const ships = [
+  { name: "Carrier", numOfTiles: 5 },
+  { name: "Battleship", numOfTiles: 4 },
+  { name: "Cruiser", numOfTiles: 3 },
+  { name: "Submarine", numOfTiles: 3 },
+  { name: "Destroyer", numOfTiles: 2 },
+];
+
 export const initialState = () => {
   return {
     gameState: 0,
     messages: [{ time: getCurrentTime(), message: "Welcome to Battleship!" }],
     myShips: [
-      { name: "Carrier", positions: [{ hit: false }] },
-      { name: "Battleship", positions: [] },
-      { name: "Cruiser", positions: [] },
-      { name: "Submarine", positions: [] },
-      { name: "Destroyer", positions: [] },
+      { name: "Carrier", coordinates: [] },
+      { name: "Battleship", coordinates: [] },
+      { name: "Cruiser", coordinates: [] },
+      { name: "Submarine", coordinates: [] },
+      { name: "Destroyer", coordinates: [] },
     ],
     iShot: [],
     opponentShips: [
-      { name: "Carrier", positions: [] },
-      { name: "Battleship", positions: [] },
-      { name: "Cruiser", positions: [] },
-      { name: "Submarine", positions: [] },
-      { name: "Destroyer", positions: [] },
+      { name: "Carrier", coordinates: [] },
+      { name: "Battleship", coordinates: [] },
+      { name: "Cruiser", coordinates: [] },
+      { name: "Submarine", coordinates: [] },
+      { name: "Destroyer", coordinates: [] },
     ],
     opponentShot: [],
     opponent: undefined,
