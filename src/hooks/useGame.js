@@ -11,6 +11,7 @@ import {
   MSG_HAVE_OPPONENT,
   MSG_NO_OPPONENT,
   ships,
+  CLEAR_TILES,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -34,6 +35,9 @@ const useGame = () => {
     },
     [RESET]() {
       return initialState();
+    },
+    [CLEAR_TILES](state) {
+      return { ...state, chosenTiles: [] };
     },
   };
 
@@ -97,8 +101,7 @@ const useGame = () => {
     }
   }, [gameState]);
 
-  useEffect(() => {
-  }, [shipTilesState]);
+  useEffect(() => {}, [shipTilesState]);
 
   const newGame = () => {
     dispatch({ type: RESET });
@@ -111,6 +114,10 @@ const useGame = () => {
     (gameState === 5 && "You Won!") || (gameState === 6 && "You Lose!");
 
   const showConfirmCancelButtons = gameState === 1;
+
+  const clearTiles = () => {
+    dispatch({ type: CLEAR_TILES });
+  };
 
   return {
     newGame,

@@ -3,6 +3,7 @@ import { getCurrentTime } from "./helpers";
 export const NEW_OPPONENT = "NEW_OPPONENT";
 export const NEW_MESSAGE = "NEW_MESSAGE";
 export const RESET = "RESET";
+export const CLEAR_TILES = "CLEAR_TILES";
 
 export const INITIAL_MSG_NO_OPPONENT =
   "There is no player in the room. Waiting for another player...";
@@ -41,7 +42,7 @@ export const initialState = () => {
       // { name: "Submarine", coordinates: [] },
       // { name: "Destroyer", coordinates: [] },
     ],
-    chosenCoordinate: [],
+    chosenTiles: [],
     opponentShot: [],
     opponent: undefined,
     gotInitialOpponent: false,
