@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 import { useReducer, useEffect } from "react";
-import { getCurrentTime } from "../helpers";
+import { getCurrentTime, checkIfSameCoordinate } from "../helpers";
 import {
   NEW_OPPONENT,
   NEW_MESSAGE,
@@ -40,9 +40,30 @@ const useGame = () => {
     [CLEAR_TILES](state) {
       return { ...state, chosenTiles: [] };
     },
-    [SELECT_TILE](state, { coordinate }) {
-      console.log(coordinate);
-      return { ...state };
+    [SELECT_TILE](state, { coordinate: selectCoordinate }) {
+      const { myShips, chosenTiles } = state;
+      for (const { coordinates } of myShips) {
+        for (const coordinate of coordinates) {
+          const isOccupied = checkIfSameCoordinate(
+            selectCoordinate,
+            coordinate
+          );
+          if (isOccupied) return state;
+        }
+      }
+
+      for (const index in chosenTiles) {
+        const coordinate = chosenTiles[index];
+        const isSelected = checkIfSameCoordinate(selectCoordinate, coordinate);
+        if (isSelected) {
+          const newchosenTiles = chosenTiles
+            .slice(0, index)
+            .concat(chosenTiles.slice(index + 1));
+          return { ...state, chosenTiles: newchosenTiles };
+        }
+      }
+
+      return { ...state, chosenTiles: chosenTiles.concat([selectCoordinate]) };
     },
   };
 
@@ -145,6 +166,7 @@ const useGame = () => {
     showConfirmCancelButtons,
     clearTiles,
     clickTile,
+    chosenTiles
   };
 };
 

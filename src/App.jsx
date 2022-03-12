@@ -15,6 +15,7 @@ const App = () => {
     opponentShips,
     showConfirmCancelButtons,
     clickTile,
+    chosenTiles,
   } = useGame();
 
   return (
@@ -28,6 +29,7 @@ const App = () => {
           showMyOverlay,
           showConfirmCancelButtons,
           clickTile,
+          chosenTiles,
         }}
       />
       <LogList {...{ messages, newGame }} />
