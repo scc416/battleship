@@ -29,5 +29,10 @@
 .ship-list button {
   background-color: #000;
   color: #FFF;
-  margin-right: 0.2em;
+  padding: 0.3em 0.4em;
+  border-radius: 5%;
+}
+
+.ship-list:first-child button {
+  margin-right: 0.4em;
 }
