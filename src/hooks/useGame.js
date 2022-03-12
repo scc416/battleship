@@ -117,6 +117,7 @@ const useGame = () => {
 
   const clearTiles = () => {
     dispatch({ type: CLEAR_TILES });
+    dispatch({ type: NEW_MESSAGE, message: "CLEAR TILES!" });
   };
 
   return {
@@ -127,6 +128,7 @@ const useGame = () => {
     opponentShips,
     messages,
     showConfirmCancelButtons,
+    clearTiles
   };
 };
 

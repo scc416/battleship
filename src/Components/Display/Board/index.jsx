@@ -10,6 +10,7 @@ const Board = ({
   overlaySettings,
   title,
   showConfirmCancelButtons,
+  clearTiles
 }) => {
   const coordinate = (
     <div className="board">
@@ -18,7 +19,7 @@ const Board = ({
     </div>
   );
 
-  const shipList = <ShipList {...{ ships, showConfirmCancelButtons }} />;
+  const shipList = <ShipList {...{ ships, showConfirmCancelButtons, clearTiles }} />;
 
   const board = myBoard ? (
     <>
