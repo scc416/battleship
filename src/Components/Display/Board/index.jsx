@@ -8,7 +8,7 @@ const Board = ({ myBoard, ships, overlaySettings, title }) => {
   const coordinate = (
     <div className="board">
       <h3>{title}</h3>
-      <Coordinate />
+      <Coordinate {...{ships, myBoard}} />
     </div>
   );
 
