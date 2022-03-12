@@ -41,6 +41,7 @@ const useGame = () => {
       return { ...state, chosenTiles: [] };
     },
     [SELECT_TILE](state, { coordinate }) {
+      console.log(coordinate);
       return { ...state };
     },
   };
@@ -123,8 +124,15 @@ const useGame = () => {
     dispatch({ type: CLEAR_TILES });
   };
 
-  const selectTiles = (coordinate) => {
-    dispatch({ type: SELECT_TILE, coordinate });
+  const clickTile = (coordinate, myBoard) => {
+    switch (myBoard) {
+      case true:
+        dispatch({ type: SELECT_TILE, coordinate });
+        break;
+      case false:
+        dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
+        break;
+    }
   };
 
   return {
@@ -136,7 +144,7 @@ const useGame = () => {
     messages,
     showConfirmCancelButtons,
     clearTiles,
-    selectTiles
+    clickTile,
   };
 };
 

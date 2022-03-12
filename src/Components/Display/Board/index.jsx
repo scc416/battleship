@@ -10,16 +10,20 @@ const Board = ({
   overlaySettings,
   title,
   showConfirmCancelButtons,
-  clearTiles
+  clearTiles,
+  clickTile
 }) => {
+
   const coordinate = (
     <div className="board">
       <h3>{title}</h3>
-      <Coordinate {...{ ships, myBoard }} />
+      <Coordinate {...{ ships, myBoard, clickTile }} />
     </div>
   );
 
-  const shipList = <ShipList {...{ ships, showConfirmCancelButtons, clearTiles }} />;
+  const shipList = (
+    <ShipList {...{ ships, showConfirmCancelButtons, clearTiles }} />
+  );
 
   const board = myBoard ? (
     <>

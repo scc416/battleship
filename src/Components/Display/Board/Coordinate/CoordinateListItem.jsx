@@ -1,7 +1,7 @@
 import React from "react";
 
-const CoordinateListItem = () => {
-  return <div className="square"></div>;
-}
+const CoordinateListItem = ({ clickHandler }) => {
+  return <div className="square" onClick={clickHandler}></div>;
+};
 
 export default CoordinateListItem;
