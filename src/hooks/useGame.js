@@ -51,7 +51,7 @@ const useGame = () => {
     myShips,
     opponentShips,
     messages,
-    shipState,
+    shipTilesState,
   } = state;
 
   useEffect(() => {
@@ -98,7 +98,7 @@ const useGame = () => {
   }, [gameState]);
 
   useEffect(() => {
-  }, [shipState]);
+  }, [shipTilesState]);
 
   const newGame = () => {
     dispatch({ type: RESET });
