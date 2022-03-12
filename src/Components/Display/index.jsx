@@ -7,6 +7,7 @@ const Display = ({
   opponentShips,
   showOpponentOverlay,
   showMyOverlay,
+  showConfirmCancelButtons
 }) => {
   return (
     <div className="display">
@@ -16,6 +17,7 @@ const Display = ({
           ships: myShips,
           overlaySettings: showMyOverlay,
           title: "Your Board",
+          showConfirmCancelButtons
         }}
       />
 

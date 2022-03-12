@@ -5,6 +5,9 @@
   z-index: -1;
   text-align: center;
   min-width: 8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .ship-list > * {

@@ -96,6 +96,8 @@ const useGame = () => {
   const showMyOverlay =
     (gameState === 5 && "You Won!") || (gameState === 6 && "You Lose!");
 
+  const showConfirmCancelButtons = gameState === 1;
+
   return {
     newGame,
     showOpponentOverlay,
@@ -103,6 +105,7 @@ const useGame = () => {
     myShips,
     opponentShips,
     messages,
+    showConfirmCancelButtons
   };
 };
 

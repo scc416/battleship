@@ -2,17 +2,23 @@ import React from "react";
 import Coordinate from "./Coordinate";
 import ShipList from "./ShipList";
 import Overlay from "./Overlay";
-import "./Board.css"
+import "./Board.css";
 
-const Board = ({ myBoard, ships, overlaySettings, title }) => {
+const Board = ({
+  myBoard,
+  ships,
+  overlaySettings,
+  title,
+  showConfirmCancelButtons,
+}) => {
   const coordinate = (
     <div className="board">
       <h3>{title}</h3>
-      <Coordinate {...{ships, myBoard}} />
+      <Coordinate {...{ ships, myBoard }} />
     </div>
   );
 
-  const shipList = <ShipList ships={ships} />;
+  const shipList = <ShipList {...{ ships, showConfirmCancelButtons }} />;
 
   const board = myBoard ? (
     <>
