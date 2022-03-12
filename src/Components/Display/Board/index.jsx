@@ -11,13 +11,14 @@ const Board = ({
   title,
   showConfirmCancelButtons,
   clearTiles,
-  clickTile
+  clickTile,
+  chosenTiles
 }) => {
 
   const coordinate = (
     <div className="board">
       <h3>{title}</h3>
-      <Coordinate {...{ ships, myBoard, clickTile }} />
+      <Coordinate {...{ ships, myBoard, clickTile, chosenTiles }} />
     </div>
   );
 

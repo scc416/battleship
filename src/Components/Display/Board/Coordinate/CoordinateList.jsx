@@ -1,13 +1,27 @@
 import React from "react";
 import CoordinateListItem from "./CoordinateListItem";
+import { checkIfSameCoordinate } from "../../../../helpers";
 
-const CoordinateList = ({ clickTile, row, ships, myBoard }) => {
+const CoordinateList = ({ clickTile, row, ships, myBoard, chosenTiles }) => {
   const lst = [];
+
   for (let i = 0; i < 10; i++) {
+    const coordinate = { row, column: i };
+    
+    const selected = () => {
+      for (const selectCoordinated of chosenTiles) {
+        const selected = checkIfSameCoordinate(selectCoordinated, coordinate);
+        if (selected) return true;
+      }
+    };
+
     lst.push(
       <CoordinateListItem
-        key={i}
-        clickHandler={() => clickTile({ column: i, row }, myBoard)}
+        {...{
+          selected: selected(),
+          key: i,
+          clickHandler: () => clickTile(coordinate, myBoard),
+        }}
       />
     );
   }

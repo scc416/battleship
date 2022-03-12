@@ -10,6 +10,7 @@ const Display = ({
   showConfirmCancelButtons,
   clearTiles,
   clickTile,
+  chosenTiles,
 }) => {
   return (
     <div className="display">
@@ -22,6 +23,7 @@ const Display = ({
           showConfirmCancelButtons,
           clearTiles,
           clickTile,
+          chosenTiles,
         }}
       />
 
@@ -32,6 +34,7 @@ const Display = ({
           overlaySettings: showOpponentOverlay,
           title: "Opponent's Board",
           clickTile,
+          chosenTiles: [],
         }}
       />
     </div>
