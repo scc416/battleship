@@ -12,6 +12,7 @@ import {
   MSG_NO_OPPONENT,
   ships,
   CLEAR_TILES,
+  SELECT_TILE,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -38,6 +39,9 @@ const useGame = () => {
     },
     [CLEAR_TILES](state) {
       return { ...state, chosenTiles: [] };
+    },
+    [SELECT_TILE](state, { coordinate }) {
+      return { ...state };
     },
   };
 
@@ -119,6 +123,10 @@ const useGame = () => {
     dispatch({ type: CLEAR_TILES });
   };
 
+  const selectTiles = (coordinate) => {
+    dispatch({ type: SELECT_TILE, coordinate });
+  };
+
   return {
     newGame,
     showOpponentOverlay,
@@ -127,7 +135,8 @@ const useGame = () => {
     opponentShips,
     messages,
     showConfirmCancelButtons,
-    clearTiles
+    clearTiles,
+    selectTiles
   };
 };
 
