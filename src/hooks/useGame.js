@@ -10,6 +10,7 @@ import {
   INITIAL_MSG_HAVE_OPPONENT,
   MSG_HAVE_OPPONENT,
   MSG_NO_OPPONENT,
+  ships
 } from "../constants";
 
 const socket = io("localhost:3001");
