@@ -53,7 +53,7 @@ const useGame = () => {
   } = state;
 
   useEffect(() => {
-    dispatch({type: NEW_MESSAGE, message: gameState})
+    dispatch({type: NEW_MESSAGE, message: `current stage: ${gameState}`})
   }, [gameState]);
 
   useEffect(() => {

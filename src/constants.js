@@ -12,7 +12,7 @@ export const MSG_NO_OPPONENT = "The other player left. Waiting for another playe
 export const initialState = () => {
   return {
     gameState: 0,
-    messages: [{ time: getCurrentTime(), content: "Welcome to Battleship!" }],
+    messages: [{ time: getCurrentTime(), message: "Welcome to Battleship!" }],
     myShips: [
       { name: "Carrier", destroyed: true },
       { name: "Battleship", destroyed: true },
