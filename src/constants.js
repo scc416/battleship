@@ -24,6 +24,7 @@ export const ships = [
 export const initialState = () => {
   return {
     gameState: 0,
+    shipState: 0,
     messages: [{ time: getCurrentTime(), message: "Welcome to Battleship!" }],
     myShips: [
       // { name: "Carrier", coordinates: [{row: 0, column: 0}] },

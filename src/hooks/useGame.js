@@ -10,7 +10,7 @@ import {
   INITIAL_MSG_HAVE_OPPONENT,
   MSG_HAVE_OPPONENT,
   MSG_NO_OPPONENT,
-  ships
+  ships,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -51,11 +51,8 @@ const useGame = () => {
     myShips,
     opponentShips,
     messages,
+    shipState,
   } = state;
-
-  useEffect(() => {
-    dispatch({type: NEW_MESSAGE, message: `current stage: ${gameState}`})
-  }, [gameState]);
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -86,6 +83,23 @@ const useGame = () => {
     }
   }, [opponent]);
 
+  useEffect(() => {
+    switch (gameState) {
+      case 1:
+        const { numOfTiles, name } = ships[0];
+        dispatch({
+          type: NEW_MESSAGE,
+          message: `Pick ${numOfTiles} tiles for ${name}.`,
+        });
+        break;
+      default:
+        dispatch({ type: NEW_MESSAGE, message: `current stage: ${gameState}` });
+    }
+  }, [gameState]);
+
+  useEffect(() => {
+  }, [shipState]);
+
   const newGame = () => {
     dispatch({ type: RESET });
     socket.emit("newGame");
@@ -105,7 +119,7 @@ const useGame = () => {
     myShips,
     opponentShips,
     messages,
-    showConfirmCancelButtons
+    showConfirmCancelButtons,
   };
 };
 
