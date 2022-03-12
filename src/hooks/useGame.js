@@ -25,8 +25,8 @@ const useGame = () => {
         gameState: newGameState,
       };
     },
-    [NEW_MESSAGE](state, { content }) {
-      const newMsg = { content, time: getCurrentTime() };
+    [NEW_MESSAGE](state, { message }) {
+      const newMsg = { message, time: getCurrentTime() };
       const { messages } = state;
       const newMessages = messages.concat([newMsg]);
       return { ...state, haveSendInitialMsg: true, messages: newMessages };
@@ -53,6 +53,10 @@ const useGame = () => {
   } = state;
 
   useEffect(() => {
+    dispatch({type: NEW_MESSAGE, message: gameState})
+  }, [gameState]);
+
+  useEffect(() => {
     socket.on("connect", () => {
       console.log("connected to server");
     });
@@ -69,7 +73,7 @@ const useGame = () => {
 
   useEffect(() => {
     if (gotInitialOpponent) {
-      const content = opponent
+      const message = opponent
         ? haveSendInitialMsg
           ? MSG_HAVE_OPPONENT
           : INITIAL_MSG_HAVE_OPPONENT
@@ -77,7 +81,7 @@ const useGame = () => {
         ? MSG_NO_OPPONENT
         : INITIAL_MSG_NO_OPPONENT;
 
-      dispatch({ type: NEW_MESSAGE, content: content });
+      dispatch({ type: NEW_MESSAGE, message });
     }
   }, [opponent]);
 

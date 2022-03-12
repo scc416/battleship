@@ -7,8 +7,8 @@ import useScrollToBottom from "../../hooks/useScrollToBottom";
 const LogList = ({ messages, newGame }) => {
   const log = useScrollToBottom(messages);
 
-  const elms = messages.map(({ time, content }, index) => {
-    return <LogListItem {...{ time, content, key: index }} />;
+  const elms = messages.map(({ time, message }, index) => {
+    return <LogListItem {...{ time, message, key: index }} />;
   });
 
   return (
