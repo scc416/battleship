@@ -82,6 +82,7 @@ const useGame = () => {
     opponentShips,
     messages,
     shipTilesState,
+    chosenTiles
   } = state;
 
   useEffect(() => {
@@ -119,11 +120,9 @@ const useGame = () => {
         const { numOfTiles, name } = ships[0];
         dispatch({
           type: NEW_MESSAGE,
-          message: `Pick ${numOfTiles} tiles for ${name}.`,
+          message: `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`,
         });
         break;
-      default:
-        dispatch({ type: NEW_MESSAGE, message: `current stage: ${gameState}` });
     }
   }, [gameState]);
 
