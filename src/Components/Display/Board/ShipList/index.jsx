@@ -12,7 +12,7 @@ const ShipList = ({ ships, showConfirmCancelButtons, clearTiles }) => {
       <div>{lst}</div>
       {showConfirmCancelButtons && (
         <div>
-          <button>Confirm</button>
+          <button onClick={() => console.log("HHH")}>Confirm</button>
           <button onClick={clearTiles}>Clear</button>
         </div>
       )}

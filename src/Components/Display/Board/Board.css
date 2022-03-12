@@ -2,6 +2,7 @@
   border-radius: 1.5em;
   padding: 0 1em 1.3em;
   text-align: center;
+  z-index: 1;
 }
 
 .whole-board {
