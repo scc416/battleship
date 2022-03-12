@@ -130,7 +130,7 @@ const useGame = () => {
         if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
         break;
       case false:
-        dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
+        if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
         break;
     }
   };
