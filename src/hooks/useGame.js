@@ -155,8 +155,8 @@ const useGame = () => {
     messages,
     shipTilesState,
     chosenTiles,
-    opponentShot,
-    iShot,
+    opponentShipsShot,
+    myShipsShot,
   } = state;
 
   useEffect(() => {
@@ -294,7 +294,7 @@ const useGame = () => {
     clickTile: clickTile(true),
     chosenTiles,
     confirmTiles,
-    shot: opponentShot,
+    shot: myShipsShot,
   };
 
   const opponentState = {
@@ -303,7 +303,7 @@ const useGame = () => {
     title: "Opponent's Board",
     clickTile: clickTile(),
     chosenTiles: [],
-    shot: iShot,
+    shot: opponentShipsShot,
   };
 
   return { logState, myState, opponentState };
