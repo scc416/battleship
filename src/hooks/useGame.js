@@ -232,7 +232,7 @@ const useGame = () => {
     gameState === 0
       ? MSG_WAITING_FOR_PLAYER
       : gameState === 4
-      ? "Opponent's turn to attack"
+      ? MSG_DEFEND
       : gameState === 2
       ? "Waiting for opponent to finish selection..."
       : null;
