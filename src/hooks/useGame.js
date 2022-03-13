@@ -27,6 +27,7 @@ import {
   OPPONENTS_TURN,
   MSG_ATTACK,
   MSG_DEFEND,
+  MSG_WAITING_FOR_PLAYER,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -229,7 +230,7 @@ const useGame = () => {
 
   const showOpponentOverlay =
     gameState === 0
-      ? "Waiting for player to join..."
+      ? MSG_WAITING_FOR_PLAYER
       : gameState === 4
       ? "Opponent's turn to attack"
       : gameState === 2
