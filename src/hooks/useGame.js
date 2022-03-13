@@ -29,7 +29,7 @@ import {
   MSG_DEFEND,
   MSG_WAITING_FOR_PLAYER,
   MSG_LOSE,
-  MSG_WIN
+  MSG_WIN,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -260,8 +260,14 @@ const useGame = () => {
         if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
       };
     }
-    return () => {
-      if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT!" });
+    return (coordinate) => {
+      if (gameState === 3) {
+        const { row, column } = coordinate;
+        dispatch({
+          type: NEW_MESSAGE,
+          message: `SHOT! ${row} ${column}`,
+        });
+      }
     };
   };
 
