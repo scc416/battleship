@@ -23,6 +23,7 @@ import {
   MSG_INVALID_TILES,
   COMPLETE_SELECTION,
   SET_OPPONENT_SHIPS,
+  OPPONENTS_TURN,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -116,7 +117,12 @@ const useGame = () => {
       return { ...state, gameState: 2 };
     },
     [SET_OPPONENT_SHIPS](state, { opponentShips }) {
-      return { ...state, opponentShips };
+      const { gameState } = state;
+      const newGameState = gameState === 2 ? 3 : gameState;
+      return { ...state, opponentShips, gameState: newGameState };
+    },
+    [OPPONENTS_TURN](state) {
+      return { ...state, gameState: 4 };
     },
   };
 
@@ -185,7 +191,19 @@ const useGame = () => {
         break;
       case 2:
         socket.emit("ships", myShips);
+        if (opponentShips) dispatch({ type: OPPONENTS_TURN });
         break;
+      case 3:
+        dispatch({
+          type: NEW_MESSAGE,
+          message: `Your turn to shoot.`,
+        });
+        break;
+      case 4:
+        dispatch({
+          type: NEW_MESSAGE,
+          message: `Opponent's turn to shoot.`,
+        });
       default:
     }
   }, [gameState]);
@@ -211,10 +229,14 @@ const useGame = () => {
     socket.emit("newGame");
   };
 
-  const showOpponentOverlay = gameState === 0 && "Waiting for opponents...";
+  const showOpponentOverlay =
+    (gameState === 0 && "Waiting for opponents...") ||
+    (gameState === 4 && "Opponent's turn to attack");
 
   const showMyOverlay =
-    (gameState === 5 && "You Won!") || (gameState === 6 && "You Lose!");
+    (gameState === 5 && "You Won!") ||
+    (gameState === 6 && "You Lose!") ||
+    (gameState === 3 && "Your turn to attack.");
 
   const showConfirmCancelButtons = gameState === 1;
 
@@ -229,7 +251,7 @@ const useGame = () => {
       };
     }
     return (coordinate) => {
-      if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
+      if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT!" });
     };
   };
 

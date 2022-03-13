@@ -9,6 +9,7 @@ export const SELECT_TILE = "SELECT_TILE";
 export const CONFIRM_TILES = "CONFIRM_TILES";
 export const COMPLETE_SELECTION = "COMPLETE_SELECTION";
 export const SET_OPPONENT_SHIPS = "SET_OPPONENT_SHIPS";
+export const OPPONENTS_TURN = "OPPONENTS_TURN";
 
 export const INITIAL_MSG_NO_OPPONENT =
   "There is no player in the room. Waiting for another player...";
