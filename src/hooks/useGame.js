@@ -242,7 +242,7 @@ const useGame = () => {
       ? MSG_WAITING_FOR_PLAYER
       : gameState === 4
       ? MSG_DEFEND
-      : gameState === 2
+      : !opponentShips
       ? MSG_OPPONENT_PLACING_SHIPS
       : null;
 
