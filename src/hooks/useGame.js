@@ -1,7 +1,6 @@
 import io from "socket.io-client";
 import { useReducer, useEffect } from "react";
 import {
-  getCurrentTime,
   checkIfSameCoordinate,
   makeNewMessages,
 } from "../helpers";
