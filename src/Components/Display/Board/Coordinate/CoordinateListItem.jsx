@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnchor, faShip } from "@fortawesome/free-solid-svg-icons";
 
 const CoordinateListItem = ({ clickHandler, selected, confirmedClassName }) => {
-  if (selected) console.log("SELECTED");
+  const className = confirmedClassName
+    ? `square ${confirmedClassName}`
+    : "square";
   return (
-    <div className="square" onClick={clickHandler}>
+    <div className={className} onClick={clickHandler}>
       {selected && <FontAwesomeIcon icon={faAnchor} />}
       {confirmedClassName && (
-        <FontAwesomeIcon icon={faShip} className={confirmedClassName} />
+        <FontAwesomeIcon icon={faShip} />
       )}
     </div>
   );

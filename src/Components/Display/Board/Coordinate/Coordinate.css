@@ -25,21 +25,25 @@
 }
 
 .carrier {
-  color: #264653;
+  background-color: #264653;
+  color: #FFF;
 }
 
 .battleship {
-  color: #2a9d8f;
+  background-color: #2a9d8f;
+  color: #FFF;
 }
 
 .cruiser {
-  color: #e9c46a;
+  background-color: #e9c46a;
 }
 
 .submarine {
-  color: #f4a261;
+  background-color: #f4a261;
+  color: #FFF;
 }
 
 .destroyer {
-  color: #e76f51;
+  background-color: #e76f51;
+  color: #FFF;
 }
