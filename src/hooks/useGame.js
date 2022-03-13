@@ -145,6 +145,10 @@ const useGame = () => {
       dispatch({ opponent, type: NEW_OPPONENT });
     });
 
+    socket.on("opponentShips", (ships) => {
+      console.log("opponentShips", ships)
+    })
+
     return () => {
       socket.off("connect");
       socket.off("opponent");
@@ -174,6 +178,9 @@ const useGame = () => {
           type: NEW_MESSAGE,
           message: `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`,
         });
+        break;
+      case 2:
+        socket.emit("ships", myShips);
         break;
       default:
     }

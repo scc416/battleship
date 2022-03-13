@@ -41,7 +41,12 @@ const clientsHelperFunctionGenerator = (clients, socket, io) => {
     addClient(opponent);
   };
 
-  return { addClient, removeClient, newGame };
+  const sendShips = (ships) => {
+    const opponentSocket = getSocketById(clients[socket.id]);
+    opponentSocket.emit("opponentShips", ships);
+  }
+
+  return { addClient, removeClient, newGame, sendShips };
 };
 
 module.exports = { clientsHelperFunctionGenerator };
