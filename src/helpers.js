@@ -11,6 +11,13 @@ export const checkIfSameCoordinate = (
   return sameRow && sameColumn;
 };
 
+export const lstIncludesCoordinate = (coordinates, checkedCoordinate) => {
+  for (const coordinate of coordinates) {
+    const coordinateFound = checkIfSameCoordinate(coordinate, checkedCoordinate);
+    if (coordinateFound) return true;
+  }
+}
+
 export const makeNewMessages = (messages, message) => {
   const newMsg = { message, time: getCurrentTime() };
   const newMessages = messages.concat([newMsg]);

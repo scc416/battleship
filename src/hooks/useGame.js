@@ -6,6 +6,7 @@ import {
   makeMsgForWrongTiles,
   validateShipTiles,
   makeMsgForSelectingTiles,
+  lstIncludesCoordinate,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -134,8 +135,11 @@ const useGame = () => {
     },
     [SHOT](state, { coordinate }) {
       const { myShipsShot } = state;
+      const alreadyShot = lstIncludesCoordinate(myShipsShot, coordinate);
+      if (alreadyShot) return state;
       const newMyShipsShot = myShipsShot.concat([coordinate]);
-      return { ...state, myShipsShot: newMyShipsShot };
+      console.log(coordinate);
+      return { ...state, myShipsShot: newMyShipsShot, gameState: 4 };
     },
   };
 
@@ -271,11 +275,7 @@ const useGame = () => {
     }
     return (coordinate) => {
       if (gameState === 3) {
-        const { row, column } = coordinate;
-        dispatch({
-          type: NEW_MESSAGE,
-          message: `SHOT! ${row} ${column}`,
-        });
+        dispatch({ type: SHOT, coordinate });
       }
     };
   };
