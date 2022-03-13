@@ -3,7 +3,14 @@ import CoordinateListItem from "./CoordinateListItem";
 import { checkIfSameCoordinate } from "../../../../helpers";
 import { ships } from "../../../../constants";
 
-const CoordinateList = ({ clickTile, row, placedShips, chosenTiles, shot }) => {
+const CoordinateList = ({
+  clickTile,
+  row,
+  placedShips,
+  chosenTiles,
+  shot,
+  myBoard,
+}) => {
   const lst = [];
 
   for (let i = 0; i < 10; i++) {
@@ -17,6 +24,7 @@ const CoordinateList = ({ clickTile, row, placedShips, chosenTiles, shot }) => {
     };
 
     const confirmedClassName = () => {
+      if (!myBoard) return;
       for (const index in placedShips) {
         const { coordinates } = placedShips[index];
         for (const occupiedCoordinate of coordinates) {
