@@ -7,17 +7,16 @@ import useGame from "./hooks/useGame";
 
 const App = () => {
   const {
-    newGame,
     showOpponentOverlay,
     showMyOverlay,
-    messages,
     myShips,
     opponentShips,
     showConfirmCancelButtons,
     clickTile,
     chosenTiles,
     clearTiles,
-    confirmTiles
+    confirmTiles,
+    logState
   } = useGame();
 
   return (
@@ -36,7 +35,7 @@ const App = () => {
           confirmTiles
         }}
       />
-      <LogList {...{ messages, newGame }} />
+      <LogList {...logState} />
     </>
   );
 };

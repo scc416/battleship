@@ -188,13 +188,14 @@ const useGame = () => {
     dispatch({ type: CONFIRM_TILES });
   };
 
+  const logState = { messages, newGame };
+
   return {
-    newGame,
+    logState,
     showOpponentOverlay,
     showMyOverlay,
     myShips,
     opponentShips,
-    messages,
     showConfirmCancelButtons,
     clearTiles,
     clickTile,
