@@ -6,35 +6,12 @@ import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const {
-    showOpponentOverlay,
-    showMyOverlay,
-    myShips,
-    opponentShips,
-    showConfirmCancelButtons,
-    clickTile,
-    chosenTiles,
-    clearTiles,
-    confirmTiles,
-    logState
-  } = useGame();
+  const { myBoardState, opponentState, logState } = useGame();
 
   return (
     <>
       <Heading />
-      <Display
-        {...{
-          myShips,
-          opponentShips,
-          showOpponentOverlay,
-          showMyOverlay,
-          showConfirmCancelButtons,
-          clickTile,
-          chosenTiles,
-          clearTiles,
-          confirmTiles
-        }}
-      />
+      <Display {...{ myBoardState, opponentState }} />
       <LogList {...logState} />
     </>
   );

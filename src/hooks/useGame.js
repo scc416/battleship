@@ -189,19 +189,39 @@ const useGame = () => {
   };
 
   const logState = { messages, newGame };
-
-  return {
-    logState,
-    showOpponentOverlay,
-    showMyOverlay,
-    myShips,
-    opponentShips,
+  const myBoardState = {
+    myBoard: true,
+    ships: myShips,
+    overlaySettings: showMyOverlay,
+    title: "Your Board",
     showConfirmCancelButtons,
     clearTiles,
     clickTile,
     chosenTiles,
     confirmTiles,
   };
+  const boardState = {
+    myShips,
+    opponentShips,
+    showOpponentOverlay,
+    showMyOverlay,
+    showConfirmCancelButtons,
+    clickTile,
+    chosenTiles,
+    clearTiles,
+    confirmTiles,
+  };
+
+  const opponentState = {
+    myBoard: false,
+    ships: opponentShips,
+    overlaySettings: showOpponentOverlay,
+    title: "Opponent's Board",
+    clickTile,
+    chosenTiles: [],
+  };
+
+  return { logState, myBoardState, opponentState };
 };
 
 export default useGame;
