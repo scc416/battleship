@@ -31,6 +31,7 @@ import {
   MSG_LOSE,
   MSG_WIN,
   MSG_OPPONENT_PLACING_SHIPS,
+  SHOT,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -130,6 +131,11 @@ const useGame = () => {
     },
     [OPPONENTS_TURN](state) {
       return { ...state, gameState: 4 };
+    },
+    [SHOT](state, { coordinate }) {
+      const { myShipsShot } = state;
+      const newMyShipsShot = myShipsShot.concat([coordinate]);
+      return { ...state, myShipsShot: newMyShipsShot };
     },
   };
 
