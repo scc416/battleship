@@ -22,6 +22,7 @@ import {
   CONFIRM_TILES,
   MSG_INVALID_TILES,
   COMPLETE_SELECTION,
+  SET_OPPONENT_SHIPS,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -114,6 +115,9 @@ const useGame = () => {
     [COMPLETE_SELECTION](state) {
       return { ...state, gameState: 2 };
     },
+    [SET_OPPONENT_SHIPS](state, { opponentShips }) {
+      return { ...state, opponentShips };
+    },
   };
 
   const reducer = (state, action) => {
@@ -145,9 +149,9 @@ const useGame = () => {
       dispatch({ opponent, type: NEW_OPPONENT });
     });
 
-    socket.on("opponentShips", (ships) => {
-      console.log("opponentShips", ships)
-    })
+    socket.on("opponentShips", (opponentShips) => {
+      dispatch({ type: SET_OPPONENT_SHIPS, opponentShips });
+    });
 
     return () => {
       socket.off("connect");
