@@ -101,11 +101,13 @@ const useGame = () => {
 
       const newShip = { name, coordinates: chosenTiles };
       const newMyShips = myShips.concat([newShip]);
-      const newShipTilesState = shipTilesState++;
+      const newShipTilesState = shipTilesState + 1;
+
       return {
         ...state,
         myShips: newMyShips,
         shipTilesState: newShipTilesState,
+        chosenTiles: [],
       };
     },
   };
