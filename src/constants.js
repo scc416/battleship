@@ -2,7 +2,8 @@ import { getCurrentTime } from "./helpers";
 
 export const NEW_OPPONENT = "NEW_OPPONENT";
 export const NEW_MESSAGE = "NEW_MESSAGE";
-export const RESET = "RESET";
+export const OPPONENT_LEFT = "OPPONENT_LEFT";
+export const NEW_GAME = "NEW_GAME";
 export const CLEAR_TILES = "CLEAR_TILES";
 export const SELECT_TILE = "SELECT_TILE";
 export const CONFIRM_TILES = "CONFIRM_TILES";

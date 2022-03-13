@@ -4,7 +4,8 @@ import { getCurrentTime, checkIfSameCoordinate } from "../helpers";
 import {
   NEW_OPPONENT,
   NEW_MESSAGE,
-  RESET,
+  NEW_GAME,
+  OPPONENT_LEFT,
   initialState,
   INITIAL_MSG_NO_OPPONENT,
   INITIAL_MSG_HAVE_OPPONENT,
@@ -35,8 +36,11 @@ const useGame = () => {
       const newMessages = messages.concat([newMsg]);
       return { ...state, haveSendInitialMsg: true, messages: newMessages };
     },
-    [RESET]() {
+    [NEW_GAME]() {
       return initialState();
+    },
+    [OPPONENT_LEFT]({ messages }) {
+      return { ...initialState(), messages };
     },
     [CLEAR_TILES](state) {
       return { ...state, chosenTiles: [] };
@@ -71,9 +75,9 @@ const useGame = () => {
       };
     },
     [CONFIRM_TILES](state) {
-      console.log("CONFIRM TILES")
+      console.log("CONFIRM TILES");
       return state;
-    }
+    },
   };
 
   const reducer = (state, action) => {
@@ -121,6 +125,7 @@ const useGame = () => {
 
       dispatch({ type: NEW_MESSAGE, message });
     }
+    if (!opponent) dispatch({ type: OPPONENT_LEFT });
   }, [opponent]);
 
   useEffect(() => {
@@ -139,7 +144,7 @@ const useGame = () => {
   useEffect(() => {}, [shipTilesState]);
 
   const newGame = () => {
-    dispatch({ type: RESET });
+    dispatch({ type: NEW_GAME });
     socket.emit("newGame");
   };
 
@@ -181,7 +186,7 @@ const useGame = () => {
     clearTiles,
     clickTile,
     chosenTiles,
-    confirmTiles
+    confirmTiles,
   };
 };
 
