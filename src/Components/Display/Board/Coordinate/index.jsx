@@ -2,7 +2,7 @@ import React from "react";
 import "./Coordinate.css";
 import CoordinateList from "./CoordinateList";
 
-const Coordinate = ({ ships, myBoard, clickTile, chosenTiles }) => {
+const Coordinate = ({ ships, myBoard, clickTile, chosenTiles, shot }) => {
   const lst = [];
   for (let i = 0; i < 10; i++) {
     lst.push(

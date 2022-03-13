@@ -8,10 +8,12 @@ const ShipList = ({
   showConfirmCancelButtons,
   clearTiles,
   confirmTiles,
+  shot,
 }) => {
   const lst = [];
-  for (const ship of ships) {
-    lst.push(<ShipListItem key={Math.random()} ship={ship} />);
+  for (const index in ships) {
+    const ship = ships[index];
+    lst.push(<ShipListItem {...{ ship, shot, key: index }} />);
   }
   return (
     <div className="ship-list">

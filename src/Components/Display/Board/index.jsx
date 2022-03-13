@@ -15,18 +15,19 @@ const Board = ({ state }) => {
     clickTile,
     chosenTiles,
     confirmTiles,
+    shot
   } = state;
 
   const coordinate = (
     <div className="board">
       <h3>{title}</h3>
-      <Coordinate {...{ ships, myBoard, clickTile, chosenTiles }} />
+      <Coordinate {...{ ships, myBoard, clickTile, chosenTiles, shot }} />
     </div>
   );
 
   const shipList = (
     <ShipList
-      {...{ ships, showConfirmCancelButtons, clearTiles, confirmTiles }}
+      {...{ ships, showConfirmCancelButtons, clearTiles, confirmTiles, shot }}
     />
   );
 

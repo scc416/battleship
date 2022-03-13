@@ -128,6 +128,8 @@ const useGame = () => {
     messages,
     shipTilesState,
     chosenTiles,
+    opponentShot,
+    iShot,
   } = state;
 
   useEffect(() => {
@@ -219,6 +221,7 @@ const useGame = () => {
     clickTile,
     chosenTiles,
     confirmTiles,
+    shot: opponentShot,
   };
 
   const opponentState = {
@@ -228,6 +231,7 @@ const useGame = () => {
     title: "Opponent's Board",
     clickTile,
     chosenTiles: [],
+    shot: iShot,
   };
 
   return { logState, myState, opponentState };
