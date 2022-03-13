@@ -2,12 +2,12 @@ import React from "react";
 import "./Coordinate.css";
 import CoordinateList from "./CoordinateList";
 
-const Coordinate = ({ placedShips, myBoard, clickTile, chosenTiles, shot }) => {
+const Coordinate = ({ placedShips, clickTile, chosenTiles, shot }) => {
   const lst = [];
   for (let i = 0; i < 10; i++) {
     lst.push(
       <CoordinateList
-        {...{ key: i, clickTile, row: i, placedShips, myBoard, chosenTiles }}
+        {...{ key: i, clickTile, row: i, placedShips, chosenTiles, shot }}
       />
     );
   }
