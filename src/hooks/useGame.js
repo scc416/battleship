@@ -230,13 +230,20 @@ const useGame = () => {
   };
 
   const showOpponentOverlay =
-    (gameState === 0 && "Waiting for opponents...") ||
-    (gameState === 4 && "Opponent's turn to attack");
+    gameState === 0
+      ? "Waiting for opponents..."
+      : gameState === 4
+      ? "Opponent's turn to attack"
+      : null;
 
   const showMyOverlay =
-    (gameState === 5 && "You Won!") ||
-    (gameState === 6 && "You Lose!") ||
-    (gameState === 3 && "Your turn to attack.");
+    gameState === 5
+      ? "You Won!"
+      : gameState === 6
+      ? "You Lose!"
+      : gameState === 3
+      ? "Your turn to attack."
+      : null;
 
   const showConfirmCancelButtons = gameState === 1;
 
