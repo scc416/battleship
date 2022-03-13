@@ -10,3 +10,9 @@ export const checkIfSameCoordinate = (
   const sameColumn = column1 === column2;
   return sameRow && sameColumn;
 };
+
+export const makeNewMessages = (messages, message) => {
+  const newMsg = { message, time: getCurrentTime() };
+  const newMessages = messages.concat([newMsg]);
+  return newMessages;
+};

@@ -1,6 +1,10 @@
 import io from "socket.io-client";
 import { useReducer, useEffect } from "react";
-import { getCurrentTime, checkIfSameCoordinate } from "../helpers";
+import {
+  getCurrentTime,
+  checkIfSameCoordinate,
+  makeNewMessages,
+} from "../helpers";
 import {
   NEW_OPPONENT,
   NEW_MESSAGE,
@@ -31,9 +35,8 @@ const useGame = () => {
       };
     },
     [NEW_MESSAGE](state, { message }) {
-      const newMsg = { message, time: getCurrentTime() };
       const { messages } = state;
-      const newMessages = messages.concat([newMsg]);
+      const newMessages = makeNewMessages(messages, message);
       return { ...state, haveSendInitialMsg: true, messages: newMessages };
     },
     [NEW_GAME]() {
@@ -75,7 +78,14 @@ const useGame = () => {
       };
     },
     [CONFIRM_TILES](state) {
-      console.log("CONFIRM TILES");
+      const { shipState, chosenTiles, messages } = state;
+      const { name, numOfTiles } = ships[shipState];
+      const numOfChosenTiles = chosenTiles.length;
+
+      const wrongNumOfTiles = numOfTiles !== numOfChosenTiles;
+      if (wrongNumOfTiles) {
+      }
+
       return state;
     },
   };
