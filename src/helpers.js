@@ -25,12 +25,18 @@ export const checkIfLstIncludesCoordinate = (
   }
 };
 
+export const checkIfSink = (coordinates, shot) => {
+  for (const coordinate of coordinates) {
+    const isHit = checkIfLstIncludesCoordinate(shot, coordinate);
+    if (!isHit) return;
+  }
+  return true;
+};
+
 export const isWinner = (ships, shot) => {
   for (const { coordinates } of ships) {
-    for (const coordinate of coordinates) {
-      const isHit = checkIfLstIncludesCoordinate(shot, coordinate);
-      if (!isHit) return;
-    }
+    const isSink = checkIfSink(coordinates, shot);
+    if (!isSink) return;
   }
   return true;
 };
