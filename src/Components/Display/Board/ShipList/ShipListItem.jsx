@@ -12,7 +12,7 @@ const ShipListItem = ({ ship: { name, coordinates }, shot }) => {
   }, true);
 
   const style = allDestroyed ? { textDecoration: "line-through" } : {};
-  return <div style={style}>{name}</div>;
+  return <div className="ship-name" style={style}><div className="label"></div>{name}</div>;
 };
 
 export default ShipListItem;

@@ -35,3 +35,17 @@
 .ship-list:first-child button {
   margin-right: 0.4em;
 }
+
+.ship-name {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  background-color: black;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.3em;
+}
