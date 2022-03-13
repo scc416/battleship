@@ -18,5 +18,5 @@ export const makeNewMessages = (messages, message) => {
 };
 
 export const makeMsgForWrongTiles = (name, numOfTiles) => {
-  return `Wrong number of tiles. ${name} has ${numOfTiles} tiles. Try again.`;
+  return `Wrong number of tiles. A ${name.toLowerCase()} has ${numOfTiles} tiles. Try again.`;
 };
