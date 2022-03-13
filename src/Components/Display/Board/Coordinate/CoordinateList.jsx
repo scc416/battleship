@@ -1,6 +1,9 @@
 import React from "react";
 import CoordinateListItem from "./CoordinateListItem";
-import { checkIfSameCoordinate } from "../../../../helpers";
+import {
+  checkIfSameCoordinate,
+  lstIncludesCoordinate,
+} from "../../../../helpers";
 import { ships, MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
 
 const CoordinateList = ({
@@ -24,15 +27,10 @@ const CoordinateList = ({
       if (myBoard) {
         for (const index in placedShips) {
           const { coordinates } = placedShips[index];
-          for (const occupiedCoordinate of coordinates) {
-            const occupied = checkIfSameCoordinate(
-              coordinate,
-              occupiedCoordinate
-            );
-            if (occupied) {
-              const { name } = ships[index];
-              return { type: CONFIRMED, shipName: name.toLowerCase() };
-            }
+          const isOccupied = lstIncludesCoordinate(coordinates, coordinate);
+          if (isOccupied) {
+            const { name } = ships[index];
+            return { type: CONFIRMED, shipName: name.toLowerCase() };
           }
         }
       }
