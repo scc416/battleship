@@ -65,31 +65,22 @@ const useGame = () => {
     [SELECT_TILE](state, { coordinate: selectedCoordinate }) {
       const { myShips, chosenTiles } = state;
       for (const { coordinates } of myShips) {
-        for (const coordinate of coordinates) {
-          const isOccupied = checkIfSameCoordinate(
-            selectedCoordinate,
-            coordinate
-          );
-          if (isOccupied) return state;
-        }
+        const isOccupied = lstIncludesCoordinate(
+          coordinates,
+          selectedCoordinate
+        );
+        if (isOccupied) return state;
       }
 
-      const tilesWithoutSelected = chosenTiles.filter(
-        (coordinate) => !checkIfSameCoordinate(coordinate, selectedCoordinate)
-      );
+      const isSelected = lstIncludesCoordinate(chosenTiles, selectedCoordinate);
+      const newChosenTiles = isSelected
+        ? chosenTiles.filter(
+            (coordinate) =>
+              !checkIfSameCoordinate(coordinate, selectedCoordinate)
+          )
+        : chosenTiles.concat([selectedCoordinate]);
 
-      const lengthOfNewArr = tilesWithoutSelected.length;
-      const lengthOfOldArr = chosenTiles.length;
-
-      const newChosenTiles =
-        lengthOfNewArr === lengthOfOldArr
-          ? chosenTiles.concat([selectedCoordinate])
-          : tilesWithoutSelected;
-
-      return {
-        ...state,
-        chosenTiles: newChosenTiles,
-      };
+      return { ...state, chosenTiles: newChosenTiles };
     },
     [CONFIRM_TILES](state) {
       const { shipTilesState, chosenTiles, messages, myShips } = state;
