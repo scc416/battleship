@@ -200,7 +200,7 @@ const useGame = () => {
         const { numOfTiles, name } = ships[0];
         dispatch({
           type: NEW_MESSAGE,
-          message: `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`,
+          message: makeMsgForSelectingTiles(name, numOfTiles),
         });
         break;
       case 2:
@@ -213,6 +213,7 @@ const useGame = () => {
         break;
       case 4:
         dispatch({ type: NEW_MESSAGE, message: MSG_DEFEND });
+        break;
       default:
     }
   }, [gameState]);
