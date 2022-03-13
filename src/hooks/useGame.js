@@ -205,7 +205,8 @@ const useGame = () => {
         break;
       case 2:
         socket.emit("ships", myShips);
-        if (opponentShips) dispatch({ type: OPPONENTS_TURN });
+        if (opponentShips) return dispatch({ type: OPPONENTS_TURN });
+        dispatch({ type: NEW_MESSAGE, message: MSG_OPPONENT_PLACING_SHIPS });
         break;
       case 3:
         dispatch({ type: NEW_MESSAGE, message: MSG_ATTACK });
