@@ -44,7 +44,7 @@ const CoordinateList = ({
           selected: selected(),
           confirmedClassName: confirmedClassName(),
           key: i,
-          clickHandler: () => clickTile(coordinate, myBoard),
+          clickHandler: () => clickTile(coordinate),
         }}
       />
     );

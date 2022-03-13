@@ -211,16 +211,15 @@ const useGame = () => {
     dispatch({ type: CLEAR_TILES });
   };
 
-  const clickTile = (coordinate, myBoard) => {
-    switch (myBoard) {
-      case true:
+  const clickTile = (myBoard) => {
+    if (myBoard) {
+      return (coordinate) => {
         if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
-        break;
-      case false:
-        if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
-        break;
-      default:
+      };
     }
+    return (coordinate) => {
+      if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
+    };
   };
 
   const confirmTiles = () => {
@@ -236,18 +235,17 @@ const useGame = () => {
     title: "Your Board",
     showConfirmCancelButtons,
     clearTiles,
-    clickTile,
+    clickTile: clickTile(true),
     chosenTiles,
     confirmTiles,
     shot: opponentShot,
   };
 
   const opponentState = {
-    myBoard: false,
     placedShips: opponentShips,
     overlaySettings: showOpponentOverlay,
     title: "Opponent's Board",
-    clickTile,
+    clickTile: clickTile(),
     chosenTiles: [],
     shot: iShot,
   };
