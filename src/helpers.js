@@ -52,8 +52,8 @@ export const makeMsgForSelectingTiles = (name, numOfTiles) => {
 
 export const makeShotMsg = (isMe, isHit) => {
   const subject = isMe ? "You" : "Opponent";
-  const result = isHit? "HIT" : "MISSED";
-  return `${subject} just shot: ${result}.`;
+  const result = isHit? "HIT!" : "MISSED.";
+  return `${subject} just shot: ${result}`;
 }
 
 export const validateShipTiles = (chosenTiles, var1, var2) => {
