@@ -20,6 +20,7 @@ import {
   CLEAR_TILES,
   SELECT_TILE,
   CONFIRM_TILES,
+  MSG_INVALID_TILES,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -94,10 +95,10 @@ const useGame = () => {
       const sameColumn = validateShipTiles(chosenTiles, "column", "row");
 
       if (!sameRow && !sameColumn) {
-        const newMessages = makeNewMessages(messages, "All tiles has to be connected (Either horizontally or vertically).");
+        const newMessages = makeNewMessages(messages, MSG_INVALID_TILES);
         return { ...state, messages: newMessages };
       }
-      
+
       return state;
     },
   };
