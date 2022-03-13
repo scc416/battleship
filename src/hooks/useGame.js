@@ -28,6 +28,8 @@ import {
   MSG_ATTACK,
   MSG_DEFEND,
   MSG_WAITING_FOR_PLAYER,
+  MSG_LOSE,
+  MSG_WIN
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -239,9 +241,9 @@ const useGame = () => {
 
   const showMyOverlay =
     gameState === 5
-      ? "You Won!"
+      ? MSG_WIN
       : gameState === 6
-      ? "You Lose!"
+      ? MSG_LOSE
       : gameState === 3
       ? MSG_ATTACK
       : null;

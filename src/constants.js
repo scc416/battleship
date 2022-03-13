@@ -24,6 +24,8 @@ export const MSG_INVALID_TILES =
 export const MSG_ATTACK = "Your turn to attack.";
 export const MSG_DEFEND = "Opponent's turn to attack.";
 export const MSG_WAITING_FOR_PLAYER = "Waiting for player to join...";
+export const MSG_WIN = "You Won!";
+export const MSG_LOSE = "You Lose.";
 
 export const ships = [
   { name: "Carrier", numOfTiles: 5 },
