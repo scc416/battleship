@@ -18,7 +18,6 @@ export const MISSED = "MISSED";
 export const SELECTED = "SELECTED";
 export const CONFIRMED = "CONFIRMED";
 export const HIT = "HIT";
-export const SINK = "SINK";
 
 export const INITIAL_MSG_NO_OPPONENT =
   "There is no player in the room. Waiting for another player...";

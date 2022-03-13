@@ -1,5 +1,4 @@
 import moment from "moment";
-import { MISSED } from "./constants";
 
 export const getCurrentTime = () => moment().format("LTS");
 
@@ -51,6 +50,14 @@ export const whichShipCoordinateIsBelong = (ships, checkCoordinate) => {
     if (isOccupied) return name.toLowerCase();
   }
 };
+
+export const findShipCoordinates = (ships, shipName) => {
+  for (const {name, coordinates} of ships) {
+    const formattedName = name.toLowerCase();
+    const found = formattedName === shipName;
+    if (found) return coordinates;
+  }
+}
 
 export const makeNewMessages = (messages, message) => {
   const newMsg = { message, time: getCurrentTime() };

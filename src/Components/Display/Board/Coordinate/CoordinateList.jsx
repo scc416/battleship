@@ -4,8 +4,10 @@ import {
   checkIfSameCoordinate,
   checkIfLstIncludesCoordinate,
   whichShipCoordinateIsBelong,
+  findShipCoordinates,
+  checkIfSink,
 } from "../../../../helpers";
-import { SINK, MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
+import { MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
 
 const CoordinateList = ({
   clickTile,
@@ -25,7 +27,10 @@ const CoordinateList = ({
       if (isShot) {
         const shipName = whichShipCoordinateIsBelong(placedShips, coordinate);
         if (shipName) {
-          return { type: HIT, shipName: shipName && myBoard };
+          const coordinates = findShipCoordinates(placedShips, shipName);
+          const isSink = checkIfSink(coordinates, shot);
+          if (isSink) return { type: HIT, shipName };
+          return { type: HIT, shipName: myBoard && shipName };
         }
         return { type: MISSED };
       }
