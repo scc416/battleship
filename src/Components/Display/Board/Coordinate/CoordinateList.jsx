@@ -18,7 +18,13 @@ const CoordinateList = ({
 
   for (let i = 0; i < 10; i++) {
     const coordinate = { row, column: i };
+
     const state = () => {
+      const isShot = lstIncludesCoordinate(shot, coordinate);
+      if (isShot) {
+        return { type: MISSED };
+      }
+
       for (const selectCoordinate of chosenTiles) {
         const selected = checkIfSameCoordinate(selectCoordinate, coordinate);
         if (selected) return { type: SELECTED };

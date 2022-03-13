@@ -125,12 +125,15 @@ const useGame = () => {
       return { ...state, gameState: 4 };
     },
     [SHOT](state, { coordinate }) {
-      const { myShipsShot } = state;
-      const alreadyShot = lstIncludesCoordinate(myShipsShot, coordinate);
+      const { opponentShipsShot } = state;
+      const alreadyShot = lstIncludesCoordinate(opponentShipsShot, coordinate);
       if (alreadyShot) return state;
-      const newMyShipsShot = myShipsShot.concat([coordinate]);
-      console.log(coordinate);
-      return { ...state, myShipsShot: newMyShipsShot, gameState: 4 };
+      const newopponentShipsShot = opponentShipsShot.concat([coordinate]);
+      return {
+        ...state,
+        opponentShipsShot: newopponentShipsShot,
+        gameState: 4,
+      };
     },
   };
 
