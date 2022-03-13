@@ -3,7 +3,13 @@ import CoordinateListItem from "./CoordinateListItem";
 import { checkIfSameCoordinate } from "../../../../helpers";
 import { ships } from "../../../../constants";
 
-const CoordinateList = ({ clickTile, row, placedShips, myBoard, chosenTiles }) => {
+const CoordinateList = ({
+  clickTile,
+  row,
+  placedShips,
+  myBoard,
+  chosenTiles,
+}) => {
   const lst = [];
 
   for (let i = 0; i < 10; i++) {
@@ -16,14 +22,27 @@ const CoordinateList = ({ clickTile, row, placedShips, myBoard, chosenTiles }) =
       }
     };
 
-    const confirmedColour = () => {
-      
-    }
+    const confirmedClassName = () => {
+      for (const index in placedShips) {
+        const { coordinates } = placedShips[index];
+        for (const occupiedCoordinate of coordinates) {
+          const occupied = checkIfSameCoordinate(
+            coordinate,
+            occupiedCoordinate
+          );
+          if (occupied) {
+            const { name } = ships[index];
+            return name.toLowerCase();
+          }
+        }
+      }
+    };
 
     lst.push(
       <CoordinateListItem
         {...{
           selected: selected(),
+          confirmedClassName: confirmedClassName(),
           key: i,
           clickHandler: () => clickTile(coordinate, myBoard),
         }}

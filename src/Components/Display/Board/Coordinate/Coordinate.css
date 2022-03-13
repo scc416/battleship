@@ -23,3 +23,23 @@
 .row {
   display: flex;
 }
+
+.carrier {
+  color: #264653;
+}
+
+.battleship {
+  color: #2a9d8f;
+}
+
+.cruiser {
+  color: #e9c46a;
+}
+
+.submarine {
+  color: #f4a261;
+}
+
+.destroyer {
+  color: #e76f51;
+}
