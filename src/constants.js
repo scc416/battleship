@@ -12,6 +12,11 @@ export const SET_OPPONENT_SHIPS = "SET_OPPONENT_SHIPS";
 export const OPPONENTS_TURN = "OPPONENTS_TURN";
 export const SHOT = "SHOT";
 
+export const MISSED = "MISSED";
+export const SELECTED = "SELECTED";
+export const CONFIRMED = "CONFIRMED";
+export const HIT = "HIT";
+
 export const INITIAL_MSG_NO_OPPONENT =
   "There is no player in the room. Waiting for another player...";
 export const INITIAL_MSG_HAVE_OPPONENT =

@@ -1,7 +1,7 @@
 import React from "react";
 import CoordinateListItem from "./CoordinateListItem";
 import { checkIfSameCoordinate } from "../../../../helpers";
-import { ships } from "../../../../constants";
+import { ships, MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
 
 const CoordinateList = ({
   clickTile,
@@ -15,36 +15,39 @@ const CoordinateList = ({
 
   for (let i = 0; i < 10; i++) {
     const coordinate = { row, column: i };
-
-    const selected = () => {
+    const state = () => {
       for (const selectCoordinate of chosenTiles) {
         const selected = checkIfSameCoordinate(selectCoordinate, coordinate);
-        if (selected) return true;
+        if (selected) return { type: SELECTED };
       }
-    };
 
-    const confirmedClassName = () => {
-      if (!myBoard) return;
-      for (const index in placedShips) {
-        const { coordinates } = placedShips[index];
-        for (const occupiedCoordinate of coordinates) {
-          const occupied = checkIfSameCoordinate(
-            coordinate,
-            occupiedCoordinate
-          );
-          if (occupied) {
-            const { name } = ships[index];
-            return name.toLowerCase();
+      if (myBoard) {
+        for (const index in placedShips) {
+          const { coordinates } = placedShips[index];
+          for (const occupiedCoordinate of coordinates) {
+            const occupied = checkIfSameCoordinate(
+              coordinate,
+              occupiedCoordinate
+            );
+            if (occupied) {
+              const { name } = ships[index];
+              return { type: CONFIRMED, shipName: name.toLowerCase() };
+            }
           }
         }
       }
+
+      return { type: null };
     };
+
+    // const confirmedClassName = () => {
+
+    // };
 
     lst.push(
       <CoordinateListItem
         {...{
-          selected: selected(),
-          confirmedClassName: confirmedClassName(),
+          state: state(),
           key: i,
           clickHandler: () => clickTile(coordinate),
         }}
