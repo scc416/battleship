@@ -231,9 +231,11 @@ const useGame = () => {
 
   const showOpponentOverlay =
     gameState === 0
-      ? "Waiting for opponents..."
+      ? "Waiting for player to join..."
       : gameState === 4
       ? "Opponent's turn to attack"
+      : gameState === 2
+      ? "Waiting for opponent to finish selection..."
       : null;
 
   const showMyOverlay =
@@ -257,7 +259,7 @@ const useGame = () => {
         if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
       };
     }
-    return (coordinate) => {
+    return () => {
       if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT!" });
     };
   };
