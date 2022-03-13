@@ -7,6 +7,8 @@ import {
   validateShipTiles,
   makeMsgForSelectingTiles,
   checkIfLstIncludesCoordinate,
+  whichShipCoordinateIsBelong,
+  makeShotMsg,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -72,7 +74,10 @@ const useGame = () => {
         if (isOccupied) return state;
       }
 
-      const isSelected = checkIfLstIncludesCoordinate(chosenTiles, selectedCoordinate);
+      const isSelected = checkIfLstIncludesCoordinate(
+        chosenTiles,
+        selectedCoordinate
+      );
       const newChosenTiles = isSelected
         ? chosenTiles.filter(
             (coordinate) =>
@@ -125,14 +130,22 @@ const useGame = () => {
       return { ...state, gameState: 4 };
     },
     [SHOT](state, { coordinate }) {
-      const { opponentShipsShot } = state;
-      const alreadyShot = checkIfLstIncludesCoordinate(opponentShipsShot, coordinate);
+      const { opponentShipsShot, opponentShips } = state;
+      const alreadyShot = checkIfLstIncludesCoordinate(
+        opponentShipsShot,
+        coordinate
+      );
       if (alreadyShot) return state;
       const newopponentShipsShot = opponentShipsShot.concat([coordinate]);
+      const isHit = whichShipCoordinateIsBelong(opponentShips, coordinate);
+      const { messages } = state;
+      const newMsg = makeShotMsg(true, isHit);
+      const newMessages = makeNewMessages(messages, newMsg);
       return {
         ...state,
         opponentShipsShot: newopponentShipsShot,
         gameState: 4,
+        messages: newMessages,
       };
     },
   };

@@ -1,4 +1,5 @@
 import moment from "moment";
+import { MISSED } from "./constants";
 
 export const getCurrentTime = () => moment().format("LTS");
 
@@ -48,6 +49,12 @@ export const makeMsgForWrongTiles = (name, numOfTiles) => {
 export const makeMsgForSelectingTiles = (name, numOfTiles) => {
   return `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`;
 };
+
+export const makeShotMsg = (isMe, isHit) => {
+  const subject = isMe ? "You" : "Opponent";
+  const result = isHit? "HIT" : "MISSED";
+  return `${subject} just shot: ${result}.`;
+}
 
 export const validateShipTiles = (chosenTiles, var1, var2) => {
   const lst = [];
