@@ -16,6 +16,7 @@ const App = () => {
     showConfirmCancelButtons,
     clickTile,
     chosenTiles,
+    clearTiles
   } = useGame();
 
   return (
@@ -30,6 +31,7 @@ const App = () => {
           showConfirmCancelButtons,
           clickTile,
           chosenTiles,
+          clearTiles
         }}
       />
       <LogList {...{ messages, newGame }} />
