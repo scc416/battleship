@@ -12,7 +12,8 @@ const Board = ({
   showConfirmCancelButtons,
   clearTiles,
   clickTile,
-  chosenTiles
+  chosenTiles,
+  confirmTiles
 }) => {
 
   const coordinate = (
@@ -23,7 +24,7 @@ const Board = ({
   );
 
   const shipList = (
-    <ShipList {...{ ships, showConfirmCancelButtons, clearTiles }} />
+    <ShipList {...{ ships, showConfirmCancelButtons, clearTiles, confirmTiles }} />
   );
 
   const board = myBoard ? (

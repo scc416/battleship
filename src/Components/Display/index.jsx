@@ -11,6 +11,7 @@ const Display = ({
   clearTiles,
   clickTile,
   chosenTiles,
+  confirmTiles
 }) => {
   return (
     <div className="display">
@@ -24,6 +25,7 @@ const Display = ({
           clearTiles,
           clickTile,
           chosenTiles,
+          confirmTiles
         }}
       />
 

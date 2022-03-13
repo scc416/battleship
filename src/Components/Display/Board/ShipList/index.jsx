@@ -2,7 +2,7 @@ import React from "react";
 import "./ShipList.css";
 import ShipListItem from "./ShipListItem";
 
-const ShipList = ({ ships, showConfirmCancelButtons, clearTiles }) => {
+const ShipList = ({ ships, showConfirmCancelButtons, clearTiles, confirmTiles }) => {
   const lst = [];
   for (const ship of ships) {
     lst.push(<ShipListItem key={Math.random()} ship={ship} />);
@@ -12,7 +12,7 @@ const ShipList = ({ ships, showConfirmCancelButtons, clearTiles }) => {
       <div>{lst}</div>
       {showConfirmCancelButtons && (
         <div>
-          <button onClick={() => console.log("HHH")}>Confirm</button>
+          <button onClick={confirmTiles}>Confirm</button>
           <button onClick={clearTiles}>Clear</button>
         </div>
       )}

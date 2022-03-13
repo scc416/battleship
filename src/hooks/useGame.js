@@ -13,6 +13,7 @@ import {
   ships,
   CLEAR_TILES,
   SELECT_TILE,
+  CONFIRM_TILES,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -69,6 +70,10 @@ const useGame = () => {
         chosenTiles: newChosenTiles,
       };
     },
+    [CONFIRM_TILES](state) {
+      console.log("CONFIRM TILES")
+      return state;
+    }
   };
 
   const reducer = (state, action) => {
@@ -161,6 +166,10 @@ const useGame = () => {
     }
   };
 
+  const confirmTiles = () => {
+    dispatch({ type: CONFIRM_TILES });
+  };
+
   return {
     newGame,
     showOpponentOverlay,
@@ -172,6 +181,7 @@ const useGame = () => {
     clearTiles,
     clickTile,
     chosenTiles,
+    confirmTiles
   };
 };
 

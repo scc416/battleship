@@ -5,6 +5,7 @@ export const NEW_MESSAGE = "NEW_MESSAGE";
 export const RESET = "RESET";
 export const CLEAR_TILES = "CLEAR_TILES";
 export const SELECT_TILE = "SELECT_TILE";
+export const CONFIRM_TILES = "CONFIRM_TILES";
 
 export const INITIAL_MSG_NO_OPPONENT =
   "There is no player in the room. Waiting for another player...";
