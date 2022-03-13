@@ -41,7 +41,6 @@ const useGame = () => {
       return { ...state, chosenTiles: [] };
     },
     [SELECT_TILE](state, { coordinate: selectCoordinate }) {
-      console.log("LINE 44")
       const { myShips, chosenTiles } = state;
       for (const { coordinates } of myShips) {
         for (const coordinate of coordinates) {
@@ -63,7 +62,6 @@ const useGame = () => {
           return { ...state, chosenTiles: newchosenTiles };
         }
       }
-      console.log("LINE 66")
 
       return { ...state, chosenTiles: chosenTiles.concat([selectCoordinate]) };
     },
