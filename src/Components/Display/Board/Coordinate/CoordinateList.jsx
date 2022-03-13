@@ -17,8 +17,8 @@ const CoordinateList = ({
     const coordinate = { row, column: i };
 
     const selected = () => {
-      for (const selectCoordinated of chosenTiles) {
-        const selected = checkIfSameCoordinate(selectCoordinated, coordinate);
+      for (const selectCoordinate of chosenTiles) {
+        const selected = checkIfSameCoordinate(selectCoordinate, coordinate);
         if (selected) return true;
       }
     };
