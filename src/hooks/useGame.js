@@ -30,6 +30,7 @@ import {
   MSG_WAITING_FOR_PLAYER,
   MSG_LOSE,
   MSG_WIN,
+  MSG_OPPONENT_PLACING_SHIPS,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -236,7 +237,7 @@ const useGame = () => {
       : gameState === 4
       ? MSG_DEFEND
       : gameState === 2
-      ? "Waiting for opponent to finish selection..."
+      ? MSG_OPPONENT_PLACING_SHIPS
       : null;
 
   const showMyOverlay =

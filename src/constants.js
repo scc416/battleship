@@ -26,6 +26,7 @@ export const MSG_DEFEND = "Opponent's turn to attack.";
 export const MSG_WAITING_FOR_PLAYER = "Waiting for player to join...";
 export const MSG_WIN = "You Won!";
 export const MSG_LOSE = "You Lose.";
+export const MSG_OPPONENT_PLACING_SHIPS = "Opponent is placing ships...";
 
 export const ships = [
   { name: "Carrier", numOfTiles: 5 },
@@ -42,10 +43,6 @@ export const initialState = () => {
     messages: [{ time: getCurrentTime(), message: "Welcome to Battleship!" }],
     myShips: [
       // { name: "Carrier", coordinates: [{row: 0, column: 0}] },
-      // { name: "Battleship", coordinates: [] },
-      // { name: "Cruiser", coordinates: [] },
-      // { name: "Submarine", coordinates: [] },
-      // { name: "Destroyer", coordinates: [] },
     ],
     iShot: [],
     opponentShips: null,
