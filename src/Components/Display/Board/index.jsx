@@ -4,17 +4,18 @@ import ShipList from "./ShipList";
 import Overlay from "./Overlay";
 import "./Board.css";
 
-const Board = ({
-  myBoard,
-  ships,
-  overlaySettings,
-  title,
-  showConfirmCancelButtons,
-  clearTiles,
-  clickTile,
-  chosenTiles,
-  confirmTiles
-}) => {
+const Board = ({ state }) => {
+  const {
+    myBoard,
+    ships,
+    overlaySettings,
+    title,
+    showConfirmCancelButtons,
+    clearTiles,
+    clickTile,
+    chosenTiles,
+    confirmTiles,
+  } = state;
 
   const coordinate = (
     <div className="board">
@@ -24,7 +25,9 @@ const Board = ({
   );
 
   const shipList = (
-    <ShipList {...{ ships, showConfirmCancelButtons, clearTiles, confirmTiles }} />
+    <ShipList
+      {...{ ships, showConfirmCancelButtons, clearTiles, confirmTiles }}
+    />
   );
 
   const board = myBoard ? (

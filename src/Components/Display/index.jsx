@@ -2,11 +2,11 @@ import React from "react";
 import Board from "./Board/";
 import "./Display.css";
 
-const Display = ({ myBoardState, opponentState }) => {
+const Display = ({ myState, opponentState }) => {
   return (
     <div className="display">
-      <Board {...myBoardState} />
-      <Board {...opponentState} />
+      <Board state={myState} />
+      <Board state={opponentState} />
     </div>
   );
 };

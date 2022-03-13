@@ -6,12 +6,12 @@ import Heading from "./Components/Heading";
 import useGame from "./hooks/useGame";
 
 const App = () => {
-  const { myBoardState, opponentState, logState } = useGame();
+  const { myState, opponentState, logState } = useGame();
 
   return (
     <>
       <Heading />
-      <Display {...{ myBoardState, opponentState }} />
+      <Display {...{ myState, opponentState }} />
       <LogList {...logState} />
     </>
   );

@@ -7,7 +7,7 @@ const CoordinateList = ({ clickTile, row, ships, myBoard, chosenTiles }) => {
 
   for (let i = 0; i < 10; i++) {
     const coordinate = { row, column: i };
-    
+
     const selected = () => {
       for (const selectCoordinated of chosenTiles) {
         const selected = checkIfSameCoordinate(selectCoordinated, coordinate);
