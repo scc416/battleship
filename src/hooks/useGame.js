@@ -125,6 +125,7 @@ const useGame = () => {
           message: `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`,
         });
         break;
+      default:
     }
   }, [gameState]);
 
@@ -154,6 +155,7 @@ const useGame = () => {
       case false:
         if (gameState === 3) dispatch({ type: NEW_MESSAGE, message: "SHOOT" });
         break;
+      default:
     }
   };
 
