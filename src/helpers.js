@@ -21,6 +21,10 @@ export const makeMsgForWrongTiles = (name, numOfTiles) => {
   return `Wrong number of tiles. A ${name.toLowerCase()} has ${numOfTiles} tiles. Try again.`;
 };
 
+export const makeMsgForSelectingTiles = (name, numOfTiles) => {
+  return `Wrong number of tiles. A ${name.toLowerCase()} has ${numOfTiles} tiles. Try again.`;
+};
+
 export const validateShipTiles = (chosenTiles, var1, var2) => {
   const lst = [];
   const { [var1]: num } = chosenTiles[0];

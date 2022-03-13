@@ -5,6 +5,7 @@ import {
   makeNewMessages,
   makeMsgForWrongTiles,
   validateShipTiles,
+  makeMsgForSelectingTiles,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -219,7 +220,7 @@ const useGame = () => {
         const { numOfTiles, name } = ships[shipTilesState];
         dispatch({
           type: NEW_MESSAGE,
-          message: `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`,
+          message: makeMsgForSelectingTiles(name, numOfTiles),
         });
     }
   }, [shipTilesState]);
