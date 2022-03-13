@@ -18,6 +18,7 @@ export const MISSED = "MISSED";
 export const SELECTED = "SELECTED";
 export const CONFIRMED = "CONFIRMED";
 export const HIT = "HIT";
+export const SINK = "SINK";
 
 export const INITIAL_MSG_NO_OPPONENT =
   "There is no player in the room. Waiting for another player...";
@@ -49,9 +50,7 @@ export const initialState = () => {
     gameState: 0,
     shipTilesState: 0,
     messages: [{ time: getCurrentTime(), message: "Welcome to Battleship!" }],
-    myShips: [
-      // { name: "Carrier", coordinates: [{row: 0, column: 0}] },
-    ],
+    myShips: [],
     myShipsShot: [],
     opponentShips: null,
     chosenTiles: [],

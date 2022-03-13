@@ -5,7 +5,7 @@ import {
   checkIfLstIncludesCoordinate,
   whichShipCoordinateIsBelong,
 } from "../../../../helpers";
-import { ships, MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
+import { SINK, MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
 
 const CoordinateList = ({
   clickTile,
@@ -23,7 +23,7 @@ const CoordinateList = ({
     const state = () => {
       const isShot = checkIfLstIncludesCoordinate(shot, coordinate);
       if (isShot) {
-        const shipName = whichShipCoordinateIsBelong(placedShips, coordinate)
+        const shipName = whichShipCoordinateIsBelong(placedShips, coordinate);
         if (shipName) {
           return { type: HIT, shipName: shipName && myBoard };
         }
