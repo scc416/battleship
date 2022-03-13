@@ -40,10 +40,6 @@ const CoordinateList = ({
       return { type: null };
     };
 
-    // const confirmedClassName = () => {
-
-    // };
-
     lst.push(
       <CoordinateListItem
         {...{
