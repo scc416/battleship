@@ -21,6 +21,7 @@ import {
   SELECT_TILE,
   CONFIRM_TILES,
   MSG_INVALID_TILES,
+  COMPLETE_SELECTION,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -110,6 +111,9 @@ const useGame = () => {
         chosenTiles: [],
       };
     },
+    [COMPLETE_SELECTION](state) {
+      return { ...state, gameState: 2 };
+    },
   };
 
   const reducer = (state, action) => {
@@ -175,7 +179,21 @@ const useGame = () => {
     }
   }, [gameState]);
 
-  useEffect(() => {}, [shipTilesState]);
+  useEffect(() => {
+    switch (shipTilesState) {
+      case 0:
+        break;
+      case ships.length:
+        dispatch({ type: COMPLETE_SELECTION });
+        break;
+      default:
+        const { numOfTiles, name } = ships[shipTilesState];
+        dispatch({
+          type: NEW_MESSAGE,
+          message: `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`,
+        });
+    }
+  }, [shipTilesState]);
 
   const newGame = () => {
     dispatch({ type: NEW_GAME });
