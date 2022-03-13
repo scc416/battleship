@@ -20,13 +20,13 @@ export const MSG_NO_OPPONENT =
 
 export const MSG_INVALID_TILES =
   "All tiles has to be connected (Either horizontally or vertically).";
-  
+
 export const ships = [
-  { name: "Carrier", numOfTiles: 5 },
-  { name: "Battleship", numOfTiles: 4 },
-  { name: "Cruiser", numOfTiles: 3 },
-  { name: "Submarine", numOfTiles: 3 },
-  { name: "Destroyer", numOfTiles: 2 },
+  { name: "Carrier", numOfTiles: 5, colour: "#264653" },
+  { name: "Battleship", numOfTiles: 4, colour: "#2a9d8f" },
+  { name: "Cruiser", numOfTiles: 3, colour: "#e9c46a" },
+  { name: "Submarine", numOfTiles: 3, colour: "#f4a261" },
+  { name: "Destroyer", numOfTiles: 2, colour: "#e76f51" },
 ];
 
 export const initialState = () => {

@@ -1,8 +1,9 @@
 import React from "react";
 import CoordinateListItem from "./CoordinateListItem";
 import { checkIfSameCoordinate } from "../../../../helpers";
+import { ships } from "../../../../constants";
 
-const CoordinateList = ({ clickTile, row, ships, myBoard, chosenTiles }) => {
+const CoordinateList = ({ clickTile, row, placedShips, myBoard, chosenTiles }) => {
   const lst = [];
 
   for (let i = 0; i < 10; i++) {
@@ -14,6 +15,10 @@ const CoordinateList = ({ clickTile, row, ships, myBoard, chosenTiles }) => {
         if (selected) return true;
       }
     };
+
+    const confirmedColour = () => {
+      
+    }
 
     lst.push(
       <CoordinateListItem

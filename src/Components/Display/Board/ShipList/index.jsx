@@ -4,15 +4,15 @@ import ShipListItem from "./ShipListItem";
 import TileButtons from "./TileButtons";
 
 const ShipList = ({
-  ships,
+  placedShips,
   showConfirmCancelButtons,
   clearTiles,
   confirmTiles,
   shot,
 }) => {
   const lst = [];
-  for (const index in ships) {
-    const ship = ships[index];
+  for (const index in placedShips) {
+    const ship = placedShips[index];
     lst.push(<ShipListItem {...{ ship, shot, key: index }} />);
   }
   return (

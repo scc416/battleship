@@ -7,7 +7,7 @@ import "./Board.css";
 const Board = ({ state }) => {
   const {
     myBoard,
-    ships,
+    placedShips,
     overlaySettings,
     title,
     showConfirmCancelButtons,
@@ -21,13 +21,13 @@ const Board = ({ state }) => {
   const coordinate = (
     <div className="board">
       <h3>{title}</h3>
-      <Coordinate {...{ ships, myBoard, clickTile, chosenTiles, shot }} />
+      <Coordinate {...{ placedShips, myBoard, clickTile, chosenTiles, shot }} />
     </div>
   );
 
   const shipList = (
     <ShipList
-      {...{ ships, showConfirmCancelButtons, clearTiles, confirmTiles, shot }}
+      {...{ placedShips, showConfirmCancelButtons, clearTiles, confirmTiles, shot }}
     />
   );
 

@@ -231,7 +231,7 @@ const useGame = () => {
 
   const myState = {
     myBoard: true,
-    ships: myShips,
+    placedShips: myShips,
     overlaySettings: showMyOverlay,
     title: "Your Board",
     showConfirmCancelButtons,
@@ -244,7 +244,7 @@ const useGame = () => {
 
   const opponentState = {
     myBoard: false,
-    ships: opponentShips,
+    placedShips: opponentShips,
     overlaySettings: showOpponentOverlay,
     title: "Opponent's Board",
     clickTile,
