@@ -27,12 +27,12 @@
 
 .ship-list button {
   background-color: #000;
-  color: #FFF;
+  color: #fff;
   padding: 0.5em;
   border-radius: 10%;
 }
 
-.ship-list:first-child button {
+.ship-list button:first-child {
   margin-right: 0.4em;
 }
 
@@ -44,8 +44,27 @@
 }
 
 .label {
-  background-color: black;
   width: 1em;
   height: 1em;
   margin-right: 0.3em;
+}
+
+.label:first-child {
+  background-color: #264653;
+}
+
+.ship-name:nth-child(2) .label {
+  background-color: #2a9d8f;
+}
+
+.ship-name:nth-child(3) .label {
+  background-color: #e9c46a;
+}
+
+.ship-name:nth-child(4) .label {
+  background-color: #f4a261;
+}
+
+.ship-name:nth-child(5) .label {
+  background-color: #e76f51;
 }
