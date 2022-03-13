@@ -80,7 +80,7 @@ const useGame = () => {
       };
     },
     [CONFIRM_TILES](state) {
-      const { shipTilesState, chosenTiles, messages } = state;
+      const { shipTilesState, chosenTiles, messages, myShips } = state;
       const { name, numOfTiles } = ships[shipTilesState];
       const numOfChosenTiles = chosenTiles.length;
 
@@ -99,7 +99,14 @@ const useGame = () => {
         return { ...state, messages: newMessages };
       }
 
-      return state;
+      const newShip = { name, coordinates: chosenTiles };
+      const newMyShips = myShips.concat([newShip]);
+      const newShipTilesState = shipTilesState++;
+      return {
+        ...state,
+        myShips: newMyShips,
+        shipTilesState: newShipTilesState,
+      };
     },
   };
 
