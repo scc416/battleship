@@ -20,3 +20,18 @@ export const makeNewMessages = (messages, message) => {
 export const makeMsgForWrongTiles = (name, numOfTiles) => {
   return `Wrong number of tiles. A ${name.toLowerCase()} has ${numOfTiles} tiles. Try again.`;
 };
+
+export const validateShipTiles = (chosenTiles, var1, var2) => {
+  const lst = [];
+  const { [var1]: num } = chosenTiles[0];
+  for (const { [var1]: val3, [var2]: val4 } of chosenTiles) {
+    if (val3 !== num) return;
+    lst.push(val4);
+  }
+
+  const orderedLst = lst.sort();
+  for (let i = 0; i < orderedLst.length - 1; i++) {
+    if (orderedLst[i] + 1 !== orderedLst[i + 1]) return;
+  }
+  return true;
+};

@@ -4,6 +4,7 @@ import {
   checkIfSameCoordinate,
   makeNewMessages,
   makeMsgForWrongTiles,
+  validateShipTiles,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -89,6 +90,14 @@ const useGame = () => {
         return { ...state, messages: newMessages };
       }
 
+      const sameRow = validateShipTiles(chosenTiles, "row", "column");
+      const sameColumn = validateShipTiles(chosenTiles, "column", "row");
+
+      if (!sameRow && !sameColumn) {
+        const newMessages = makeNewMessages(messages, "All tiles has to be connected (Either horizontally or vertically).");
+        return { ...state, messages: newMessages };
+      }
+      
       return state;
     },
   };
@@ -189,7 +198,7 @@ const useGame = () => {
   };
 
   const logState = { messages, newGame };
-  
+
   const myState = {
     myBoard: true,
     ships: myShips,
