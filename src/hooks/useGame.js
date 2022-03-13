@@ -25,7 +25,8 @@ import {
   COMPLETE_SELECTION,
   SET_OPPONENT_SHIPS,
   OPPONENTS_TURN,
-  MSG_ATTACK
+  MSG_ATTACK,
+  MSG_DEFEND,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -200,10 +201,7 @@ const useGame = () => {
         dispatch({ type: NEW_MESSAGE, message: MSG_ATTACK });
         break;
       case 4:
-        dispatch({
-          type: NEW_MESSAGE,
-          message: `Opponent's turn to shoot.`,
-        });
+        dispatch({ type: NEW_MESSAGE, message: MSG_DEFEND });
       default:
     }
   }, [gameState]);
