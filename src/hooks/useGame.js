@@ -40,30 +40,34 @@ const useGame = () => {
     [CLEAR_TILES](state) {
       return { ...state, chosenTiles: [] };
     },
-    [SELECT_TILE](state, { coordinate: selectCoordinate }) {
+    [SELECT_TILE](state, { coordinate: selectedCoordinate }) {
       const { myShips, chosenTiles } = state;
       for (const { coordinates } of myShips) {
         for (const coordinate of coordinates) {
           const isOccupied = checkIfSameCoordinate(
-            selectCoordinate,
+            selectedCoordinate,
             coordinate
           );
           if (isOccupied) return state;
         }
       }
 
-      for (const index in chosenTiles) {
-        const coordinate = chosenTiles[index];
-        const isSelected = checkIfSameCoordinate(selectCoordinate, coordinate);
-        if (isSelected) {
-          const newchosenTiles = chosenTiles
-            .slice(0, index)
-            .concat(chosenTiles.slice(index + 1));
-          return { ...state, chosenTiles: newchosenTiles };
-        }
-      }
+      const tilesWithoutSelected = chosenTiles.filter(
+        (coordinate) => !checkIfSameCoordinate(coordinate, selectedCoordinate)
+      );
 
-      return { ...state, chosenTiles: chosenTiles.concat([selectCoordinate]) };
+      const lengthOfNewArr = tilesWithoutSelected.length;
+      const lengthOfOldArr = chosenTiles.length;
+
+      const newChosenTiles =
+        lengthOfNewArr === lengthOfOldArr
+          ? chosenTiles.concat([selectedCoordinate])
+          : tilesWithoutSelected;
+
+      return {
+        ...state,
+        chosenTiles: newChosenTiles,
+      };
     },
   };
 
@@ -82,7 +86,7 @@ const useGame = () => {
     opponentShips,
     messages,
     shipTilesState,
-    chosenTiles
+    chosenTiles,
   } = state;
 
   useEffect(() => {
@@ -167,7 +171,7 @@ const useGame = () => {
     showConfirmCancelButtons,
     clearTiles,
     clickTile,
-    chosenTiles
+    chosenTiles,
   };
 };
 
