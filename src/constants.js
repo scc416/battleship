@@ -19,9 +19,9 @@ export const MSG_HAVE_OPPONENT =
   "Another player has entered the game. The game is on!";
 export const MSG_NO_OPPONENT =
   "The other player left. Waiting for another player...";
-
 export const MSG_INVALID_TILES =
   "All tiles has to be connected (Either horizontally or vertically).";
+export const MSG_ = ""
 
 export const ships = [
   { name: "Carrier", numOfTiles: 5 },
