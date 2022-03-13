@@ -11,6 +11,7 @@ export const COMPLETE_SELECTION = "COMPLETE_SELECTION";
 export const SET_OPPONENT_SHIPS = "SET_OPPONENT_SHIPS";
 export const OPPONENTS_TURN = "OPPONENTS_TURN";
 export const SHOT = "SHOT";
+export const OPPONENT_SHOT = "OPPONENT_SHOT";
 
 export const MISSED = "MISSED";
 export const SELECTED = "SELECTED";

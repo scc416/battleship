@@ -7,8 +7,6 @@ import {
   validateShipTiles,
   makeMsgForSelectingTiles,
   checkIfLstIncludesCoordinate,
-  whichShipCoordinateIsBelong,
-  makeShotMsg,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -35,6 +33,7 @@ import {
   MSG_WIN,
   MSG_OPPONENT_PLACING_SHIPS,
   SHOT,
+  OPPONENT_SHOT,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -130,22 +129,27 @@ const useGame = () => {
       return { ...state, gameState: 4 };
     },
     [SHOT](state, { coordinate }) {
-      const { opponentShipsShot, opponentShips } = state;
+      const { opponentShipsShot, opponentShips, messages } = state;
       const alreadyShot = checkIfLstIncludesCoordinate(
         opponentShipsShot,
         coordinate
       );
       if (alreadyShot) return state;
-      const newopponentShipsShot = opponentShipsShot.concat([coordinate]);
-      const isHit = whichShipCoordinateIsBelong(opponentShips, coordinate);
-      const { messages } = state;
-      const newMsg = makeShotMsg(true, isHit);
-      const newMessages = makeNewMessages(messages, newMsg);
+      const newOpponentShipsShot = opponentShipsShot.concat([coordinate]);
+      socket.emit("shot", coordinate);
       return {
         ...state,
-        opponentShipsShot: newopponentShipsShot,
+        opponentShipsShot: newOpponentShipsShot,
         gameState: 4,
-        messages: newMessages,
+      };
+    },
+    [OPPONENT_SHOT](state, { coordinate }) {
+      const { myShipsShot } = state;
+      const newMyShipsShot = myShipsShot.concat([coordinate]);
+      return {
+        ...state,
+        myShipsShot: newMyShipsShot,
+        gameState: 3,
       };
     },
   };
@@ -183,10 +187,15 @@ const useGame = () => {
       dispatch({ type: SET_OPPONENT_SHIPS, opponentShips });
     });
 
+    socket.on("shot", (coordinate) => {
+      dispatch({ type: OPPONENT_SHOT, coordinate });
+    });
+
     return () => {
       socket.off("connect");
       socket.off("opponent");
       socket.off("opponentShips");
+      socket.off("shot");
     };
   }, []);
 
