@@ -163,6 +163,7 @@ const useGame = () => {
     return () => {
       socket.off("connect");
       socket.off("opponent");
+      socket.off("opponentShips");
     };
   }, []);
 
