@@ -9,7 +9,7 @@ const io = require("socket.io")({
 const clients = {};
 
 io.on("connection", (socket) => {
-  const { addClient, removeClient, newGame, sendShips, shot } =
+  const { addClient, removeClient, newGame, sendShips, shot, end } =
     clientsHelperFunctionGenerator(clients, socket, io);
 
   addClient();
@@ -19,6 +19,8 @@ io.on("connection", (socket) => {
   socket.on("ships", sendShips);
 
   socket.on("shot", shot);
+
+  socket.on("end", end);
 
   socket.on("disconnect", removeClient);
 });

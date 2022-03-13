@@ -7,6 +7,7 @@ import {
   validateShipTiles,
   makeMsgForSelectingTiles,
   checkIfLstIncludesCoordinate,
+  isWinner,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -34,6 +35,7 @@ import {
   MSG_OPPONENT_PLACING_SHIPS,
   SHOT,
   OPPONENT_SHOT,
+  END,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -129,18 +131,24 @@ const useGame = () => {
       return { ...state, gameState: 4 };
     },
     [SHOT](state, { coordinate }) {
-      const { opponentShipsShot, opponentShips, messages } = state;
+      const { opponentShipsShot, opponentShips } = state;
       const alreadyShot = checkIfLstIncludesCoordinate(
         opponentShipsShot,
         coordinate
       );
       if (alreadyShot) return state;
+
       const newOpponentShipsShot = opponentShipsShot.concat([coordinate]);
-      socket.emit("shot", coordinate);
+      const hasWon = isWinner(opponentShips, newOpponentShipsShot);
+
+      const msgType = hasWon ? "end" : "shot";
+      const newGameState = hasWon ? 5 : 4;
+      socket.emit(msgType, coordinate);
+
       return {
         ...state,
         opponentShipsShot: newOpponentShipsShot,
-        gameState: 4,
+        gameState: newGameState,
       };
     },
     [OPPONENT_SHOT](state, { coordinate }) {
@@ -151,6 +159,9 @@ const useGame = () => {
         myShipsShot: newMyShipsShot,
         gameState: 3,
       };
+    },
+    [END](state) {
+      return { ...state, gameState: 6 };
     },
   };
 
@@ -191,11 +202,17 @@ const useGame = () => {
       dispatch({ type: OPPONENT_SHOT, coordinate });
     });
 
+    socket.on("end", (coordinate) => {
+      dispatch({ type: OPPONENT_SHOT, coordinate });
+      dispatch({ type: END });
+    });
+
     return () => {
       socket.off("connect");
       socket.off("opponent");
       socket.off("opponentShips");
       socket.off("shot");
+      socket.off("end");
     };
   }, []);
 

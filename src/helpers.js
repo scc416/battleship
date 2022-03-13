@@ -25,6 +25,16 @@ export const checkIfLstIncludesCoordinate = (
   }
 };
 
+export const isWinner = (ships, shot) => {
+  for (const { coordinates } of ships) {
+    for (const coordinate of coordinates) {
+      const isHit = checkIfLstIncludesCoordinate(shot, coordinate);
+      if (!isHit) return;
+    }
+  }
+  return true;
+};
+
 export const whichShipCoordinateIsBelong = (ships, checkCoordinate) => {
   for (const index in ships) {
     const { coordinates, name } = ships[index];
@@ -49,12 +59,6 @@ export const makeMsgForWrongTiles = (name, numOfTiles) => {
 export const makeMsgForSelectingTiles = (name, numOfTiles) => {
   return `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`;
 };
-
-// export const makeShotMsg = (isMe, isHit) => {
-//   const subject = isMe ? "You" : "Opponent";
-//   const result = isHit? "HIT!" : "MISSED.";
-//   return `${subject} just shot: ${result}`;
-// }
 
 export const validateShipTiles = (chosenTiles, var1, var2) => {
   const lst = [];

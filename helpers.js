@@ -51,7 +51,12 @@ const clientsHelperFunctionGenerator = (clients, socket, io) => {
     opponentSocket.emit("shot", coordinate);
   };
 
-  return { addClient, removeClient, newGame, sendShips, shot };
+  const end = (coordinate) => {
+    const opponentSocket = getSocketById(clients[socket.id]);
+    opponentSocket.emit("end", coordinate);
+  };
+
+  return { addClient, removeClient, newGame, sendShips, shot, end };
 };
 
 module.exports = { clientsHelperFunctionGenerator };
