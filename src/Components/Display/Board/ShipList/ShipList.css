@@ -47,6 +47,7 @@
   width: 1em;
   height: 1em;
   margin-right: 0.3em;
+  border: 0.1em solid #FFF;
 }
 
 .label:first-child {
