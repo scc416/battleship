@@ -17,8 +17,6 @@ export const MSG_HAVE_OPPONENT =
 export const MSG_NO_OPPONENT =
   "The other player left. Waiting for another player...";
 
-export const MSG_WRONG_NUM_OF_TILES = "Wrong number of tiles. Try again.";
-
 export const ships = [
   { name: "Carrier", numOfTiles: 5 },
   { name: "Battleship", numOfTiles: 4 },

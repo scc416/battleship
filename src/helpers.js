@@ -16,3 +16,7 @@ export const makeNewMessages = (messages, message) => {
   const newMessages = messages.concat([newMsg]);
   return newMessages;
 };
+
+export const makeMsgForWrongTiles = (name, numOfTiles) => {
+  return `Wrong number of tiles. ${name} has ${numOfTiles} tiles. Try again.`;
+};

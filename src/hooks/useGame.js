@@ -1,6 +1,10 @@
 import io from "socket.io-client";
 import { useReducer, useEffect } from "react";
-import { checkIfSameCoordinate, makeNewMessages } from "../helpers";
+import {
+  checkIfSameCoordinate,
+  makeNewMessages,
+  makeMsgForWrongTiles,
+} from "../helpers";
 import {
   NEW_OPPONENT,
   NEW_MESSAGE,
@@ -15,7 +19,6 @@ import {
   CLEAR_TILES,
   SELECT_TILE,
   CONFIRM_TILES,
-  MSG_WRONG_NUM_OF_TILES,
 } from "../constants";
 
 const socket = io("localhost:3001");
@@ -81,7 +84,8 @@ const useGame = () => {
 
       const wrongNumOfTiles = numOfTiles !== numOfChosenTiles;
       if (wrongNumOfTiles) {
-        const newMessages = makeNewMessages(messages, MSG_WRONG_NUM_OF_TILES);
+        const newMsg = makeMsgForWrongTiles(name, numOfTiles);
+        const newMessages = makeNewMessages(messages, newMsg);
         return { ...state, messages: newMessages };
       }
 
