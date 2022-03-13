@@ -11,12 +11,29 @@ export const checkIfSameCoordinate = (
   return sameRow && sameColumn;
 };
 
-export const lstIncludesCoordinate = (coordinates, checkedCoordinate) => {
+export const checkIfLstIncludesCoordinate = (
+  coordinates,
+  checkedCoordinate
+) => {
   for (const coordinate of coordinates) {
-    const coordinateFound = checkIfSameCoordinate(coordinate, checkedCoordinate);
+    const coordinateFound = checkIfSameCoordinate(
+      coordinate,
+      checkedCoordinate
+    );
     if (coordinateFound) return true;
   }
-}
+};
+
+export const whichShipCoordinateIsBelong = (ships, checkCoordinate) => {
+  for (const index in ships) {
+    const { coordinates, name } = ships[index];
+    const isOccupied = checkIfLstIncludesCoordinate(
+      coordinates,
+      checkCoordinate
+    );
+    if (isOccupied) return name.toLowerCase();
+  }
+};
 
 export const makeNewMessages = (messages, message) => {
   const newMsg = { message, time: getCurrentTime() };

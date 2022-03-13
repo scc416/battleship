@@ -6,7 +6,7 @@ import {
   makeMsgForWrongTiles,
   validateShipTiles,
   makeMsgForSelectingTiles,
-  lstIncludesCoordinate,
+  checkIfLstIncludesCoordinate,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -65,14 +65,14 @@ const useGame = () => {
     [SELECT_TILE](state, { coordinate: selectedCoordinate }) {
       const { myShips, chosenTiles } = state;
       for (const { coordinates } of myShips) {
-        const isOccupied = lstIncludesCoordinate(
+        const isOccupied = checkIfLstIncludesCoordinate(
           coordinates,
           selectedCoordinate
         );
         if (isOccupied) return state;
       }
 
-      const isSelected = lstIncludesCoordinate(chosenTiles, selectedCoordinate);
+      const isSelected = checkIfLstIncludesCoordinate(chosenTiles, selectedCoordinate);
       const newChosenTiles = isSelected
         ? chosenTiles.filter(
             (coordinate) =>
@@ -126,7 +126,7 @@ const useGame = () => {
     },
     [SHOT](state, { coordinate }) {
       const { opponentShipsShot } = state;
-      const alreadyShot = lstIncludesCoordinate(opponentShipsShot, coordinate);
+      const alreadyShot = checkIfLstIncludesCoordinate(opponentShipsShot, coordinate);
       if (alreadyShot) return state;
       const newopponentShipsShot = opponentShipsShot.concat([coordinate]);
       return {

@@ -2,7 +2,8 @@ import React from "react";
 import CoordinateListItem from "./CoordinateListItem";
 import {
   checkIfSameCoordinate,
-  lstIncludesCoordinate,
+  checkIfLstIncludesCoordinate,
+  whichShipCoordinateIsBelong,
 } from "../../../../helpers";
 import { ships, MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
 
@@ -20,8 +21,12 @@ const CoordinateList = ({
     const coordinate = { row, column: i };
 
     const state = () => {
-      const isShot = lstIncludesCoordinate(shot, coordinate);
+      const isShot = checkIfLstIncludesCoordinate(shot, coordinate);
       if (isShot) {
+        const shipName = whichShipCoordinateIsBelong(placedShips, coordinate)
+        if (shipName) {
+          return { type: HIT, shipName: shipName && myBoard };
+        }
         return { type: MISSED };
       }
 
@@ -31,14 +36,8 @@ const CoordinateList = ({
       }
 
       if (myBoard) {
-        for (const index in placedShips) {
-          const { coordinates } = placedShips[index];
-          const isOccupied = lstIncludesCoordinate(coordinates, coordinate);
-          if (isOccupied) {
-            const { name } = ships[index];
-            return { type: CONFIRMED, shipName: name.toLowerCase() };
-          }
-        }
+        const shipName = whichShipCoordinateIsBelong(placedShips, coordinate);
+        if (shipName) return { type: CONFIRMED, shipName };
       }
 
       return { type: null };
