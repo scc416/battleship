@@ -243,7 +243,7 @@ const useGame = () => {
       : gameState === 6
       ? "You Lose!"
       : gameState === 3
-      ? "Your turn to attack."
+      ? MSG_ATTACK
       : null;
 
   const showConfirmCancelButtons = gameState === 1;
