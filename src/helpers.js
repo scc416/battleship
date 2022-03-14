@@ -67,12 +67,13 @@ const findShipCoordinates = (ships, shipName) => {
   }
 };
 
-export const checkIfCoordinateShipHasSink = (ships, coordinate, shot) => {
+export const findSinkShipNameOfCoordinate = (ships, coordinate, shot) => {
   const shipName = whichShipCoordinateIsBelong(ships, coordinate);
   if (!shipName) return;
   const coordinates = findShipCoordinates(ships, shipName);
   const isSink = checkIfSink(coordinates, shot);
-  return isSink;
+  if (!isSink) return;
+  return shipName;
 };
 
 export const makeNewMessages = (messages, message) => {

@@ -9,6 +9,8 @@ import {
   checkIfLstIncludesCoordinate,
   isWinner,
   getLastElm,
+  whichShipCoordinateIsBelong,
+  findSinkShipNameOfCoordinate,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -250,10 +252,26 @@ const useGame = () => {
         const opponentLastShot = getLastElm(myShipsShot);
         if (opponentLastShot) {
           const { row, column } = opponentLastShot;
+          const isHit = whichShipCoordinateIsBelong(myShips, opponentLastShot);
+          const result = isHit ? "HIT!" : "MISSED.";
           dispatch({
             type: NEW_MESSAGE,
-            message: `OPPONENT JUST SHOT AT (${row + 1}, ${column + 1})`,
+            message: `Opponent just shot at (${column + 1}, ${
+              row + 1
+            }): ${result}`,
           });
+
+          const justSinkShipName = findSinkShipNameOfCoordinate(
+            myShips,
+            opponentLastShot,
+            myShipsShot
+          );
+          if (justSinkShipName) {
+            dispatch({
+              type: NEW_MESSAGE,
+              message: `Opponent just sink your ${justSinkShipName}.`,
+            });
+          }
         }
         dispatch({ type: NEW_MESSAGE, message: MSG_ATTACK });
         break;
@@ -261,11 +279,26 @@ const useGame = () => {
         const myLastShot = getLastElm(opponentShipsShot);
         if (myLastShot) {
           const { row, column } = myLastShot;
+          const isHit = whichShipCoordinateIsBelong(opponentShips, myLastShot);
+          const result = isHit ? "HIT!" : "MISSED.";
           dispatch({
             type: NEW_MESSAGE,
-            message: `YOU JUST SHOT AT (${row + 1}, ${column + 1})`,
+            message: `You just shot at (${column + 1}, ${row + 1}): ${result}`,
           });
+          
+          const justSinkShipName = findSinkShipNameOfCoordinate(
+            opponentShips,
+            myLastShot,
+            opponentShipsShot
+          );
+          if (justSinkShipName) {
+            dispatch({
+              type: NEW_MESSAGE,
+              message: `You just sink opponent's ${justSinkShipName}.`,
+            });
+          }
         }
+
         dispatch({ type: NEW_MESSAGE, message: MSG_DEFEND });
         break;
       case 5:
