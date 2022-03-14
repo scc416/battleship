@@ -8,6 +8,7 @@ import {
   makeMsgForSelectingTiles,
   checkIfLstIncludesCoordinate,
   isWinner,
+  getLastElm,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -246,11 +247,25 @@ const useGame = () => {
         dispatch({ type: NEW_MESSAGE, message: MSG_OPPONENT_PLACING_SHIPS });
         break;
       case 3:
-        dispatch({ type: NEW_MESSAGE, message: "OPPONENT JUST SHOT" });
+        const opponentLastShot = getLastElm(myShipsShot);
+        if (opponentLastShot) {
+          const { row, column } = opponentLastShot;
+          dispatch({
+            type: NEW_MESSAGE,
+            message: `OPPONENT JUST SHOT AT (${row + 1}, ${column + 1})`,
+          });
+        }
         dispatch({ type: NEW_MESSAGE, message: MSG_ATTACK });
         break;
       case 4:
-        dispatch({ type: NEW_MESSAGE, message: "YOU JUST SHOT" });
+        const myLastShot = getLastElm(opponentShipsShot);
+        if (myLastShot) {
+          const { row, column } = myLastShot;
+          dispatch({
+            type: NEW_MESSAGE,
+            message: `YOU JUST SHOT AT (${row + 1}, ${column + 1})`,
+          });
+        }
         dispatch({ type: NEW_MESSAGE, message: MSG_DEFEND });
         break;
       case 5:

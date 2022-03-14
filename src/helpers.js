@@ -2,6 +2,14 @@ import moment from "moment";
 
 export const getCurrentTime = () => moment().format("LTS");
 
+export const getLastElm = (arr) => {
+  const length = arr.length;
+  const isEmpty = length === 0;
+  if (isEmpty) return;
+  const lastElm = arr[length - 1];
+  return lastElm;
+};
+
 export const checkIfSameCoordinate = (
   { row: row1, column: column1 },
   { row: row2, column: column2 }
@@ -52,20 +60,20 @@ export const whichShipCoordinateIsBelong = (ships, checkCoordinate) => {
 };
 
 const findShipCoordinates = (ships, shipName) => {
-  for (const {name, coordinates} of ships) {
+  for (const { name, coordinates } of ships) {
     const formattedName = name.toLowerCase();
     const found = formattedName === shipName;
     if (found) return coordinates;
   }
-}
+};
 
 export const checkIfCoordinateShipHasSink = (ships, coordinate, shot) => {
   const shipName = whichShipCoordinateIsBelong(ships, coordinate);
   if (!shipName) return;
   const coordinates = findShipCoordinates(ships, shipName);
-  const isSink = checkIfSink(coordinates, shot)
+  const isSink = checkIfSink(coordinates, shot);
   return isSink;
-}
+};
 
 export const makeNewMessages = (messages, message) => {
   const newMsg = { message, time: getCurrentTime() };
