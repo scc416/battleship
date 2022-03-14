@@ -91,8 +91,18 @@ export const makeMsgForSelectingTiles = (name, numOfTiles) => {
 };
 
 export const makeMsgForSinkShip = (isMine, shipName) => {
-  const [subject, object] = isMine ? ["You", "opponent's"] : ["Opponent", "your"];
+  const [subject, object] = isMine
+    ? ["You", "opponent's"]
+    : ["Opponent", "your"];
   return `${subject} has sunk ${object} ${shipName}.`;
+};
+
+export const makeMsgForShot = (isMine, ships, coordinate) => {
+  const isHit = whichShipCoordinateIsBelong(ships, coordinate);
+  const subject = isMine ? "You" : "Opponent";
+  const result = isHit ? "HIT!" : "MISSED.";
+  const { row, column } = coordinate;
+  return `${subject} just shot at (${column + 1}, ${row + 1}): ${result}`;
 };
 
 export const validateShipTiles = (chosenTiles, var1, var2) => {
