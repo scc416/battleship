@@ -22,9 +22,9 @@ const Coordinate = ({ placedShips, clickTile, chosenTiles, shot, myBoard }) => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="row-column">
         <div className="coordinate-space"></div>
-        <div style={{ display: "flex", alignItems: "flex-end" }}>
+        <div className="row-column column">
           <div className="coordinate-label-column">A</div>
           <div className="coordinate-label-column">B</div>
           <div className="coordinate-label-column">C</div>
@@ -37,7 +37,7 @@ const Coordinate = ({ placedShips, clickTile, chosenTiles, shot, myBoard }) => {
           <div className="coordinate-label-column">J</div>
         </div>
       </div>
-      <div style={{ display: "flex" }}>
+      <div className="row-column">
         <div>
           <div className="coordinate-label-row">1</div>
           <div className="coordinate-label-row">2</div>

@@ -3,6 +3,14 @@
   height: 1.2em;
 }
 
+.row-column {
+  display: flex;
+}
+
+.column {
+  align-items: flex-end;
+}
+
 .coordinate-label-column {
   width: 2.5375em;
   height: 1.5em;
