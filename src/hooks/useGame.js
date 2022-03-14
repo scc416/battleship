@@ -9,7 +9,6 @@ import {
   checkIfLstIncludesCoordinate,
   isWinner,
   getLastElm,
-  whichShipCoordinateIsBelong,
   findSinkShipNameOfCoordinate,
   makeMsgForSinkShip,
   makeMsgForShot,
@@ -256,15 +255,8 @@ const useGame = () => {
       case 3:
         const opponentLastShot = getLastElm(myShipsShot);
         if (opponentLastShot) {
-          const { row, column } = opponentLastShot;
-          const isHit = whichShipCoordinateIsBelong(myShips, opponentLastShot);
-          const result = isHit ? "HIT!" : "MISSED.";
-          dispatch({
-            type: NEW_MESSAGE,
-            message: `Opponent just shot at (${column + 1}, ${
-              row + 1
-            }): ${result}`,
-          });
+          const shotMsg = makeMsgForShot(false, myShips, opponentLastShot);
+          dispatch({ type: NEW_MESSAGE, message: shotMsg });
 
           const justSinkShipName = findSinkShipNameOfCoordinate(
             myShips,
