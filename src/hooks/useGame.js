@@ -36,6 +36,7 @@ import {
   MSG_LOSE,
   MSG_WIN,
   MSG_OPPONENT_PLACING_SHIPS,
+  MSG_ENTER_NEW_GAME,
   SHOT,
   OPPONENT_SHOT,
   END,
@@ -59,8 +60,10 @@ const useGame = () => {
       const newMessages = makeNewMessages(messages, message);
       return { ...state, haveSendInitialMsg: true, messages: newMessages };
     },
-    [NEW_GAME]() {
-      return initialState();
+    [NEW_GAME](state) {
+      const { messages } = state;
+      const newMessages = makeNewMessages(messages, MSG_ENTER_NEW_GAME);
+      return { ...initialState(), messages: newMessages };
     },
     [OPPONENT_LEFT]({ messages }) {
       return { ...initialState(), messages };
@@ -285,7 +288,7 @@ const useGame = () => {
             type: NEW_MESSAGE,
             message: `You just shot at (${column + 1}, ${row + 1}): ${result}`,
           });
-          
+
           const justSinkShipName = findSinkShipNameOfCoordinate(
             opponentShips,
             myLastShot,
