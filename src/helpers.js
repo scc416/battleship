@@ -51,12 +51,20 @@ export const whichShipCoordinateIsBelong = (ships, checkCoordinate) => {
   }
 };
 
-export const findShipCoordinates = (ships, shipName) => {
+const findShipCoordinates = (ships, shipName) => {
   for (const {name, coordinates} of ships) {
     const formattedName = name.toLowerCase();
     const found = formattedName === shipName;
     if (found) return coordinates;
   }
+}
+
+export const checkIfCoordinateShipHasSink = (ships, coordinate, shot) => {
+  const shipName = whichShipCoordinateIsBelong(ships, coordinate);
+  if (!shipName) return;
+  const coordinates = findShipCoordinates(ships, shipName);
+  const isSink = checkIfSink(coordinates, shot)
+  return isSink;
 }
 
 export const makeNewMessages = (messages, message) => {

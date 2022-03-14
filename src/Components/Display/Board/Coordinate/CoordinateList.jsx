@@ -4,8 +4,7 @@ import {
   checkIfSameCoordinate,
   checkIfLstIncludesCoordinate,
   whichShipCoordinateIsBelong,
-  findShipCoordinates,
-  checkIfSink,
+  checkIfCoordinateShipHasSink,
 } from "../../../../helpers";
 import { MISSED, SELECTED, CONFIRMED, HIT } from "../../../../constants";
 
@@ -27,8 +26,11 @@ const CoordinateList = ({
       if (isShot) {
         const shipName = whichShipCoordinateIsBelong(placedShips, coordinate);
         if (shipName) {
-          const coordinates = findShipCoordinates(placedShips, shipName);
-          const isSink = checkIfSink(coordinates, shot);
+          const isSink = checkIfCoordinateShipHasSink(
+            placedShips,
+            coordinate,
+            shot
+          );
           if (isSink) return { type: HIT, shipName };
           return { type: HIT, shipName: myBoard && shipName };
         }
