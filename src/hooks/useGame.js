@@ -246,10 +246,18 @@ const useGame = () => {
         dispatch({ type: NEW_MESSAGE, message: MSG_OPPONENT_PLACING_SHIPS });
         break;
       case 3:
+        dispatch({ type: NEW_MESSAGE, message: "OPPONENT JUST SHOT" });
         dispatch({ type: NEW_MESSAGE, message: MSG_ATTACK });
         break;
       case 4:
+        dispatch({ type: NEW_MESSAGE, message: "YOU JUST SHOT" });
         dispatch({ type: NEW_MESSAGE, message: MSG_DEFEND });
+        break;
+      case 5:
+        dispatch({ type: NEW_MESSAGE, message: MSG_WIN });
+        break;
+      case 6:
+        dispatch({ type: NEW_MESSAGE, message: MSG_LOSE });
         break;
       default:
     }
@@ -279,20 +287,12 @@ const useGame = () => {
   const showOpponentOverlay =
     gameState === 0
       ? MSG_WAITING_FOR_PLAYER
-      : gameState === 4
-      ? MSG_DEFEND
       : !opponentShips
       ? MSG_OPPONENT_PLACING_SHIPS
       : null;
 
   const showMyOverlay =
-    gameState === 5
-      ? MSG_WIN
-      : gameState === 6
-      ? MSG_LOSE
-      : gameState === 3
-      ? MSG_ATTACK
-      : null;
+    gameState === 5 ? MSG_WIN : gameState === 6 ? MSG_LOSE : null;
 
   const showConfirmCancelButtons = gameState === 1;
 
