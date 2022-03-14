@@ -11,6 +11,7 @@ import {
   getLastElm,
   whichShipCoordinateIsBelong,
   findSinkShipNameOfCoordinate,
+  makeMsgForSinkShip,
 } from "../helpers";
 import {
   NEW_OPPONENT,
@@ -270,10 +271,8 @@ const useGame = () => {
             myShipsShot
           );
           if (justSinkShipName) {
-            dispatch({
-              type: NEW_MESSAGE,
-              message: `Opponent just sink your ${justSinkShipName}.`,
-            });
+            const sinkMsg = makeMsgForSinkShip(false, justSinkShipName);
+            dispatch({ type: NEW_MESSAGE, message: sinkMsg });
           }
         }
         dispatch({ type: NEW_MESSAGE, message: MSG_ATTACK });
@@ -295,10 +294,8 @@ const useGame = () => {
             opponentShipsShot
           );
           if (justSinkShipName) {
-            dispatch({
-              type: NEW_MESSAGE,
-              message: `You just sink opponent's ${justSinkShipName}.`,
-            });
+            const sinkMsg = makeMsgForSinkShip(true, justSinkShipName);
+            dispatch({ type: NEW_MESSAGE, message: sinkMsg });
           }
         }
 

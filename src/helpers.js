@@ -90,6 +90,11 @@ export const makeMsgForSelectingTiles = (name, numOfTiles) => {
   return `Select ${numOfTiles} tiles for your ${name.toLowerCase()}.`;
 };
 
+export const makeMsgForSinkShip = (isMine, shipName) => {
+  const [subject, object] = isMine ? ["You", "opponent's"] : ["Opponent", "your"];
+  return `${subject} has sunk ${object} ${shipName}.`;
+};
+
 export const validateShipTiles = (chosenTiles, var1, var2) => {
   const lst = [];
   const { [var1]: num } = chosenTiles[0];
