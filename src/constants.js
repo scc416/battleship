@@ -1,5 +1,7 @@
 import { getCurrentTime } from "./helpers";
 
+export const columnLabel = "ABCDEFGHIJ";
+
 export const NEW_OPPONENT = "NEW_OPPONENT";
 export const NEW_MESSAGE = "NEW_MESSAGE";
 export const OPPONENT_LEFT = "OPPONENT_LEFT";

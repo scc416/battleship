@@ -1,6 +1,5 @@
 import moment from "moment";
-
-const columnLabel = "ABCDEFGHIJ";
+import { columnLabel } from "./constants";
 
 export const getCurrentTime = () => moment().format("LTS");
 
