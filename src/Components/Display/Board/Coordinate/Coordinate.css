@@ -1,3 +1,11 @@
+.index {
+  width: 2.03em;
+  height: 2.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .coordinate {
   border: 0.15em solid #ffffff;
 }
@@ -26,12 +34,12 @@
 
 .carrier {
   background-color: #264653;
-  color: #FFF;
+  color: #fff;
 }
 
 .battleship {
   background-color: #2a9d8f;
-  color: #FFF;
+  color: #fff;
 }
 
 .cruiser {
@@ -40,10 +48,10 @@
 
 .submarine {
   background-color: #f4a261;
-  color: #FFF;
+  color: #fff;
 }
 
 .destroyer {
   background-color: #e76f51;
-  color: #FFF;
+  color: #fff;
 }
