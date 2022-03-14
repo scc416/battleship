@@ -1,5 +1,7 @@
 import moment from "moment";
 
+const columnLabel = "ABCDEFGHIJ";
+
 export const getCurrentTime = () => moment().format("LTS");
 
 export const getLastElm = (arr) => {
@@ -102,7 +104,9 @@ export const makeMsgForShot = (isMine, ships, coordinate) => {
   const subject = isMine ? "You" : "Opponent";
   const result = isHit ? "HIT!" : "MISSED.";
   const { row, column } = coordinate;
-  return `${subject} just shot at (${column + 1}, ${row + 1}): ${result}`;
+  const columnLetter = columnLabel[column];
+  const rowNum = row + 1;
+  return `${subject} just shot at ${columnLetter}${rowNum}: ${result}`;
 };
 
 export const validateShipTiles = (chosenTiles, var1, var2) => {

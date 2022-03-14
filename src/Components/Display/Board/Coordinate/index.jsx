@@ -39,7 +39,6 @@ const Coordinate = ({ placedShips, clickTile, chosenTiles, shot, myBoard }) => {
       </div>
       <div style={{ display: "flex" }}>
         <div>
-          {" "}
           <div className="coordinate-label-row">1</div>
           <div className="coordinate-label-row">2</div>
           <div className="coordinate-label-row">3</div>
