@@ -59,7 +59,7 @@ Array of messages
 ## File Structure
 
 ## Credits
-- [Spaceship icon](https://www.flaticon.com/free-icons/spaceship) created by Nhor Phai - [Flaticon](https://www.flaticon.com/)
+- [Icon](https://www.flaticon.com/premium-icon/ship_870170) created by [Freepik](https://www.flaticon.com/authors/freepik) - [Flaticon](https://www.flaticon.com/)
 
 ## Available Scripts
 
