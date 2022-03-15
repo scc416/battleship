@@ -43,7 +43,7 @@ import {
   END,
 } from "../constants";
 
-const socket = io("localhost:3001");
+const socket = io("https://the-battleship-api.herokuapp.com/");
 
 const useGame = () => {
   const reducers = {
