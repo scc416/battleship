@@ -15,7 +15,7 @@
     "socket.io-client": "4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "start-server": "nodemon -L server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
