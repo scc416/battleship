@@ -1,6 +1,6 @@
 # Battleship
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). [Skeleton](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example)
 
 ## Table of Content
 
