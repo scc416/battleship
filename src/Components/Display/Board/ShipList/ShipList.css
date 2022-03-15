@@ -26,10 +26,15 @@
 }
 
 .ship-list button {
-  background-color: #000;
-  color: #fff;
+  background-color: #14213d;
+  color: #e5e5e5;
   padding: 0.5em;
   border-radius: 10%;
+}
+
+.ship-list button.cancel {
+  background-color: #e5e5e5;
+  color: #14213d;
 }
 
 .ship-list button:first-child {
@@ -47,7 +52,7 @@
   width: 1em;
   height: 1em;
   margin-right: 0.3em;
-  border: 0.1em solid #FFF;
+  border: 0.1em solid #fff;
 }
 
 .label:first-child {
