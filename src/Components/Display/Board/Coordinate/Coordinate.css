@@ -3,6 +3,10 @@
   height: 1.2em;
 }
 
+.row-column-label {
+  color: #14213d;
+}
+
 .row-column {
   display: flex;
 }
