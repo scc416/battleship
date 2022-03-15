@@ -27,4 +27,4 @@ io.on("connection", (socket) => {
   socket.on("disconnect", removeClient);
 });
 
-io.listen(3001);
+io.listen(process.env.PORT || 3001);
