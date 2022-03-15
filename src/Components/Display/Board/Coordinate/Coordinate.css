@@ -7,7 +7,7 @@
   display: flex;
 }
 
-.column {
+.column-label {
   align-items: flex-end;
 }
 
