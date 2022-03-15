@@ -1,9 +1,11 @@
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 const { clientsHelperFunctionGenerator } = require("./helpers");
 
-const io = require("socket.io")({
-  cors: {
-    origin: ["http://localhost:3000"],
-  },
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  cors: true,
+  origin: ["https://the-battleship.netlify.app/"],
 });
 
 const clients = {};
