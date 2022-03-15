@@ -9,7 +9,7 @@ const CoordinateLabelList = ({ isRow }) => {
   const lst = [];
 
   for (let i = 0; i < 10; i++) {
-    const elm = <CoordinateLabelListIItem {...{ isRow, index: i }} />;
+    const elm = <CoordinateLabelListIItem {...{ key: i, isRow, index: i }} />;
     lst.push(elm);
   }
 
