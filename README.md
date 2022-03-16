@@ -35,6 +35,10 @@ It might take the server some time to start up when you enter the page.
 
 ![Players taking turn](./docs/players-taking-turn.png)
 
+4. When there is a winner, it is shown on the board and the log. The player can click the "New Game" button to start a new game. Players can click the button anytime to start a new game.
+
+![End of the game](./docs/end.png)
+
 ## Custom hook: `useGame`
 
 useGame is a custom hook that control the flow of the game.
