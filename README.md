@@ -1,7 +1,7 @@
 # Battleship
 
-A [battleship game](https://en.wikipedia.org/wiki/Battleship_(game)) (also known as Battleships or Sea Battle) built with [React](https://reactjs.org/) and [Socket.io](https://socket.io/).  
-The project is built on [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of [Socket.io](https://socket.io/). 
+A [battleship game](<https://en.wikipedia.org/wiki/Battleship_(game)>) (also known as Battleships or Sea Battle) built with [React](https://reactjs.org/) and [Socket.io](https://socket.io/).  
+The project is built on [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of [Socket.io](https://socket.io/).
 The example is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Table of Content
@@ -31,8 +31,7 @@ It might take the server some time to start up when you enter the page.
 
 ![Picking Tiles](./docs/picking-tiles.png)
 
-
-3. After both players have done picking the tiles for their ships. Players start taking turn to shoot at opponent's board. All the shooting is displayed on the boards. They are also shown on the log with coordinate and either MISSED or HIT. When a ship is destroyed, it is shown on the ship list (next to each game board) with a strike-through  and the log.
+3. After both players have done picking the tiles for their ships. Players start taking turn to shoot at opponent's board. All the shooting is displayed on the boards. They are also shown on the log with coordinate and either MISSED or HIT. When a ship is destroyed, it is shown on the ship list (next to each game board) with a strike-through and the log.
 
 ![Players taking turn](./docs/players-taking-turn.png)
 
@@ -43,17 +42,19 @@ It might take the server some time to start up when you enter the page.
 ## About the Game
 
 Each player has a 10x10 board on which the player is able to place 5 ships:
+
 - A Carrier, which is 5 tiles long
 - A Battleship, which is 4 tiles long
 - A Cruiser, which is 3 tiles long
 - A Submarine, which is 3 tiles long
 - A Destroyer, which is 2 tiles long
 
-Each ship can be placed either horizontally or vertically on the board, and cannot be placed partially off the board.  
+Each ship can be placed either horizontally or vertically on the board, and cannot be placed partially off the board.
 
-Each tile is denoted by a coordinate, A-J for columns and 1-10 for rows.  
+Each tile is denoted by a coordinate, A-J for columns and 1-10 for rows.
 
-Each player then takes turns picking a tile on the opposing player’s grid, taking a shot at that tile.  
+Each player then takes turns picking a tile on the opposing player’s grid, taking a shot at that tile.
+
 - If the tile contains a ship, the shot is a HIT
 - If the tile does not contain a ship, the shot is a MISS.
 
@@ -64,6 +65,7 @@ The game ends when one player has sunk all of the opposing players ships.
 ## Custom hook: `useGame`
 
 useGame is a custom hook that control the flow of the game.
+
 - A state contains all details of the player.
 - A reducer handle actions
 
@@ -89,7 +91,7 @@ useGame is a custom hook that control the flow of the game.
 
 ## Dependencies
 
-- [node](https://nodejs.org/)
+- [Node.js](https://nodejs.org/)
 - [React](https://reactjs.org/)
 - [Socket.io](https://socket.io/)
 
@@ -105,6 +107,7 @@ useGame is a custom hook that control the flow of the game.
 The page will reload if you make edits. You will also see any lint errors in the console.
 
 ## File Structure
+
 ```
 📦battleship
  ┣ 📂docs
@@ -155,5 +158,73 @@ The page will reload if you make edits. You will also see any lint errors in the
  ┣ 📜package.json
  ┗ 📜server.js
 ```
+
+### 📂docs
+
+### 📂public
+
+Contains the favicon.png, icon.png (image displayed in the web app), index.html (document where the app is render).
+┃ ┣ 📜background.jpg
+┃ ┣ 📜favicon.png
+┃ ┗ 📜index.html
+
+### 📂src
+
+#### 📂Components
+
+┃ ┃ ┣ 📂Display
+┃ ┃ ┃ ┣ 📂Board
+┃ ┃ ┃ ┃ ┣ 📂Coordinate
+┃ ┃ ┃ ┃ ┃ ┣ 📜Coordinate.css
+┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateLabelList.jsx
+┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateLabelListItem.jsx
+┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateList.jsx
+┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateListItem.jsx
+┃ ┃ ┃ ┃ ┃ ┗ 📜index.jsx
+┃ ┃ ┃ ┃ ┣ 📂ShipList
+┃ ┃ ┃ ┃ ┃ ┣ 📜ShipList.css
+┃ ┃ ┃ ┃ ┃ ┣ 📜ShipListItem.jsx
+┃ ┃ ┃ ┃ ┃ ┣ 📜TileButtons.jsx
+┃ ┃ ┃ ┃ ┃ ┗ 📜index.jsx
+┃ ┃ ┃ ┃ ┣ 📜Board.css
+┃ ┃ ┃ ┃ ┣ 📜Overlay.jsx
+┃ ┃ ┃ ┃ ┗ 📜index.jsx
+┃ ┃ ┃ ┣ 📜Display.css
+┃ ┃ ┃ ┗ 📜index.jsx
+┃ ┃ ┣ 📂Log
+┃ ┃ ┃ ┣ 📜Log.css
+┃ ┃ ┃ ┣ 📜LogListItem.jsx
+┃ ┃ ┃ ┣ 📜NewGameButton.jsx
+┃ ┃ ┃ ┗ 📜index.jsx
+┃ ┃ ┗ 📜Heading.jsx
+
+#### 📂hooks
+
+┃ ┃ ┣ 📜useGame.js
+┃ ┃ ┗ 📜useScrollToBottom.js
+
+#### 📜App.css
+
+#### 📜App.jsx
+
+#### 📜constants.js
+
+#### 📜helpers.js
+
+#### 📜index.js
+
+### 📜.gitignore
+
+### 📜README.md
+
+### 📜helpers.js
+
+### 📜package-lock.json
+
+### 📜package.json
+
+### 📜server.js
+
 ## Credits
+
 - [Icon](https://www.flaticon.com/premium-icon/ship_870170) created by [Freepik](https://www.flaticon.com/authors/freepik) - [Flaticon](https://www.flaticon.com/)
