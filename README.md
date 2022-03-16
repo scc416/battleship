@@ -89,6 +89,10 @@ useGame is a custom hook that control the flow of the game.
 
 ## Dependencies
 
+- [node](https://nodejs.org/)
+- [React](https://reactjs.org/)
+- [Socket.io](https://socket.io/)
+
 ## Getting Started
 
 1. Clone this project to your computer
