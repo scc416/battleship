@@ -48,20 +48,6 @@ useGame is a custom hook that control the flow of the game.
 
 - 6: Player lost
 
-#### messages: Array of object
-
-Array of messages
-
-#### myShips: array of Object
-
-#### opponentShips: Array of Object
-
-#### opponent: null / string
-
-#### gotInitialOpponent: boolean
-
-#### haveSendInitialMsg: boolean
-
 ## Dependencies
 
 ## Getting Started
