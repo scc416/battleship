@@ -24,15 +24,15 @@ It might take the server some time to start up when you enter the page.
 
 ## Final Product
 
-## Custom hook: useGame
+## Custom hook: `useGame`
 
 useGame is a custom hook that control the flow of the game.
 - A state contains all details of the player.
 - A reducer handle actions
 
-### state
+### `state`
 
-#### gameState
+#### `gameState`
 
 - 0: Waiting for another player to join
 
@@ -47,6 +47,14 @@ useGame is a custom hook that control the flow of the game.
 - 5: Player won
 
 - 6: Player lost
+
+#### `shipTilesState`
+
+- 0: Selecting tiles for the carrier, which is 5 tiles long
+- 1: Selecting tiles for the battleship, which is 4 tiles long
+- 2: Selecting tiles for the cruiser, which is 3 tiles long
+- 3: Selecting tiles for the submarine, which is 3 tiles long
+- 4: Selecting tiles for the destroyer, which is 2 tiles long
 
 ## Dependencies
 
