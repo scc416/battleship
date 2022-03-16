@@ -8,6 +8,7 @@ The example is bootstrapped with [Create React App](https://github.com/facebook/
 
 - [Live Demo](#live-demo)
 - [Final Product](#final-product)
+- [About the Game](#about-the-game)
 - [Custom hook: useGame](#custom-hook-usegame)
 - [Dependencies](#dependencies)
 - [Getting Started](#getting-started)
@@ -38,6 +39,9 @@ It might take the server some time to start up when you enter the page.
 4. When there is a winner, it is shown on the board and the log. The player can click the "New Game" button to start a new game. Players can click the button anytime to start a new game.
 
 ![End of the game](./docs/end.png)
+
+## About the Game
+
 
 ## Custom hook: `useGame`
 
