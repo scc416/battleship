@@ -9,4 +9,35 @@ See the `main` branch's `README.md` for information about this application. This
 
 ## Client
 
+### `src/hooks/useGame.js`
+
+const socket = io("localhost:3001");
+const socket = io("https://the-battleship-api.herokuapp.com/");
+
 ## Server
+
+### `package.json`
+
+"start": "react-scripts start",
+"start": "node server.js",
+
+
+"engines": {
+  "node": "12.x"
+}
+
+  
+### `server.js`
+
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+const { clientsHelperFunctionGenerator } = require("./helpers");
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  cors: true,
+  origin: ["https://the-battleship.netlify.app/"],
+});
+
+io.listen(process.env.PORT || 3001);
+io.listen(3001);
