@@ -4,8 +4,6 @@ A [battleship game](https://en.wikipedia.org/wiki/Battleship_(game)) (also known
 The project is built on [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of [Socket.io](https://socket.io/). 
 The example is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Battleship](./docs/cover.png)
-
 ## Table of Content
 
 - [Live Demo](#live-demo)
@@ -23,6 +21,9 @@ https://the-battleship.netlify.app/
 It might take the server some time to start up when you enter the page.
 
 ## Final Product
+
+1. Players taking turn to shoot at opponent's board
+![Players taking turn](./docs/players-taking-turn.png)
 
 ## Custom hook: `useGame`
 
