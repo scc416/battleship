@@ -1,6 +1,8 @@
 # Battleship
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). [Skeleton](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example)  
+A [battleship game](https://en.wikipedia.org/wiki/Battleship_(game)) (also known as Battleships or Sea Battle) built with [react](https://reactjs.org/) and [socket.io](https://socket.io/).  
+The project is built on an the [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of Socket.io. 
+The example is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ![Battleship](./docs/cover.png)
 
