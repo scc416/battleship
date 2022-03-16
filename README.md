@@ -1,7 +1,7 @@
 # Battleship
 
 A [battleship game](https://en.wikipedia.org/wiki/Battleship_(game)) (also known as Battleships or Sea Battle) built with [react](https://reactjs.org/) and [socket.io](https://socket.io/).  
-The project is built on an the [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of Socket.io. 
+The project is built on [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of [Socket.io](https://socket.io/). 
 The example is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ![Battleship](./docs/cover.png)
@@ -18,8 +18,9 @@ The example is bootstrapped with [Create React App](https://github.com/facebook/
 
 ## Live Demo
 
-The server is deployed to Heroku. Netlify serves the static client assets:
-https://the-battleship.netlify.app/
+The server is deployed to Heroku. Netlify serves the static client assets:  
+https://the-battleship.netlify.app/  
+It might take the server some time to start up when you enter the page.
 
 ## Final Product
 
