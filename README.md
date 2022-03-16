@@ -1,6 +1,6 @@
 # Battleship
 
-A [battleship game](https://en.wikipedia.org/wiki/Battleship_(game)) (also known as Battleships or Sea Battle) built with [react](https://reactjs.org/) and [socket.io](https://socket.io/).  
+A [battleship game](https://en.wikipedia.org/wiki/Battleship_(game)) (also known as Battleships or Sea Battle) built with [React](https://reactjs.org/) and [Socket.io](https://socket.io/).  
 The project is built on [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of [Socket.io](https://socket.io/). 
 The example is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -66,35 +66,14 @@ Array of messages
 
 ## Getting Started
 
+1. Clone this project to your computer
+2. `cd` to the folder where this project is cloned
+3. Install all dependencies with `npm install` command
+4. Run the Socket.IO server with `npm run start-server` command
+5. Run the app in the development mode with `npm start` command
+6. Open the broswer and visit: http://localhost:3000
 
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm run start-server`
-
-Starts the Socket.IO server.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
+The page will reload if you make edits. You will also see any lint errors in the console.
 
 ## File Structure
 
