@@ -47,6 +47,7 @@ export const ships = [
   { name: "Destroyer", numOfTiles: 2 },
 ];
 
+// initial state used in the hook useGame
 export const initialState = () => {
   return {
     gameState: 0,
