@@ -27,7 +27,7 @@ It might take the server some time to start up when you enter the page.
 ## Custom hook: useGame
 
 useGame is a custom hook that control the flow of the game.
-- A state contains all the details of the player.
+- A state contains all details of the player.
 - A reducer handle actions
 
 ### state
