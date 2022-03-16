@@ -26,7 +26,12 @@ It might take the server some time to start up when you enter the page.
 
 ![Waiting for opponent](./docs/waiting-for-opponent.png)
 
-2. Players taking turn to shoot at opponent's board. All the shooting is shown on the log with either MISSED or HIT. When a ship is sank, it is shown on the ship list (next to each game board) and the log (at the bottom).
+2. When the player get an opponent, the players can pick the tiles for their ships. They can clear/confirm tiles. Errors are shown in log (at the bottom of the page).
+
+![Picking Tiles](./docs/picking-tiles.png)
+
+
+3. After both players have done picking the tiles for their ships. Players start taking turn to shoot at opponent's board. All the shooting is displayed on the boards. They are also shown on the log with coordinate and either MISSED or HIT. When a ship is sank, it is shown on the ship list (next to each game board) and the log.
 
 ![Players taking turn](./docs/players-taking-turn.png)
 
