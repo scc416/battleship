@@ -23,9 +23,11 @@ It might take the server some time to start up when you enter the page.
 ## Final Product
 
 1. When a player first enter the game, the player need to wait for another player if there is no available player (For testing purpose, they can also open a new tab to create another player)
+
 ![Waiting for opponent](./docs/waiting-for-opponent.png)
 
 2. Players taking turn to shoot at opponent's board
+
 ![Players taking turn](./docs/players-taking-turn.png)
 
 ## Custom hook: `useGame`
