@@ -18,6 +18,9 @@ The example is bootstrapped with [Create React App](https://github.com/facebook/
 
 ## Live Demo
 
+The server is deployed to Heroku. Netlify serves the static client assets:
+https://the-battleship.netlify.app/
+
 ## Final Product
 
 ## Custom hook: useGame
