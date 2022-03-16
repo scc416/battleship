@@ -67,7 +67,11 @@ const useGame = () => {
       return { ...initialState(), messages: newMessages };
     },
     [OPPONENT_LEFT]({ messages }) {
-      return { ...initialState(), messages };
+      return {
+        ...initialState(),
+        messages,
+        haveSendInitialMsg: true,
+      };
     },
     [CLEAR_TILES](state) {
       return { ...state, chosenTiles: [] };
@@ -234,8 +238,8 @@ const useGame = () => {
         : INITIAL_MSG_NO_OPPONENT;
 
       dispatch({ type: NEW_MESSAGE, message });
+      if (!opponent) dispatch({ type: OPPONENT_LEFT });
     }
-    if (!opponent) dispatch({ type: OPPONENT_LEFT });
   }, [opponent]);
 
   useEffect(() => {
