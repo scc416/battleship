@@ -26,7 +26,7 @@ It might take the server some time to start up when you enter the page.
 
 ![Waiting for opponent](./docs/waiting-for-opponent.png)
 
-2. Players taking turn to shoot at opponent's board
+2. Players taking turn to shoot at opponent's board. All the shooting is shown on the log with either MISSED or HIT. When a ship is sank, it is shown on the ship list (next to each game board) and the log (at the bottom).
 
 ![Players taking turn](./docs/players-taking-turn.png)
 
