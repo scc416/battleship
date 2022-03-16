@@ -1,6 +1,6 @@
 # Battleship
+A real-time [battleship game](<https://en.wikipedia.org/wiki/Battleship_(game)>) (also known as Battleships or Sea Battle) for pairs of players, built with [React](https://reactjs.org/) and [Socket.IO](https://socket.io/).
 
-A [battleship game](<https://en.wikipedia.org/wiki/Battleship_(game)>) (also known as Battleships or Sea Battle) built with [React](https://reactjs.org/) and [Socket.io](https://socket.io/).  
 The project is built on [create-react-app-example](https://github.com/socketio/socket.io/tree/master/examples/create-react-app-example) of [Socket.io](https://socket.io/).
 The example is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
