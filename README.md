@@ -112,7 +112,6 @@ The page will reload if you make edits. You will also see any lint errors in the
 📦battleship
  ┣ 📂docs
  ┣ 📂public
- ┃ ┣ 📜background.jpg
  ┃ ┣ 📜favicon.png
  ┃ ┗ 📜index.html
  ┣ 📂src
@@ -147,7 +146,6 @@ The page will reload if you make edits. You will also see any lint errors in the
  ┃ ┃ ┗ 📜useScrollToBottom.js
  ┃ ┣ 📜App.css
  ┃ ┣ 📜App.jsx
- ┃ ┣ 📜App.test.js
  ┃ ┣ 📜constants.js
  ┃ ┣ 📜helpers.js
  ┃ ┗ 📜index.js
@@ -163,67 +161,58 @@ The page will reload if you make edits. You will also see any lint errors in the
 
 ### 📂public
 
-Contains the favicon.png, icon.png (image displayed in the web app), index.html (document where the app is render).
-┃ ┣ 📜background.jpg
-┃ ┣ 📜favicon.png
-┃ ┗ 📜index.html
+Contains the favicon.png (image displayed in the web app) ajd index.html (document where the app is render).
 
 ### 📂src
 
 #### 📂Components
 
-┃ ┃ ┣ 📂Display
-┃ ┃ ┃ ┣ 📂Board
-┃ ┃ ┃ ┃ ┣ 📂Coordinate
-┃ ┃ ┃ ┃ ┃ ┣ 📜Coordinate.css
-┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateLabelList.jsx
-┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateLabelListItem.jsx
-┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateList.jsx
-┃ ┃ ┃ ┃ ┃ ┣ 📜CoordinateListItem.jsx
-┃ ┃ ┃ ┃ ┃ ┗ 📜index.jsx
-┃ ┃ ┃ ┃ ┣ 📂ShipList
-┃ ┃ ┃ ┃ ┃ ┣ 📜ShipList.css
-┃ ┃ ┃ ┃ ┃ ┣ 📜ShipListItem.jsx
-┃ ┃ ┃ ┃ ┃ ┣ 📜TileButtons.jsx
-┃ ┃ ┃ ┃ ┃ ┗ 📜index.jsx
-┃ ┃ ┃ ┃ ┣ 📜Board.css
-┃ ┃ ┃ ┃ ┣ 📜Overlay.jsx
-┃ ┃ ┃ ┃ ┗ 📜index.jsx
-┃ ┃ ┃ ┣ 📜Display.css
-┃ ┃ ┃ ┗ 📜index.jsx
-┃ ┃ ┣ 📂Log
-┃ ┃ ┃ ┣ 📜Log.css
-┃ ┃ ┃ ┣ 📜LogListItem.jsx
-┃ ┃ ┃ ┣ 📜NewGameButton.jsx
-┃ ┃ ┃ ┗ 📜index.jsx
-┃ ┃ ┗ 📜Heading.jsx
+Contains most react components of the app.
 
 #### 📂hooks
 
-┃ ┃ ┣ 📜useGame.js
-┃ ┃ ┗ 📜useScrollToBottom.js
+Contains the custom hooks `useGame` (See [Custom hook: useGame](#custom-hook-usegame) for details) and `useScrollToBottom`.  
+The log list is always scroll to the bottom. This is controlled by `useScrollToBottom`.
 
 #### 📜App.css
 
+Contains styles of react component (`App.jsx`).
+
 #### 📜App.jsx
+
+The high level root react component.
 
 #### 📜constants.js
 
+Contain constants that are used in the client.
+
 #### 📜helpers.js
+
+Contain helper functions used by the client.
 
 #### 📜index.js
 
+Renders the component.
+
 ### 📜.gitignore
+
+Specifies intentionally untracked files that Git should ignore.
 
 ### 📜README.md
 
+This document that you are reading.
+
 ### 📜helpers.js
 
-### 📜package-lock.json
+Contain the helper functions used by the server.
 
 ### 📜package.json
 
+Contain the commands and dependecies for the server.
+
 ### 📜server.js
+
+The main file where the server is defined.
 
 ## Credits
 
