@@ -353,9 +353,7 @@ const useGame = () => {
     };
   };
 
-  const confirmTiles = () => {
-    dispatch({ type: CONFIRM_TILES });
-  };
+  const confirmTiles = () => dispatch({ type: CONFIRM_TILES });
 
   const logState = { messages, newGame };
 
@@ -370,6 +368,7 @@ const useGame = () => {
     chosenTiles,
     confirmTiles,
     shot: myShipsShot,
+    active: gameState === 4,
   };
 
   const opponentState = {
@@ -379,6 +378,7 @@ const useGame = () => {
     clickTile: clickTile(),
     chosenTiles: [],
     shot: opponentShipsShot,
+    active: gameState === 3,
   };
 
   return { logState, myState, opponentState };

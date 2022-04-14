@@ -5,6 +5,12 @@
   z-index: 1;
 }
 
+.active {
+  -webkit-box-shadow: 0px 0px 3em #fca311;
+  -moz-box-shadow: 0px 0px 3em #fca311;
+  box-shadow: 0px 0px 3em #fca311;
+}
+
 .whole-board {
   display: flex;
   position: relative;
@@ -17,11 +23,11 @@
   height: 100%;
   top: 0;
   border-radius: 1.5em;
-  background-color: #000000CC;
+  background-color: #000000cc;
   z-index: 2;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .display .whole-board:first-child .overlay {
