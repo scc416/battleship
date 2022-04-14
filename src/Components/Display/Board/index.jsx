@@ -16,10 +16,13 @@ const Board = ({ state }) => {
     chosenTiles,
     confirmTiles,
     shot,
+    active,
   } = state;
 
+  const boardClass = active ? "board active" : "board";
+
   const coordinate = (
-    <div className="board">
+    <div className={boardClass}>
       <h3>{title}</h3>
       <Coordinate {...{ placedShips, clickTile, chosenTiles, shot, myBoard }} />
     </div>
@@ -28,6 +31,7 @@ const Board = ({ state }) => {
   const shipList = (
     <ShipList
       {...{
+        active,
         placedShips,
         showConfirmCancelButtons,
         clearTiles,

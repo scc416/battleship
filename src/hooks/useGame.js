@@ -370,6 +370,7 @@ const useGame = () => {
     chosenTiles,
     confirmTiles,
     shot: myShipsShot,
+    active: gameState === 4,
   };
 
   const opponentState = {
@@ -379,6 +380,7 @@ const useGame = () => {
     clickTile: clickTile(),
     chosenTiles: [],
     shot: opponentShipsShot,
+    active: gameState === 3,
   };
 
   return { logState, myState, opponentState };
