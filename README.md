@@ -18,9 +18,11 @@ The example is bootstrapped with [Create React App](https://github.com/facebook/
 ## Live Demo
 
 The server is deployed to Heroku. Netlify serves the static client assets:  
-https://the-battleship.netlify.app/  
-It might take the server some time to start up when you enter the page.
+https://the-battleship.netlify.app/
 
+
+It might take some time to load up the server.
+              
 ## Final Product
 
 1. When a player first enter the game, the player need to wait for another player if there is no available player (For testing purpose, they can also open a new tab to create another player)
