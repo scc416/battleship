@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import { useReducer, useEffect, useCallback, useMemo } from "react";
+import { useReducer, useEffect } from "react";
 import {
   checkIfSameCoordinate,
   makeNewMessages,
@@ -319,101 +319,67 @@ const useGame = () => {
     }
   }, [shipTilesState]);
 
-  const newGame = useCallback(() => {
+  const newGame = () => {
     dispatch({ type: NEW_GAME });
     socket.emit("newGame");
-  }, [dispatch, socket]);
+  };
 
-  const showOpponentOverlay = useMemo(
-    () =>
-      gameState === 0
-        ? MSG_WAITING_FOR_PLAYER
-        : !opponentShips
-        ? MSG_OPPONENT_PLACING_SHIPS
-        : null,
-    [gameState, opponentShips]
-  );
+  const showOpponentOverlay =
+    gameState === 0
+      ? MSG_WAITING_FOR_PLAYER
+      : !opponentShips
+      ? MSG_OPPONENT_PLACING_SHIPS
+      : null;
 
-  const showMyOverlay = useMemo(
-    () => (gameState === 5 ? MSG_WIN : gameState === 6 ? MSG_LOSE : null),
-    [gameState]
-  );
+  const showMyOverlay =
+    gameState === 5 ? MSG_WIN : gameState === 6 ? MSG_LOSE : null;
 
-  const showConfirmCancelButtons = useMemo(() => gameState === 1, [gameState]);
+  const showConfirmCancelButtons = gameState === 1;
 
-  const clearTiles = useCallback(() => {
+  const clearTiles = () => {
     dispatch({ type: CLEAR_TILES });
-  }, [dispatch]);
+  };
 
-  const clickTile = useCallback(
-    (myBoard) => {
-      if (myBoard) {
-        return (coordinate) => {
-          if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
-        };
-      }
+  const clickTile = (myBoard) => {
+    if (myBoard) {
       return (coordinate) => {
-        if (gameState === 3) {
-          dispatch({ type: SHOT, coordinate });
-        }
+        if (gameState === 1) dispatch({ type: SELECT_TILE, coordinate });
       };
-    },
-    [gameState, dispatch]
-  );
+    }
+    return (coordinate) => {
+      if (gameState === 3) {
+        dispatch({ type: SHOT, coordinate });
+      }
+    };
+  };
 
-  const confirmTiles = useCallback(
-    () => dispatch({ type: CONFIRM_TILES }),
-    [dispatch]
-  );
+  const confirmTiles = () => dispatch({ type: CONFIRM_TILES });
 
-  const logState = useMemo(() => ({ messages, newGame }), [messages, newGame]);
+  const logState = { messages, newGame };
 
-  const myState = useMemo(
-    () => ({
-      myBoard: true,
-      placedShips: myShips,
-      overlaySettings: showMyOverlay,
-      title: "Your Board",
-      showConfirmCancelButtons,
-      clearTiles,
-      clickTile: clickTile(true),
-      chosenTiles,
-      confirmTiles,
-      shot: myShipsShot,
-      active: gameState === 4,
-    }),
-    [
-      myShips,
-      showMyOverlay,
-      showConfirmCancelButtons,
-      showConfirmCancelButtons,
-      clearTiles,
-      clickTile,
-      chosenTiles,
-      confirmTiles,
-      myShipsShot,
-      gameState,
-    ]
-  );
+  const myState = {
+    myBoard: true,
+    placedShips: myShips,
+    overlaySettings: showMyOverlay,
+    title: "Your Board",
+    showConfirmCancelButtons,
+    clearTiles,
+    clickTile: clickTile(true),
+    chosenTiles,
+    confirmTiles,
+    shot: myShipsShot,
+    active: gameState === 4,
+  };
 
-  const opponentState = useMemo(
-    () => ({
-      placedShips: opponentShips,
-      overlaySettings: showOpponentOverlay,
-      title: "Opponent's Board",
-      clickTile: clickTile(),
-      chosenTiles: [],
-      shot: opponentShipsShot,
-      active: gameState === 3,
-    }),
-    [
-      opponentShips,
-      showOpponentOverlay,
-      clickTile,
-      opponentShipsShot,
-      gameState,
-    ]
-  );
+  const opponentState = {
+    placedShips: opponentShips,
+    overlaySettings: showOpponentOverlay,
+    title: "Opponent's Board",
+    clickTile: clickTile(),
+    chosenTiles: [],
+    shot: opponentShipsShot,
+    active: gameState === 3,
+  };
 
   return { logState, myState, opponentState };
 };
