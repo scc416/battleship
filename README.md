@@ -6,7 +6,6 @@ The example is bootstrapped with [Create React App](https://github.com/facebook/
 
 ## Table of Content
 
-- [Live Demo](#live-demo)
 - [Final Product](#final-product)
 - [About the Game](#about-the-game)
 - [Custom hook: useGame](#custom-hook-usegame)
@@ -14,14 +13,6 @@ The example is bootstrapped with [Create React App](https://github.com/facebook/
 - [Getting Started](#getting-started)
 - [File Structure](#file-structure)
 - [Credits](#credits)
-
-## Live Demo
-
-The server is deployed to Heroku. Netlify serves the static client assets:  
-https://the-battleship.netlify.app/
-
-
-It might take some time to load up the server.
               
 ## Final Product
 
